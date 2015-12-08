@@ -31,3 +31,15 @@ label.item.valid-lr {
   padding: 2px 0 2px 16px;
   color: red;
 }
+
+
+
+
+
+.alineaciones{
+	background: url(../img/alineaciones.png) no-repeat center center fixed;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+}

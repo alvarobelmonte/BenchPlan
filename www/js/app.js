@@ -36,11 +36,6 @@ $stateProvider
         }
       }
     }) 
-    /*.state('addPlayer', {
-      url: '/addPlayer',
-      templateUrl: 'views/addPlayer/addPlayer.html',
-      controller:'addPlayerController'
-    })*/
     .state('tabs.addPlayer', {
       url: '/plantilla/addPlayer',
       views: {
@@ -58,7 +53,34 @@ $stateProvider
           controller:'plantillaController'
         }
       }
-    }) 
+    })
+    .state('tabs.alineaciones', {
+      url: '/alineaciones',
+      views: {
+        'alineaciones-tab' : {
+          templateUrl: 'views/alineaciones/alineaciones.html',
+          controller:'alineacionesController'
+        }
+      }
+    })
+    .state('tabs.addAlineacion', {
+      url: '/alineaciones/addAlineacion',
+      views: {
+        'alineaciones-tab' : {
+          templateUrl: 'views/addAlineacion/addAlineacion.html',
+          controller:'addAlineacionController'
+        }
+      }
+    })
+    .state('tabs.detailAlineacion', {
+      url: '/alineaciones/:aId',
+      views: {
+        'alineaciones-tab' : {
+          templateUrl: 'views/detailAlineacion/detailAlineacion.html',
+          controller:'alineacionesController'
+        }
+      }
+    })  
     /*.state('detail', {
       url: '/detail/:aId',
       templateUrl: 'views/detail/detail.html',
