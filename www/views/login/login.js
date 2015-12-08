@@ -23,7 +23,7 @@ angular.module('App').controller('loginController', function ($scope, $state,$co
             $localStorage.userkey = userkey;
 
               Utils.hide();
-              $state.go('home');
+              $state.go('tabs.plantilla');
               console.log("Starter page","Home");
 
           })

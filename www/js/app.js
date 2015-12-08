@@ -7,6 +7,11 @@ $stateProvider
       templateUrl: 'views/login/login.html',
       controller:'loginController'
     })
+    .state('tabs', {
+      url: '/tabs',
+      abstract: true,
+      templateUrl: 'views/tabs/tabs.html'
+    })
     .state('forgot', {
       url: '/forgot',
       templateUrl: 'views/forgot/forgot.html',
@@ -17,21 +22,39 @@ $stateProvider
       templateUrl: 'views/register/register.html',
       controller:'registerController'
     })
-    .state('home', {
+    /*.state('home', {
       url: '/home',
       templateUrl: 'views/home/home.html',
       controller:'homeController'
-    })
+    })*/
+    .state('tabs.plantilla', {
+      url: '/plantilla',
+      views: {
+        'plantilla-tab' : {
+          templateUrl: 'views/plantilla/plantilla.html',
+          controller:'plantillaController'
+        }
+      }
+    }) 
     .state('addPlayer', {
       url: '/addPlayer',
       templateUrl: 'views/addPlayer/addPlayer.html',
       controller:'addPlayerController'
     })
-    .state('detail', {
+    .state('tabs.detail', {
+      url: '/plantilla/:aId',
+      views: {
+        'plantilla-tab' : {
+          templateUrl: 'views/detail/detail.html',
+          controller:'plantillaController'
+        }
+      }
+    }) 
+    /*.state('detail', {
       url: '/detail/:aId',
       templateUrl: 'views/detail/detail.html',
-      controller:'homeController'
-    })
+      controller:'plantillaController'
+    })*/
     ;
 $urlRouterProvider.otherwise("/login");
 })
