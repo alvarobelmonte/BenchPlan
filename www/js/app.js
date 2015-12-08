@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages'])
+angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngRoute'])
 .config(function($stateProvider, $urlRouterProvider) {
 $stateProvider
     .state('login', {
@@ -22,6 +22,16 @@ $stateProvider
       templateUrl: 'views/home/home.html',
       controller:'homeController'
     })
+    .state('addPlayer', {
+      url: '/addPlayer',
+      templateUrl: 'views/addPlayer/addPlayer.html',
+      controller:'addPlayerController'
+    })
+    .state('detail', {
+      url: '/detail/:aId',
+      templateUrl: 'views/detail/detail.html',
+      controller:'homeController'
+    })
     ;
 $urlRouterProvider.otherwise("/login");
 })
@@ -39,3 +49,4 @@ $urlRouterProvider.otherwise("/login");
     }
   });
 });
+

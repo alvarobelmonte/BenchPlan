@@ -1,0 +1,39 @@
+<ion-view view-title="AddPlayer" hide-back-button="true">
+        <ion-content class="padding-top">
+          <h1>Añadir jugador</h1>
+          <form novalidate name="addPlayer" ng-submit="addPlayer.$valid && addP(player)">
+          <div class="list">
+
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addPlayer.txtName.$invalid && addPlayer.$submitted }">
+              <span class="input-label">Nombre</span>
+              <input name="txtName" type="text" ng-model="player.name" placeholder="Nombre"
+              ng-minlength="5"
+              ng-maxlength="30"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
+              <div class="form-error" ng-message="required">This field is required.</div>
+              <div class="form-error" ng-message="email">This field must be an email.</div>
+              <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+              <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
+            </div>
+
+			<select name="dorsal" ng-model="player.dorsal">
+			      <option>Portero</option>
+			      <option selected>Defensa</option>
+			      <option>Centrocampista</option>
+			      <option>Delantero</option>
+			</select>
+
+          </div>
+
+
+          <div class="padding-top">
+            <input type="submit" class="button button-block button-positive" value="Añadir">
+            <p class="text-center padding-top">
+                <a href="#/home" class="button button-clear button-positive">Volver</a>
+          </div>
+        </form>
+        </ion-content>
+</ion-view>

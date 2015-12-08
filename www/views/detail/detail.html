@@ -1,0 +1,15 @@
+<ion-view view-title="More info">
+	<ion-content has-subheader="false">
+	<h2 class="title">Jugador</h2>
+		<ion-list class="list-inset">
+			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {name: whichplayer}">
+
+	            <h1>{{player.name}}</h1>
+	            <b>Posición</b>
+	            <h2>{{player.position}}</h2>
+		
+			</ion-item>
+			<a href="#/home" class="button button-clear button-positive">Volver a Plantilla</a>
+		</ion-list>
+	</ion-content>
+</ion-view>
