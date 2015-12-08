@@ -36,11 +36,20 @@ $stateProvider
         }
       }
     }) 
-    .state('addPlayer', {
+    /*.state('addPlayer', {
       url: '/addPlayer',
       templateUrl: 'views/addPlayer/addPlayer.html',
       controller:'addPlayerController'
-    })
+    })*/
+    .state('tabs.addPlayer', {
+      url: '/plantilla/addPlayer',
+      views: {
+        'plantilla-tab' : {
+          templateUrl: 'views/addPlayer/addPlayer.html',
+          controller:'addPlayerController'
+        }
+      }
+    }) 
     .state('tabs.detail', {
       url: '/plantilla/:aId',
       views: {
