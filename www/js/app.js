@@ -80,6 +80,15 @@ $stateProvider
           controller:'alineacionesController'
         }
       }
+    })
+    .state('tabs.calendario', {
+      url: '/calendario',
+      views: {
+        'calendario-tab' : {
+          templateUrl: 'views/calendario/calendario.html',
+          controller:'plantillaController'
+        }
+      }
     })  
     /*.state('detail', {
       url: '/detail/:aId',
