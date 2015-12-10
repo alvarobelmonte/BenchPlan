@@ -1,8 +1,7 @@
 'Use Strict';
-angular.module('App').controller('plantillaController', function ($scope, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils) {
+angular.module('App').controller('plantillaController', function (APIfactory, $scope, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils) {
   var ref = new Firebase(FURL);
 
-  
 
   $scope.nombre = "nombre";
   $scope.posicion = "posicion";
@@ -27,7 +26,7 @@ angular.module('App').controller('plantillaController', function ($scope, $state
 		
 	    // download the data from a Firebase reference into a (pseudo read-only) array
 	    // all server changes are applied in realtime
-	    $scope.players = $firebaseArray(playersRef);
+	    $scope.players = APIfactory.getJugadores();
 	    console.log($scope.players);
   }
 

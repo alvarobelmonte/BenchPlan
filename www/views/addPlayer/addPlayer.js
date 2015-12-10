@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App').controller('addPlayerController', function ($scope, $state,$cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
+angular.module('App').controller('addPlayerController', function (APIfactory, $scope, $state,$cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
   
   var ref = new Firebase(FURL);
 
@@ -18,10 +18,11 @@ angular.module('App').controller('addPlayerController', function ($scope, $state
     var userRef = ref.child('profile').child($localStorage.userkey).child("player");
 
     //Introducimos los valores
-    userRef.push({
+    /*userRef.push({
                 name: $scope.name,
                 position: $scope.dorsal
-    });
+    });*/
+    APIfactory.pushJugador(player);
 
     //Resetear formulario
 
