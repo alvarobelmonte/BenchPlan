@@ -1,4 +1,4 @@
-angular.module('App').factory("APIfactory", function($cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils){
+angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils){
 
 
     var ref = new Firebase(FURL);
@@ -15,7 +15,9 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $localStorag
         var userRef = ref.child('profile').child($localStorage.userkey).child("player");
         userRef.push({
             name: jugador.name,
-            position: jugador.dorsal
+            position: jugador.position,
+            dorsal: jugador.dorsal,
+            date: $filter('date')(jugador.fecha, "dd-MM-yyyy")
         });
     };
     

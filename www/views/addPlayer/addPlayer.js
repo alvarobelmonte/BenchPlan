@@ -10,7 +10,9 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $s
 
     //Recogemos datos del formulario
     $scope.name = player.name;
+    $scope.position = player.position;
     $scope.dorsal = player.dorsal;
+    $scope.fecha = player.fecha;
     
 
 

@@ -11,6 +11,8 @@
               ng-maxlength="30"
               required>
             </label>
+
+
             <!-- Edit this messages if you want -->
             <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
               <div class="form-error" ng-message="required">This field is required.</div>
@@ -19,12 +21,40 @@
               <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
             </div>
 
-			<select name="dorsal" ng-model="player.dorsal">
-			      <option>Portero</option>
-			      <option selected>Defensa</option>
-			      <option>Centrocampista</option>
-			      <option>Delantero</option>
-			</select>
+
+
+            <label  class="item item-input item-select" >
+              <div class="input-label">
+                Posición
+              </div>
+              <select name="position" ng-model="player.position">
+                <option>Portero</option>
+                <option selected>Defensa</option>
+                <option>Centrocampista</option>
+                <option>Delantero</option>
+              </select>
+            </label>
+
+            <label  class="item item-input item-select" >
+              <div class="input-label">
+                Dorsal
+              </div>
+              <select name="dorsal" ng-model="player.dorsal">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+
+              </select>
+            </label>
+
+            <label class="item-input">
+                  <span class="input-label">Fecha de nacimiento</span>
+                  <input type="date" name="fecha" ng-model="player.fecha">
+            </label>
+
+            
+
 
           </div>
 

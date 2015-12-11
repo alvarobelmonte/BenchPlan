@@ -1,12 +1,14 @@
 <ion-view view-title="More info">
 	<ion-content has-subheader="false">
-	<h2 class="title">Jugador</h2>
 		<ion-list class="list-inset">
 			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {name: whichplayer}">
-
-	            <h1>{{player.name}}</h1>
+				<img style="width:150px; height:150px;" src="img/perfil.png">
+	            <h1>{{player.dorsal}} {{player.name}}</h1>
 	            <b>Posición</b>
 	            <h2>{{player.position}}</h2>
+	            <b>Fecha de nacimiento</b>
+	            <h2>{{player.date | date: "MM-dd-yyyy"}}</h2>
+	          
 		
 			</ion-item>
 			<a href="#/tabs/plantilla" class="button button-clear button-positive">Volver a Plantilla</a>
