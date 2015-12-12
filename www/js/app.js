@@ -86,10 +86,28 @@ $stateProvider
       views: {
         'calendario-tab' : {
           templateUrl: 'views/calendario/calendario.html',
-          controller:'plantillaController'
+          controller:'calendarioController'
         }
       }
-    })  
+    })
+    .state('tabs.addEvento', {
+      url: '/calendario/addEvento',
+      views: {
+        'calendario-tab' : {
+          templateUrl: 'views/addEvento/addEvento.html',
+          controller:'addEventoController'
+        }
+      }
+    })
+    .state('tabs.detailCalendario', {
+      url: '/calendario/:aId',
+      views: {
+        'calendario-tab' : {
+          templateUrl: 'views/detailCalendario/detailCalendario.html',
+          controller:'calendarioController'
+        }
+      }
+    })    
     /*.state('detail', {
       url: '/detail/:aId',
       templateUrl: 'views/detail/detail.html',

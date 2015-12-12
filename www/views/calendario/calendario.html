@@ -3,14 +3,14 @@
 <ion-content  class="has-subheader">
         <ion-list>
 
-          <ion-item href="#/tabs/plantilla/addPlayer">
+          <ion-item href="#/tabs/calendario/addEvento">
             <button class="button icon-left ion-plus-circled button-block button-positive" >
               Añadir Evento
             </button>
           </ion-item>
 
           <div class="item item-divider item-divider-calm">
-            Plantilla
+            Calendario
           </div>
 
           <!-- <ion-item ng-class="{'star': item.star}" ng-repeat='item in artists | filter:query' class="item-thumbnail-left item-icon-right item-text-wrap" href="#/tab/list/{{item.shortname}}">
@@ -19,9 +19,9 @@
             <h3>{{item.reknown}}</h3>
             <p>{{item.bio | limitTo: 250}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
           </ion-item> -->
-          <ion-item ng-repeat="player in players" href="#/tabs/plantilla/{{player.name}}">
-			<h2>{{ player.name }}</h2>
-			<h3>{{ player.position}}</h3>
+          <ion-item ng-repeat="event in events" href="#/tabs/calendario/{{event.name}}">
+			<h2>{{ event.name }}</h2>
+			<h3>{{ event.type}}</h3>
           </ion-item>
           
           

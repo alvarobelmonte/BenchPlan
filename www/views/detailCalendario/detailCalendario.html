@@ -1,0 +1,17 @@
+<ion-view view-title="More info">
+	<ion-content has-subheader="false">
+		<ion-list class="list-inset">
+			<ion-item class="item-text-wrap" ng-repeat="event in events| filter: {name: whichevent}">
+	            <h1>{{event.type}}</h1>
+	            <b>{{event.name}} </b><br>
+	            <b>Lugar</b>
+	            <h2>{{event.place}}</h2>
+	            <b>Hora inicio</b>
+	            <h2>{{event.hourStart | date: "H:mm"}}</h2>
+	          
+		
+			</ion-item>
+			<a href="#/tabs/calendario" class="button button-clear button-positive">Volver a Calendario</a>
+		</ion-list>
+	</ion-content>
+</ion-view>
