@@ -36,6 +36,9 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 rival: evento.rival,
                 place: evento.place,
                 date: $filter('date')(evento.day, "dd-MM-yyyy"),
+                month: $filter('date')(evento.day, "M"),
+                dayWeek:  $filter('date')(evento.day, "EEEE"),
+                dayNumber: $filter('date')(evento.day, "d"),
                 time: $filter('date')(evento.hour, "H:mm")
             });
         }
@@ -45,6 +48,10 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 name: evento.name,
                 type: evento.type,
                 place: evento.placeTraining,
+                date: $filter('date')(evento.day, "dd-MM-yyyy"),
+                month: $filter('date')(evento.day, "M"),
+                dayWeek:  $filter('date')(evento.day, "EEEE"),
+                dayNumber: $filter('date')(evento.day, "d"),
                 hourStart: $filter('date')(evento.hourStart, "H:mm"),
                 hourEnd: $filter('date')(evento.hourEnd, "H:mm")
             }); 

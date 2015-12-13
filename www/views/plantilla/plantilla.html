@@ -19,8 +19,8 @@
             <h3>{{item.reknown}}</h3>
             <p>{{item.bio | limitTo: 250}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
           </ion-item> -->
-          <ion-item ng-repeat="player in players" href="#/tabs/plantilla/{{player.name}}">
-          <i class="icon ion-person"></i><h2>{{ player.dorsal }}</h2>
+          <ion-item ng-repeat="player in players" href="#/tabs/plantilla/{{player.name}}" class="item item-avatar">
+          <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png"><h2>{{ player.dorsal }}</h2>
 			     <h2>{{ player.name }}</h2>
 			     <h3>{{ player.position}}</h3>
           </ion-item>

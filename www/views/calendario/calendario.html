@@ -13,6 +13,16 @@
             Calendario
           </div>
 
+            <label  class="item item-input item-select" >
+              <div class="input-label">
+                Mes
+              </div>
+              <select name="type" ng-model="event.type">
+                <option>Enero</option>
+                <option>Febrero</option>
+              </select>
+            </label>
+
           <!-- <ion-item ng-class="{'star': item.star}" ng-repeat='item in artists | filter:query' class="item-thumbnail-left item-icon-right item-text-wrap" href="#/tab/list/{{item.shortname}}">
             <img ng-src="img/{{item.shortname}}.jpeg" alt="{{item.name}} Photo">
             <h2>{{item.name}}</h2>
@@ -20,8 +30,8 @@
             <p>{{item.bio | limitTo: 250}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
           </ion-item> -->
           <ion-item ng-repeat="event in events" href="#/tabs/calendario/{{event.name}}">
-			<h2>{{ event.name }}</h2>
-			<h3>{{ event.type}}</h3>
+			<h2>{{event.dayWeek}}, {{event.dayNumber}}</h2>
+			<h2><b>{{ event.type}}</b></h2>
           </ion-item>
           
           
