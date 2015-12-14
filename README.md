@@ -1,5 +1,5 @@
 # BenchPlan
-My Final Degree Project
+My Final Degree Project consisting of an hybrid mobile app for football managers.
 
 Technologies used in this project:
 * Ionic Framework
