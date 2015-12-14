@@ -9,6 +9,7 @@ My Final Degree Project consisting of an hybrid mobile app for football managers
 * [Ionic Framework](http://ionicframework.com/)
 * [Sass](http://sass-lang.com/)
 * [AngularJS](https://angularjs.org/)
+* [Firebase](https://www.firebase.com/)
 
 
 ##How to use it
