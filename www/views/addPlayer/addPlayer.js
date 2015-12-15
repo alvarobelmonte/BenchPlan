@@ -3,7 +3,15 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $s
   
   var ref = new Firebase(FURL);
 
-
+    //Dorsales
+    $scope.dorsals = [];
+    var initDorsals = function() {
+      var i;
+      for (i = 0;i <= 27; i++) {
+        $scope.dorsals.push(i);
+      }
+    }
+    initDorsals();
   
   $scope.addP = function (player) {
     console.log("Enviada peticion crear jugador");
@@ -13,6 +21,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $s
     $scope.position = player.position;
     $scope.dorsal = player.dorsal;
     $scope.fecha = player.fecha;
+    
     
 
 

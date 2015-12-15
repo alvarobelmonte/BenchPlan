@@ -40,11 +40,7 @@
                 Dorsal
               </div>
               <select name="dorsal" ng-model="player.dorsal">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-
+                <option ng-repeat="dorsal in dorsals">{{dorsal}}</option>
               </select>
             </label>
 

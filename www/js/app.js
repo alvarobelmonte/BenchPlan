@@ -114,6 +114,10 @@ $stateProvider
       controller:'plantillaController'
     })*/
     ;
+
+
+
+
 $urlRouterProvider.otherwise("/login");
 })
 // Changue this for your Firebase App URL.
@@ -129,5 +133,8 @@ $urlRouterProvider.otherwise("/login");
       StatusBar.styleDefault();
     }
   });
+
+
+  
 });
 

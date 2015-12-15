@@ -8,10 +8,16 @@ angular.module('App').controller('plantillaController', function (APIfactory, $s
 
 
   $scope.whichplayer = $state.params.aId;
-  console.log($scope.whichplayer);
+
 
   //Referencia a la rama players del usuario que ha iniciado sesion
   var playersRef = ref.child('profile').child($localStorage.userkey).child("player");
+
+
+
+  $scope.toggleInjured = function(player){
+  	player.star = !player.star;
+  }
 
   $scope.showP = function () {
 	 //  playersRef.on("child_added", function(snapshot, prevChildKey) {
@@ -31,6 +37,8 @@ angular.module('App').controller('plantillaController', function (APIfactory, $s
   }
 
   $scope.showP();
+
+
 
 }
 );

@@ -9,9 +9,7 @@
             </button>
           </ion-item>
 
-          <div class="item item-divider item-divider-calm">
-            Plantilla
-          </div>
+          
 
           <!-- <ion-item ng-class="{'star': item.star}" ng-repeat='item in artists | filter:query' class="item-thumbnail-left item-icon-right item-text-wrap" href="#/tab/list/{{item.shortname}}">
             <img ng-src="img/{{item.shortname}}.jpeg" alt="{{item.name}} Photo">
@@ -19,10 +17,58 @@
             <h3>{{item.reknown}}</h3>
             <p>{{item.bio | limitTo: 250}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
           </ion-item> -->
-          <ion-item ng-repeat="player in players" href="#/tabs/plantilla/{{player.name}}" class="item item-avatar">
-          <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png"><h2>{{ player.dorsal }}</h2>
-			     <h2>{{ player.name }}</h2>
-			     <h3>{{ player.position}}</h3>
+          <div class="item item-divider item-divider-calm">
+            Porteros
+          </div>
+          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}" href="#/tabs/plantilla/{{player.name}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
+			      <h2>{{ player.name }}</h2>
+			      <h3>PO</h3>
+            
+            <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="player.star">
+            </button>
+            <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
+              <i class="icon ion-medkit"></i>
+            </ion-option-button>
+          </ion-item>
+
+          <div class="item item-divider item-divider-calm">Defensas</div>
+          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}" href="#/tabs/plantilla/{{player.name}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
+            <h2>{{ player.name }}</h2>
+            <h3>DF</h3>
+
+            <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="player.star">
+            </button>
+            <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
+              <i class="icon ion-medkit"></i>
+            </ion-option-button>
+          </ion-item>
+
+          <div class="item item-divider item-divider-calm">Centrocampistas</div>
+          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}" href="#/tabs/plantilla/{{player.name}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
+            <h2>{{ player.name }}</h2>
+            <h3>MC</h3>
+
+            <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="player.star">
+            </button>
+            <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
+              <i class="icon ion-medkit"></i>
+            </ion-option-button>
+          </ion-item>
+
+          <div class="item item-divider item-divider-calm">Delanteros</div>
+          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}" href="#/tabs/plantilla/{{player.name}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
+            <h2>{{ player.name }}</h2>
+            <h3>DL</h3>
+
+            <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="player.star">
+            </button>
+            <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
+              <i class="icon ion-medkit"></i>
+            </ion-option-button>
           </ion-item>
           
           
