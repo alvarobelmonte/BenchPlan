@@ -4,6 +4,10 @@ angular.module('App').controller('calendarioController', function (APIfactory, $
 
 
   $scope.whichevent = $state.params.aId;
+  $scope.months = ['Enero', 'Febrero', 'Marzo', 'Abril', 
+  'Mayo', 'Junio', 'Julio', 'Agosto', 'Septimbre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+
 
   $scope.showE = function () {
 	 //  playersRef.on("child_added", function(snapshot, prevChildKey) {

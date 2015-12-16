@@ -17,19 +17,28 @@
               <div class="input-label">
                 Mes
               </div>
-              <select name="type" ng-model="event.type">
-                <option>Enero</option>
-                <option>Febrero</option>
+              <select name="type" ng-model="event.month">
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
               </select>
             </label>
-
           <!-- <ion-item ng-class="{'star': item.star}" ng-repeat='item in artists | filter:query' class="item-thumbnail-left item-icon-right item-text-wrap" href="#/tab/list/{{item.shortname}}">
             <img ng-src="img/{{item.shortname}}.jpeg" alt="{{item.name}} Photo">
             <h2>{{item.name}}</h2>
             <h3>{{item.reknown}}</h3>
             <p>{{item.bio | limitTo: 250}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
           </ion-item> -->
-          <ion-item ng-repeat="event in events" href="#/tabs/calendario/{{event.name}}">
+          <ion-item ng-repeat="event in events | filter: {month: event.month}" href="#/tabs/calendario/{{event.name}}">
 			<h2>{{event.dayWeek}}, {{event.dayNumber}}</h2>
 			<h2><b>{{ event.type}}</b></h2>
           </ion-item>
