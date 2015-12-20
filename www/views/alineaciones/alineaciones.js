@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App').controller('alineacionesController', function ($scope, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils) {
+angular.module('App').controller('alineacionesController', function (APIfactory, $scope, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils) {
   var ref = new Firebase(FURL);
 
   
@@ -30,6 +30,11 @@ angular.module('App').controller('alineacionesController', function ($scope, $st
   }
 
   $scope.showA();
+
+
+  $scope.showPlayers = function () {
+  	console.log('showPlayers()');
+  }
 
 }
 );

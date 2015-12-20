@@ -22,6 +22,19 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         });
     };
 
+    interfaz.deleteJugador = function(jugador){
+        var ID = jugador.$id;
+        var playerRef = ref.child('profile').child($localStorage.userkey).child("player").child(ID);
+        
+        playerRef.remove();
+
+        var alertPopup = $ionicPopup.alert({
+            title: 'Jugador borrado',
+        });
+
+        
+    };
+
     interfaz.getEventos =function(){
         var eventos = $firebaseArray(eventsRef);
         return eventos;

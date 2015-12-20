@@ -38,7 +38,9 @@ angular.module('App').controller('plantillaController', function (APIfactory, $s
 
   $scope.showP();
 
-
+  $scope.onItemDelete = function (player) {
+	    APIfactory.deleteJugador(player);
+  }
 
 }
 );

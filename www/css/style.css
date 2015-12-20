@@ -43,3 +43,7 @@ label.item.valid-lr {
 	-o-background-size:cover;
 	background-size:cover;
 }
+.alineacion-icon{
+  width: 30px;
+  height: auto;
+}

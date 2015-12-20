@@ -1,22 +1,24 @@
 <ion-view view-title="Plantilla" hide-back-button="true">
         
-<ion-content  class="has-subheader">
-        <ion-list>
+<ion-content  class="">
+        
 
           <ion-item href="#/tabs/plantilla/addPlayer">
             <button class="button icon-left ion-plus-circled button-block button-positive" >
               Añadir Jugador
             </button>
           </ion-item>
+            <button class="button icon-left ion-minus-circled button-block button-assertive" ng-click="data.showDelete = !data.showDelete;">
+              Borrar Jugador
+            </button>
+          
+
 
           
 
-          <!-- <ion-item ng-class="{'star': item.star}" ng-repeat='item in artists | filter:query' class="item-thumbnail-left item-icon-right item-text-wrap" href="#/tab/list/{{item.shortname}}">
-            <img ng-src="img/{{item.shortname}}.jpeg" alt="{{item.name}} Photo">
-            <h2>{{item.name}}</h2>
-            <h3>{{item.reknown}}</h3>
-            <p>{{item.bio | limitTo: 250}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
-          </ion-item> -->
+
+          <ion-list show-delete="data.showDelete">
+
           <div class="item item-divider item-divider-calm">
             Porteros
           </div>
@@ -25,6 +27,8 @@
 			      <h2>{{ player.name }}</h2>
 			      <h3>PO</h3>
             
+            <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(player)"></ion-delete-button>
+
             <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="player.star">
             </button>
             <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
@@ -38,6 +42,8 @@
             <h2>{{ player.name }}</h2>
             <h3>DF</h3>
 
+            <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(player)"></ion-delete-button>
+
             <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="player.star">
             </button>
             <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
@@ -50,6 +56,8 @@
             <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
             <h2>{{ player.name }}</h2>
             <h3>MC</h3>
+            
+            <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 
             <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="player.star">
             </button>
@@ -63,6 +71,8 @@
             <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
             <h2>{{ player.name }}</h2>
             <h3>DL</h3>
+            
+            <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 
             <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="player.star">
             </button>
