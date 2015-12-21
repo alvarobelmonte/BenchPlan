@@ -12,5 +12,10 @@ angular.module('App').controller('calendarioController', function (APIfactory, $
 
   $scope.showE();
 
+  $scope.onItemDelete = function (event) {
+	    APIfactory.deleteEvento(event);
+  }
+
+
 }
 );

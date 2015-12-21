@@ -1,13 +1,19 @@
 <ion-view view-title="Calendario" hide-back-button="true">
         
-<ion-content  class="has-subheader">
-        <ion-list>
+<ion-content  class="">
+        
 
           <ion-item href="#/tabs/calendario/addEvento">
             <button class="button icon-left ion-plus-circled button-block button-positive" >
               Añadir Evento
             </button>
           </ion-item>
+
+          <button class="button icon-left ion-minus-circled button-block button-assertive" ng-click="data.showDelete = !data.showDelete;">
+              Borrar Evento
+          </button>
+
+
 
           <div class="item item-divider item-divider-calm">
             Calendario
@@ -33,15 +39,13 @@
               </select>
             </label>
             
-          <!-- <ion-item ng-class="{'star': item.star}" ng-repeat='item in artists | filter:query' class="item-thumbnail-left item-icon-right item-text-wrap" href="#/tab/list/{{item.shortname}}">
-            <img ng-src="img/{{item.shortname}}.jpeg" alt="{{item.name}} Photo">
-            <h2>{{item.name}}</h2>
-            <h3>{{item.reknown}}</h3>
-            <p>{{item.bio | limitTo: 250}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
-          </ion-item> -->
+        <ion-list show-delete="data.showDelete">
           <ion-item ng-repeat="event in events | filter: {monthWord: event.month}" href="#/tabs/calendario/{{event.name}}">
-			<h2>{{event.dayWeek}}, {{event.dayNumber}}</h2>
-			<h2><b>{{ event.type}}</b></h2>
+      			<h2>{{event.dayWeek}}, {{event.dayNumber}}</h2>
+      			<h2><b>{{ event.type}}</b></h2>
+
+            <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(event)"></ion-delete-button>
+
           </ion-item>
           
           

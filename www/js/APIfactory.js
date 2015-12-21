@@ -30,9 +30,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
 
         var alertPopup = $ionicPopup.alert({
             title: 'Jugador borrado',
-        });
-
-        
+        }); 
     };
 
     interfaz.getEventos =function(){
@@ -73,6 +71,17 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         }
     };
     
+    interfaz.deleteEvento = function(evento){
+        var ID = evento.$id;
+        var eventRef = ref.child('profile').child($localStorage.userkey).child("event").child(ID);
+        
+        eventRef.remove();
+
+        var alertPopup = $ionicPopup.alert({
+            title: 'Evento borrado',
+        }); 
+    };
+
     return interfaz;
 });
 
