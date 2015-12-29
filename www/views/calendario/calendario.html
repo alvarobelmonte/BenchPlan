@@ -4,7 +4,7 @@
         
 
           <ion-item href="#/tabs/calendario/addEvento">
-            <button class="button icon-left ion-plus-circled button-block button-positive" >
+            <button class="button icon-left ion-plus-circled button-block button-balanced" >
               Añadir Evento
             </button>
           </ion-item>
@@ -40,7 +40,8 @@
             </label>
             
         <ion-list show-delete="data.showDelete">
-          <ion-item ng-repeat="event in events | filter: {monthWord: event.month}" href="#/tabs/calendario/{{event.name}}">
+          <ion-item ng-repeat="event in events | filter: {monthWord: event.month}" href="#/tabs/calendario/{{event.name}}" class="item-icon-left">
+            <i class="icon " ng-class="event.type=='Partido' ? 'ion-ios-football-outline' : 'ion-flag'"></i>
       			<h2>{{event.dayWeek}}, {{event.dayNumber}}</h2>
       			<h2><b>{{ event.type}}</b></h2>
 

@@ -18,7 +18,8 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
             name: jugador.name,
             position: jugador.position,
             dorsal: jugador.dorsal,
-            date: $filter('date')(jugador.fecha, "dd-MM-yyyy")
+            date: $filter('date')(jugador.fecha, "dd-MM-yyyy"),
+            condition: 'Disponible'
         });
     };
 

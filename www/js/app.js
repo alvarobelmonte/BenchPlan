@@ -49,7 +49,7 @@ $stateProvider
       url: '/plantilla/:aId',
       views: {
         'plantilla-tab' : {
-          templateUrl: 'views/detail/detail.html',
+          templateUrl: 'views/detalleJugador/detalleJugador.html',
           controller:'plantillaController'
         }
       }
