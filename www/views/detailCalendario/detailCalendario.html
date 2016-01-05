@@ -14,11 +14,14 @@
 
 			<div ng-show="event.type == 'Entrenamiento'">
 	            <h1>{{event.type}}</h1>
+	            <h2>{{event.dayWeek}} {{event.dayNumber}} </h2>
 	            <b>{{event.name}} </b><br>
 	            <b>Lugar</b>
 	            <h2>{{event.place}}</h2>
 	            <b>Hora inicio</b>
-	            <h2>{{event.date | date: "H:mm"}}</h2>				
+	            <h2>{{event.hourStart | date: "H:mm"}}</h2>	
+	            <b>Hora fin</b>
+	            <h2>{{event.hourEnd | date: "H:mm"}}</h2>				
 			</div>
 
 			</ion-item>
