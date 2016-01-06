@@ -39,4 +39,16 @@ angular.module('App').controller('loginController', function ($scope, $state,$co
     }
   };
 
+  $scope.checkLocalStorage = function () {
+    if ($localStorage.email  !== undefined && $localStorage.userkey !== undefined) {
+            $state.go('tabs.plantilla');
+        }
+      
+  };
+
+  $scope.checkLocalStorage();
+
+
+
+
 });
