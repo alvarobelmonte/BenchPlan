@@ -4,24 +4,24 @@
 			<ion-item class="item-text-wrap" ng-repeat="event in events| filter: {name: whichevent}">
 			
 			<div ng-show="event.type == 'Partido'">
-	            <h1>{{event.type}}</h1>
+	            <h1>{{event.type}} vs {{event.rival}} </h1>
 	            <b>{{event.name}} </b><br>
 	            <b>Lugar</b>
 	            <h2>{{event.place}}</h2>
 	            <b>Día</b>
-	            <h2>{{event.date}}</h2>				
+	            <h2>{{event.date}}</h2>	
+	            <b>Hora</b>
+	            <h2>{{event.time | date: "H:mm"}}</h2>				
 			</div>
 
 			<div ng-show="event.type == 'Entrenamiento'">
-	            <h1>{{event.type}}</h1>
-	            <h2>{{event.dayWeek}} {{event.dayNumber}} </h2>
+	            <h1>{{event.type}} | {{event.dayWeek}} {{event.dayNumber}}</h1>
 	            <b>{{event.name}} </b><br>
 	            <b>Lugar</b>
 	            <h2>{{event.place}}</h2>
-	            <b>Hora inicio</b>
-	            <h2>{{event.hourStart | date: "H:mm"}}</h2>	
-	            <b>Hora fin</b>
-	            <h2>{{event.hourEnd | date: "H:mm"}}</h2>				
+	            <b>Hora </b>
+	            <h2>De {{event.hourStart | date: "H:mm"}} a {{event.hourEnd | date: "H:mm"}}</h2>	
+	         			
 			</div>
 
 			</ion-item>
