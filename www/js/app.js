@@ -22,11 +22,6 @@ $stateProvider
       templateUrl: 'views/register/register.html',
       controller:'registerController'
     })
-    /*.state('home', {
-      url: '/home',
-      templateUrl: 'views/home/home.html',
-      controller:'homeController'
-    })*/
     .state('tabs.plantilla', {
       url: '/plantilla',
       views: {
@@ -107,13 +102,7 @@ $stateProvider
           controller:'calendarioController'
         }
       }
-    })    
-    /*.state('detail', {
-      url: '/detail/:aId',
-      templateUrl: 'views/detail/detail.html',
-      controller:'plantillaController'
-    })*/
-    ;
+    });
 
 
 

@@ -21,6 +21,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $s
     $scope.position = player.position;
     $scope.dorsal = player.dorsal;
     $scope.fecha = player.fecha;
+    $scope.estado = player.condition;
     
     
 

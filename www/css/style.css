@@ -47,3 +47,10 @@ label.item.valid-lr {
   width: 30px;
   height: auto;
 }
+
+.disponible{
+  color: green;
+}
+.lesionado{
+  color: red;
+}

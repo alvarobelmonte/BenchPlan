@@ -1,4 +1,4 @@
-<ion-view view-title="More info">
+<ion-view view-title="Detalle Jugador">
 	<ion-content has-subheader="false">
 		<ion-list class="list-inset">
 			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {name: whichplayer}">
@@ -8,6 +8,12 @@
 	            <h2>{{player.position}}</h2>
 	            <b>Fecha de nacimiento</b>
 	            <h2>{{player.date | date: "MM-dd-yyyy"}}</h2>
+	            <b>Estado</b>
+	            <h2>
+	            <div ng-class="player.condition=='Disponible' ? 'disponible' : 'lesionado'">
+	            {{player.condition}} <i class="icon " ng-class="player.condition=='Disponible' ? 'ion-happy' : 'ion-sad'"></i></div> </h2>
+	            <b>Anotaciones</b>
+	            <h2>{{player.notes}}</h2>
 	          
 		
 			</ion-item>
