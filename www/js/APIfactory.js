@@ -41,6 +41,9 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
 
     interfaz.pushEvento = function(evento){
         var userRef = ref.child('profile').child($localStorage.userkey).child("event");
+        var diaSemana = $filter('date')(evento.day, "EEEE");
+        diaSemana = translatedayWeek(diaSemana);
+
         if(evento.type == 'Partido'){
             userRef.push({
                 name: evento.name,
@@ -50,9 +53,9 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 date: $filter('date')(evento.day, "dd-MM-yyyy"),
                 month: $filter('date')(evento.day, "M"),
                 monthWord: $filter('date')(evento.day, "MMMM"),
-                dayWeek:  $filter('date')(evento.day, "EEEE"),
                 dayNumber: $filter('date')(evento.day, "d"),
-                time: $filter('date')(evento.hour, "H:mm")
+                time: $filter('date')(evento.hour, "H:mm"),
+                dayWeek: diaSemana
             });
         }
         else if(evento.type == 'Entrenamiento'){
@@ -64,7 +67,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 date: $filter('date')(evento.day, "dd-MM-yyyy"),
                 month: $filter('date')(evento.day, "M"),
                 monthWord: $filter('date')(evento.day, "MMMM"),
-                dayWeek:  $filter('date')(evento.day, "EEEE"),
+                dayWeek:  diaSemana,
                 dayNumber: $filter('date')(evento.day, "d"),
                 hourStart: $filter('date')(evento.hourStart, "H:mm"),
                 hourEnd: $filter('date')(evento.hourEnd, "H:mm")
@@ -87,3 +90,21 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
 });
 
 
+function translatedayWeek(diaSemana){
+            if(diaSemana =='Monday')
+                diaSemana = 'Lunes';
+            else if(diaSemana =='Tuesday')
+                diaSemana = 'Martes';
+            else if(diaSemana =='Wednesday')
+                diaSemana = 'Miércoles';
+            else if(diaSemana =='Thursday')
+                diaSemana = 'Jueves';
+            else if(diaSemana =='Friday')
+                diaSemana = 'Viernes';
+            else if(diaSemana =='Saturday')
+                diaSemana = 'Sábado';
+            else if(diaSemana =='Sunday')
+                diaSemana = 'Domingo';
+            
+            return diaSemana;
+}
