@@ -1,0 +1,138 @@
+<ion-view view-title="Añadir Evento" hide-back-button="true">
+        <ion-content class="padding-top">
+          <h1>Añadir evento</h1>
+          
+          <div class="list">
+            <label  class="item item-input item-select" >
+              <div class="input-label">
+                Tipo
+              </div>
+              <select name="type" ng-model="event.type">
+                <option>Partido</option>
+                <option>Entrenamiento</option>
+              </select>
+            </label>
+          </div>
+
+          <!-- PARTIDO -->
+          <form novalidate name="addEventMatch" ng-submit="addEventMatch.$valid && addE(event)" ng-show="event.type == 'Partido'">
+            <div class=" list partido" >
+                <label>
+                  <h1>Partido</h1>
+                </label>
+
+              <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEventMatch.txtName.$invalid && addEventMatch.$submitted }">
+                <span class="input-label">Nombre</span>
+                <input name="txtName" type="text" ng-model="event.name" placeholder="Nombre"
+                ng-minlength="5"
+                ng-maxlength="50"
+                required>
+              </label>
+
+
+              <!-- Edit this messages if you want -->
+              <div class="form-errors" ng-messages="addEventMatch.txtName.$error" ng-if="addEventMatch.$submitted">
+                <div class="form-error" ng-message="required">This field is required.</div>
+                <div class="form-error" ng-message="email">This field must be an email.</div>
+                <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+                <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
+              </div>
+
+                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEventMatch.txtRival.$invalid && addEventMatch.$submitted }">
+                  <span class="input-label">Rival</span>
+                  <input name="txtRival" type="text" ng-model="event.rival" placeholder="Rival"
+                  ng-minlength="5"
+                  ng-maxlength="20"
+                  required>
+                </label>
+
+                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEventMatch.txtPlace.$invalid && addEventMatch.$submitted }">
+                  <span class="input-label">Lugar</span>
+                  <input name="txtPlace" type="text" ng-model="event.place" placeholder="Lugar"
+                  ng-minlength="5"
+                  ng-maxlength="20"
+                  required>
+                </label>
+
+                <label class="item-input">
+                      <span class="input-label">Día</span>
+                      <input type="date" name="dia" ng-model="event.day">
+                </label>
+
+                <label class="item-input">
+                      <span class="input-label">Hora</span>
+                      <input type="time" name="hora" ng-model="event.hour">
+                </label>
+            </div>
+
+            <div class="padding-top">
+              <input type="submit" class="button button-block button-positive" value="Añadir Partido">
+              <p class="text-center padding-top">
+                  <a href="#/tabs/calendario" class="button button-clear button-positive">Volver</a>
+            </div>
+        </form>
+
+          <!-- ENTRENAMIENTO -->
+          <form novalidate name="addEvent" ng-submit="addEvent.$valid && addE(event)" ng-show="event.type == 'Entrenamiento'">
+            <div class="list entrenamiento" >
+                <label>
+                  <h1>Entrenamiento</h1>
+                </label>
+
+              <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEvent.txtName.$invalid && addEvent.$submitted }">
+                <span class="input-label">Nombre</span>
+                <input name="txtName" type="text" ng-model="event.name" placeholder="Nombre"
+                ng-minlength="5"
+                ng-maxlength="30"
+                required>
+              </label>
+
+
+              <!-- Edit this messages if you want -->
+              <div class="form-errors" ng-messages="addEvent.txtName.$error" ng-if="addEvent.$submitted">
+                <div class="form-error" ng-message="required">This field is required.</div>
+                <div class="form-error" ng-message="email">This field must be an email.</div>
+                <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+                <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
+              </div>
+
+                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEvent.txtPlaceTraining.$invalid && addEvent.$submitted }">
+                  <span class="input-label">Lugar</span>
+                  <input name="txtPlaceTraining" type="text" ng-model="event.placeTraining" placeholder="Lugar"
+                  ng-minlength="5"
+                  ng-maxlength="20"
+                  required>
+                </label>
+                
+                <label class="item-input">
+                      <span class="input-label">Día</span>
+                      <input type="date" name="dia" ng-model="event.day">
+                </label>
+
+                <label class="item-input">
+                      <span class="input-label">Hora Inicio</span>
+                      <input type="time" name="horaInicio" ng-model="event.hourStart">
+                </label>
+
+                <label class="item-input">
+                      <span class="input-label">Hora Fin</span>
+                      <input type="time" name="horaFin" ng-model="event.hourEnd">
+                </label>
+
+
+            </div>
+
+
+            </div>
+                      <div class="padding-top">
+              <input type="submit" class="button button-block button-positive" value="Añadir Entrenamiento">
+              <p class="text-center padding-top">
+                  <a href="#/tabs/calendario" class="button button-clear button-positive">Volver</a>
+            </div>
+        </form>
+
+
+
+
+        </ion-content>
+</ion-view>

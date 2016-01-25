@@ -1,0 +1,43 @@
+<ion-view view-title="AddLineup" hide-back-button="true">
+        <ion-content class="padding-top">
+          <h1>Añadir alineación</h1>
+          <form novalidate name="addLineup" ng-submit="addLineup.$valid && addAl(Lineup)">
+          <div class="list">
+
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addLineup.txtName.$invalid && addLineup.$submitted }">
+              <span class="input-label">Nombre</span>
+              <input name="txtName" type="text" ng-model="alineacion.name" placeholder="Nombre"
+              ng-minlength="0"
+              ng-maxlength="30"
+              required>
+            </label>
+
+            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addLineup.txtName.$invalid && addLineup.$submitted }">
+              <span class="input-label">Descripción</span>
+              <input name="txtName" type="text" ng-model="alineacion.descripcion" placeholder="Descripción"
+              ng-minlength="0"
+              ng-maxlength="300"
+              required>
+            </label>
+
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="addLineup.txtName.$error" ng-if="addLineup.$submitted">
+              <div class="form-error" ng-message="required">This field is required.</div>
+              <div class="form-error" ng-message="email">This field must be an email.</div>
+              <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+              <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
+            </div>
+
+
+
+          </div>
+
+
+          <div class="padding-top">
+            <input type="submit" class="button button-block button-positive" value="Añadir">
+            <p class="text-center padding-top">
+                <a href="#/tabs/lineups" class="button button-clear button-positive">Volver</a>
+          </div>
+        </form>
+        </ion-content>
+</ion-view>

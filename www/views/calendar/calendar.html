@@ -1,0 +1,55 @@
+<ion-view view-title="Calendario" hide-back-button="true">
+        
+<ion-content  class="">
+        
+
+          <ion-item href="#/tabs/calendar/addEvent">
+            <button class="button icon-left ion-plus-circled button-block button-balanced" >
+              Añadir Evento
+            </button>
+          </ion-item>
+
+          <button class="button icon-left ion-minus-circled button-block button-assertive" ng-click="data.showDelete = !data.showDelete;">
+              Borrar Evento
+          </button>
+
+
+
+          <div class="item item-divider item-divider-calm">
+            Calendario
+          </div>
+
+            <label  class="item item-input item-select" >
+              <div class="input-label">
+                Mes
+              </div>
+              <select name="type" ng-model="event.month">
+                <option value="January">Enero</option>
+                <option value="February">Febrero</option>
+                <option value="March">Marzo</option>
+                <option value="April">Abril</option>
+                <option value="May">Mayo</option>
+                <option value="June">Junio</option>
+                <option value="July">Julio</option>
+                <option value="August">Agosto</option>
+                <option value="September">Septiembre</option>
+                <option value="October">Octubre</option>
+                <option value="November">Noviembre</option>
+                <option value="December">Diciembre</option>
+              </select>
+            </label>
+            
+        <ion-list show-delete="data.showDelete">
+          <ion-item ng-repeat="event in events | filter: {monthWord: event.month}" href="#/tabs/calendar/{{event.name}}" class="item-icon-left">
+            <i class="icon " ng-class="event.type=='Partido' ? 'ion-ios-football-outline' : 'ion-flag'"></i>
+      			<h2>{{event.dayWeek}}, {{event.dayNumber}}</h2>
+      			<h2><b>{{ event.type}}</b></h2>
+
+            <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(event)"></ion-delete-button>
+
+          </ion-item>
+          
+          
+        </ion-list>
+      </ion-content>
+</ion-view>
