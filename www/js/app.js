@@ -22,84 +22,84 @@ $stateProvider
       templateUrl: 'views/register/register.html',
       controller:'registerController'
     })
-    .state('tabs.plantilla', {
-      url: '/plantilla',
+    .state('tabs.players', {
+      url: '/players',
       views: {
-        'plantilla-tab' : {
-          templateUrl: 'views/plantilla/plantilla.html',
-          controller:'plantillaController'
+        'players-tab' : {
+          templateUrl: 'views/players/players.html',
+          controller:'playersController'
         }
       }
     }) 
     .state('tabs.addPlayer', {
-      url: '/plantilla/addPlayer',
+      url: '/players/addPlayer',
       views: {
-        'plantilla-tab' : {
+        'players-tab' : {
           templateUrl: 'views/addPlayer/addPlayer.html',
           controller:'addPlayerController'
         }
       }
     }) 
-    .state('tabs.detail', {
-      url: '/plantilla/:aId',
+    .state('tabs.playerDetail', {
+      url: '/players/:aId',
       views: {
-        'plantilla-tab' : {
-          templateUrl: 'views/detalleJugador/detalleJugador.html',
-          controller:'plantillaController'
+        'players-tab' : {
+          templateUrl: 'views/playerDetail/playerDetail.html',
+          controller:'playersController'
         }
       }
     })
-    .state('tabs.alineaciones', {
-      url: '/alineaciones',
+    .state('tabs.lineups', {
+      url: '/lineups',
       views: {
-        'alineaciones-tab' : {
-          templateUrl: 'views/alineaciones/alineaciones.html',
-          controller:'alineacionesController'
+        'lineups-tab' : {
+          templateUrl: 'views/lineups/lineups.html',
+          controller:'lineupsController'
         }
       }
     })
-    .state('tabs.addAlineacion', {
-      url: '/alineaciones/addAlineacion',
+    .state('tabs.addLineup', {
+      url: '/lineups/addLineup',
       views: {
-        'alineaciones-tab' : {
-          templateUrl: 'views/addAlineacion/addAlineacion.html',
-          controller:'addAlineacionController'
+        'lineups-tab' : {
+          templateUrl: 'views/addLineup/addLineup.html',
+          controller:'addLineupController'
         }
       }
     })
-    .state('tabs.detailAlineacion', {
-      url: '/alineaciones/:aId',
+    .state('tabs.lineupDetail', {
+      url: '/lineups/:aId',
       views: {
-        'alineaciones-tab' : {
-          templateUrl: 'views/detailAlineacion/detailAlineacion.html',
-          controller:'alineacionesController'
+        'lineups-tab' : {
+          templateUrl: 'views/lineupDetail/lineupDetail.html',
+          controller:'lineupsController'
         }
       }
     })
-    .state('tabs.calendario', {
-      url: '/calendario',
+    .state('tabs.calendar', {
+      url: '/calendar',
       views: {
-        'calendario-tab' : {
-          templateUrl: 'views/calendario/calendario.html',
-          controller:'calendarioController'
+        'calendar-tab' : {
+          templateUrl: 'views/calendar/calendar.html',
+          controller:'calendarController'
         }
       }
     })
-    .state('tabs.addEvento', {
-      url: '/calendario/addEvento',
+    .state('tabs.addEvent', {
+      url: '/calendar/addEvent',
       views: {
-        'calendario-tab' : {
-          templateUrl: 'views/addEvento/addEvento.html',
-          controller:'addEventoController'
+        'calendar-tab' : {
+          templateUrl: 'views/addEvent/addEvent.html',
+          controller:'addEventController'
         }
       }
     })
-    .state('tabs.detailCalendario', {
-      url: '/calendario/:aId',
+    .state('tabs.eventDetail', {
+      url: '/calendar/:aId',
       views: {
-        'calendario-tab' : {
-          templateUrl: 'views/detailCalendario/detailCalendario.html',
-          controller:'calendarioController'
+        'calendar-tab' : {
+          templateUrl: 'views/eventDetail/eventDetail.html',
+          controller:'calendarController'
         }
       }
     });

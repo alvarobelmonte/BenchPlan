@@ -23,7 +23,7 @@ angular.module('App').controller('loginController', function ($scope, $state,$co
             $localStorage.userkey = userkey;
 
               Utils.hide();
-              $state.go('tabs.plantilla');
+              $state.go('tabs.players');
               console.log("Starter page","Home");
 
           })
@@ -41,7 +41,7 @@ angular.module('App').controller('loginController', function ($scope, $state,$co
 
   $scope.checkLocalStorage = function () {
     if ($localStorage.email  !== undefined && $localStorage.userkey !== undefined) {
-            $state.go('tabs.plantilla');
+            $state.go('tabs.players');
         }
       
   };
