@@ -1,4 +1,4 @@
-<ion-view view-title="Lineups" hide-back-button="true">
+<ion-view view-title="Alineaciones" hide-back-button="true">
         
 <ion-content  class="has-subheader">
         <ion-list>
@@ -13,15 +13,10 @@
             Alineaciones
           </div>
 
-          <!-- <ion-item ng-class="{'star': item.star}" ng-repeat='item in artists | filter:query' class="item-thumbnail-left item-icon-right item-text-wrap" href="#/tab/list/{{item.shortname}}">
-            <img ng-src="img/{{item.shortname}}.jpeg" alt="{{item.name}} Photo">
-            <h2>{{item.name}}</h2>
-            <h3>{{item.reknown}}</h3>
-            <p>{{item.bio | limitTo: 250}}{{item.bio.length > 150 ? '&hellip;' : ''}}</p>
-          </ion-item> -->
+
           <ion-item ng-repeat="alineacion in alineaciones" href="#/tabs/lineups/{{alineacion.nombre}}">
-			<h2>{{ alineacion.nombre }}</h2>
-			<h3>{{ alineacion.descripcion}}</h3>
+      			<h2>{{alineacion.nombre}}</h2>
+      			<h3>{{alineacion.descripcion}}</h3>
           </ion-item>
           
           

@@ -45,7 +45,7 @@ $stateProvider
       views: {
         'players-tab' : {
           templateUrl: 'views/playerDetail/playerDetail.html',
-          controller:'playersController'
+          controller:'playerDetailController'
         }
       }
     })
