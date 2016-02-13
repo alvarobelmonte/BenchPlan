@@ -23,7 +23,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         });
     };
 
-    interfaz.editJugador = function(jugador, idJugador){
+    interfaz.updateJugador = function(jugador, idJugador){
         var playerRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador);
         playerRef.update({
             name: jugador.name,

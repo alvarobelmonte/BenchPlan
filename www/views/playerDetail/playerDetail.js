@@ -18,10 +18,6 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
   $scope.whichplayer = $state.params.aId;
   $scope.editing = false;
 
-  $scope.toggleInjured = function(player){
-  	player.star = !player.star;
-  }
-
   $scope.showP = function () {
 	    $scope.players = APIfactory.getJugadores();
 	    console.log($scope.players);
@@ -29,9 +25,6 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
 
   $scope.showP();
 
-  $scope.onItemDelete = function (player) {
-	    APIfactory.deleteJugador(player);
-  }
 
   $scope.turnFalse = function () {
       console.log('showForm');
@@ -47,6 +40,8 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
     $scope.dorsal = player.dorsal;
     $scope.fecha = player.fecha;
     $scope.estado = player.condition;
+
+
     var id = player.$id;
     
     //Referencia a la rama players del usuario que ha iniciado sesion
@@ -55,8 +50,7 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
     
     console.log(player.name);
 
-    //APIfactory.editJugador(player, id);
-    APIfactory.editJugador(player, id);
+    APIfactory.updateJugador(player, id);
     //Resetear formulario
 
 
@@ -66,6 +60,7 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
        /*template: $scope.name*/
      });
 
+    $scope.editing = false;
   }
 }
 );

@@ -33,10 +33,6 @@ angular.module('App').controller('playersController', function (APIfactory, $sco
 	    APIfactory.deleteJugador(player);
   }
 
-  $scope.turnFalse = function () {
-      console.log('showForm');
-      $scope.editing = true;
-  }
 
 }
 );
