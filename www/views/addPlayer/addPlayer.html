@@ -44,10 +44,14 @@
               </select>
             </label>
 
-            <label class="item-input">
+            <!-- <label class="item-input">
                   <span class="input-label">Fecha de nacimiento</span>
                   <input type="date" name="fecha" ng-model="player.fecha">
-            </label>
+            </label>  -->
+
+            <ionic-datepicker input-obj="datepickerObjectModal">
+              <button class="button button-block button-positive ng-binding"> 18 - February - 2016</button>
+            </ionic-datepicker>
 
             <label  class="item item-input item-select" >
               <div class="input-label">

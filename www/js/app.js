@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngRoute'])
+angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngRoute', 'ionic-datepicker'])
 .config(function($stateProvider, $urlRouterProvider) {
 $stateProvider
     .state('login', {

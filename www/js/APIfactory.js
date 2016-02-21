@@ -7,6 +7,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
 
     var interfaz = {};
 
+    //JUGADORES
     interfaz.getJugadores =function(){
         var jugadores = $firebaseArray(playersRef);
         return jugadores;
@@ -45,6 +46,11 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         }); 
     };
 
+
+
+
+
+    //EVENTOS
     interfaz.getEventos =function(){
         var eventos = $firebaseArray(eventsRef);
         return eventos;
@@ -101,6 +107,18 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+//Traducir días de la semana
 function translatedayWeek(diaSemana){
             if(diaSemana =='Monday')
                 diaSemana = 'Lunes';
