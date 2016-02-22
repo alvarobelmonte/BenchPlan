@@ -1,4 +1,4 @@
-<ion-view view-title="AddPlayer" hide-back-button="true">
+<ion-view view-title="Añadir Jugador" hide-back-button="true">
         <ion-content class="padding-top">
           <h1>Añadir jugador</h1>
           <form novalidate name="addPlayer" ng-submit="addPlayer.$valid && addP(player)">
@@ -15,7 +15,7 @@
 
             <!-- Edit this messages if you want -->
             <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
-              <div class="form-error" ng-message="required">This field is required.</div>
+              <div class="form-error" ng-message="required">Este campo es obligatorio</div>
               <div class="form-error" ng-message="email">This field must be an email.</div>
               <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
               <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
@@ -48,10 +48,12 @@
                   <span class="input-label">Fecha de nacimiento</span>
                   <input type="date" name="fecha" ng-model="player.fecha">
             </label>  -->
-
+            <label  class="item" >
             <ionic-datepicker input-obj="datepickerObjectModal">
-              <button class="button button-block button-positive ng-binding"> 18 - February - 2016</button>
+              <button class="button button-block button-positive"> Fecha de nacimiento</button>
             </ionic-datepicker>
+            <h3>{{fechaMostrar}}</h3>
+            </label>
 
             <label  class="item item-input item-select" >
               <div class="input-label">
@@ -62,17 +64,17 @@
                 <option>Lesionado</option>
               </select>
             </label>
-
-
+            
           </div>
 
 
           <div class="padding-top">
-            <input type="submit" class="button button-block button-positive" value="Añadir">
+            <input type="submit" class="button button-block button-balanced" value="Añadir">
             <p class="text-center padding-top">
                 <a href="#/tabs/players" class="button button-clear button-positive">Volver</a>
             </p>
           </div>
+
         </form>
         </ion-content>
 </ion-view>

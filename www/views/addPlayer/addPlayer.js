@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App').controller('addPlayerController', function (APIfactory, $scope, $state,$cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
+angular.module('App').controller('addPlayerController', function (APIfactory, $filter, $scope, $state,$cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
   
   var ref = new Firebase(FURL);
 
@@ -13,7 +13,8 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $s
     }
     initDorsals();
 
-    var fecha;
+    var fecha = new Date("08-14-1993");
+    $scope.fechaMostrar = $filter('date')(fecha, "dd-MM-yyyy");
 
     var disabledDates = [
       new Date(1437719836326),
@@ -24,8 +25,8 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $s
       new Date(1439676000000) //UNIX format
     ];
 
-    var weekDaysList = ["Sun", "Mon", "Tue", "Wed", "thu", "Fri", "Sat"];
-    var monthList = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    var weekDaysList = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+    var monthList = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   
     var datePickerCallback = function (val) {
     if (typeof(val) === 'undefined') {
@@ -33,28 +34,28 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $s
     } else {
       console.log('Selected date is : ', val)
       fecha = val;
-      console.log('fecha=', fecha);
+      $scope.fechaMostrar = $filter('date')(fecha, "dd-MM-yyyy");
     }
     };
     $scope.datepickerObjectModal = {
-            titleLabel: 'Title',  //Optional
-            todayLabel: 'Today',  //Optional
-            closeLabel: 'Close',  //Optional
-            setLabel: 'Set',  //Optional
+            titleLabel: 'Fecha de nacimiento',  //Optional
+            todayLabel: '  ',  //Optional
+            closeLabel: 'Cerrar',  //Optional
+            setLabel: 'Aceptar',  //Optional
             setButtonType : 'button-assertive',  //Optional
             todayButtonType : 'button-assertive',  //Optional
             closeButtonType : 'button-assertive',  //Optional
-            inputDate: new Date(),  //Optional
+            inputDate: new Date("01-01-1993"),  //Optional
             mondayFirst: true,  //Optional
             disabledDates: disabledDates, //Optional
             weekDaysList: weekDaysList, //Optional
             monthList: monthList, //Optional
             templateType: 'modal', //Optional
             showTodayButton: 'true', //Optional
-            modalHeaderColor: 'bar-positive', //Optional
-            modalFooterColor: 'bar-positive', //Optional
-            from: new Date(2012, 8, 2), //Optional
-            to: new Date(2018, 8, 25),  //Optional
+            modalHeaderColor: 'bar-dark', //Optional
+            modalFooterColor: 'bar-dark', //Optional
+            from: new Date(1960, 8, 2), //Optional
+            to: new Date(2010, 8, 25),  //Optional
             callback: function (val) {  //Mandatory
               datePickerCallback(val);
             },
@@ -62,35 +63,8 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $s
             closeOnSelect: false, //Optional
           };
 
-      $scope.datepickerObjectPopup = {
-            titleLabel: 'Title',  //Optional
-            todayLabel: 'Today',  //Optional
-            closeLabel: 'Close',  //Optional
-            setLabel: 'Set',  //Optional
-            setButtonType : 'button-assertive',  //Optional
-            todayButtonType : 'button-assertive',  //Optional
-            closeButtonType : 'button-assertive',  //Optional
-            inputDate: new Date(),  //Optional
-            mondayFirst: true,  //Optional
-            disabledDates: disabledDates, //Optional
-            weekDaysList: weekDaysList, //Optional
-            monthList: monthList, //Optional
-            templateType: 'popup', //Optional
-            showTodayButton: 'true', //Optional
-            modalHeaderColor: 'bar-positive', //Optional
-            modalFooterColor: 'bar-positive', //Optional
-            from: new Date(2012, 8, 2), //Optional
-            to: new Date(2018, 8, 25),  //Optional
-            callback: function (val) {  //Mandatory
-              datePickerCallback(val);
-            },
-            dateFormat: 'dd-MM-yyyy', //Optional
-            closeOnSelect: false, //Optional
-          };
+    
         
-  
-
-
 
     $scope.addP = function (player) {
       console.log("Enviada peticion crear jugador");
