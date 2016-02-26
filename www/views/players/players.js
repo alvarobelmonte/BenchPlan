@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App').controller('playersController', function (APIfactory, $scope, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils) {
+angular.module('App').controller('playersController', function (APIfactory, $scope, $ionicPopup, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils) {
   
   var ref = new Firebase(FURL);
 
@@ -30,7 +30,24 @@ angular.module('App').controller('playersController', function (APIfactory, $sco
   $scope.showP();
 
   $scope.onItemDelete = function (player) {
-	    APIfactory.deleteJugador(player);
+     // A confirm dialog
+    $scope.showConfirm = function() {
+     var confirmPopup = $ionicPopup.confirm({
+       title: 'Borrar jugador',
+       template: '¿Estás seguro de que quieres borrar a ' + player.name + '?'
+     });
+
+     confirmPopup.then(function(res) {
+       if(res) {
+         APIfactory.deleteJugador(player);
+       } else {
+
+       }
+     });
+    };
+
+    $scope.showConfirm();
+
   }
 
 
