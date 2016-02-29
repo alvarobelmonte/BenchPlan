@@ -10,7 +10,7 @@ $stateProvider
     .state('tabs', {
       url: '/tabs',
       abstract: true,
-      templateUrl: 'views/tabs/tabs.html'
+      templateUrl: 'views/tabs/tabs.html',
     })
     .state('forgot', {
       url: '/forgot',
