@@ -20,6 +20,21 @@ angular.module('App').controller('playersController', function (APIfactory, $sco
 
   $scope.toggleInjured = function(player){
   	player.star = !player.star;
+    console.log(player.condition);
+    var id = player.$id;
+    if(player.condition == 'Disponible')
+      player.condition = 'Lesionado';
+    else if(player.condition == 'Lesionado')
+      player.condition = 'Disponible';
+
+    APIfactory.updateCondicion(player, id);
+  }
+
+  $scope.checkCondition = function(player){
+    if(player.condition == 'Disponible')
+      return false;
+    else if(player.condition == 'Lesionado')
+      return true;
   }
 
   $scope.showP = function () {
