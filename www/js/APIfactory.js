@@ -78,6 +78,8 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         var userRef = ref.child('profile').child($localStorage.userkey).child("event");
         var diaSemana = $filter('date')(evento.day, "EEEE");
         diaSemana = translatedayWeek(diaSemana);
+        diaMes = $filter('date')(evento.day, "MMMM");
+        diaMes = translatedayMonth(diaMes);
 
         if(evento.type == 'Partido'){
             userRef.push({
@@ -87,10 +89,12 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 place: evento.place,
                 date: $filter('date')(evento.day, "dd-MM-yyyy"),
                 month: $filter('date')(evento.day, "M"),
+                dayMonth: diaMes,
+                dayWeek: diaSemana,
                 monthWord: $filter('date')(evento.day, "MMMM"),
                 dayNumber: $filter('date')(evento.day, "d"),
                 time: $filter('date')(evento.hour, "H:mm"),
-                dayWeek: diaSemana
+                
             });
         }
         else if(evento.type == 'Entrenamiento'){
@@ -102,10 +106,11 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 date: $filter('date')(evento.day, "dd-MM-yyyy"),
                 month: $filter('date')(evento.day, "M"),
                 monthWord: $filter('date')(evento.day, "MMMM"),
+                dayMonth: diaMes,
                 dayWeek:  diaSemana,
                 dayNumber: $filter('date')(evento.day, "d"),
                 hourStart: $filter('date')(evento.hourStart, "H:mm"),
-                hourEnd: $filter('date')(evento.hourEnd, "H:mm")
+                hourEnd: $filter('date')(evento.hourEnd, "H:mm"),
             }); 
         }
     };
@@ -154,4 +159,33 @@ function translatedayWeek(diaSemana){
                 diaSemana = 'Domingo';
             
             return diaSemana;
+}
+
+function translatedayMonth(diaMes){
+            if(diaMes =='January')
+                diaMes = 'Enero';
+            else if(diaMes =='February')
+                diaMes = 'Febrero';
+            else if(diaMes =='March')
+                diaMes = 'Marzo';
+            else if(diaMes =='April')
+                diaMes = 'Abril';
+            else if(diaMes =='May')
+                diaMes = 'Mayo';
+            else if(diaMes =='June')
+                diaMes = 'Junio';
+            else if(diaMes =='July')
+                diaMes = 'Julio';
+            else if(diaMes =='August')
+                diaMes = 'Agosto';
+            else if(diaMes =='September')
+                diaMes = 'Septiembre';
+            else if(diaMes =='October')
+                diaMes = 'Octubre';
+            else if(diaMes =='November')
+                diaMes = 'Noviembre';
+            else if(diaMes =='December')
+                diaMes = 'Diciembre';
+            
+            return diaMes;
 }

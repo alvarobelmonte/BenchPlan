@@ -54,15 +54,27 @@
             <h3>{{fechaMostrar}}</h3>
             </label>
 
-            <label  class="item item-input item-select" >
-              <div class="input-label">
+
+            <div class="input-label">
                 Estado
-              </div>
-              <select name="condition" ng-model="player.condition">
-                <option>Disponible</option>
-                <option>Lesionado</option>
-              </select>
+            </div>
+            <label class="item item-radio">
+                <input type="radio" name="group1" ng-model="player.condition" value="Disponible">
+                <div class="item-content">
+                   Disponible
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            <label class="item item-radio">
+                <input type="radio" name="group1" ng-model="player.condition" value="Lesionado">
+                <div class="item-content">
+                   Lesionado
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
             </label>
+            
+            </label>
+
+            
 
           </div>
 

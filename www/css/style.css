@@ -124,3 +124,44 @@ label.item.valid-lr {
   padding-top: 15%;
   float: left;
 }
+
+
+
+/*Players*/
+
+.player-box{
+  width: 25px;
+  height: auto;
+  color:white;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.po{
+  background-color: #53917E;
+}
+
+.df{
+  background-color: #6E0D25;
+}
+
+.mc{
+  background-color: #5A54C4;
+}
+
+.dl{
+  background-color: #C97064;
+}
+
+
+
+.dorsal-box{
+  width: 20px;
+  height: 20px;
+  color:white;
+  text-align: center;
+  line-height: 20px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #636363;
+}
