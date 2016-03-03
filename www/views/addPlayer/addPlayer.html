@@ -23,12 +23,12 @@
 
 
             <label  class="item item-input item-select" >
-              <div class="input-label">
+              <div class="input-label" ng-init = "player.position = 'Portero'">
                 Posición
               </div>
-              <select name="position" ng-model="player.position">
+              <select name="position" ng-model="player.position" >
                 <option>Portero</option>
-                <option selected>Defensa</option>
+                <option>Defensa</option>
                 <option>Centrocampista</option>
                 <option>Delantero</option>
               </select>
@@ -58,7 +58,7 @@
             <div class="input-label">
                 Estado
             </div>
-            <label class="item item-radio">
+            <label class="item item-radio" ng-init ="player = {condition: 'Disponible'}">
                 <input type="radio" name="group1" ng-model="player.condition" value="Disponible">
                 <div class="item-content">
                    Disponible
@@ -80,7 +80,7 @@
 
 
           <div class="padding-top">
-            <input type="submit" class="button button-block button-balanced" value="Añadir">
+            <input type="submit" class="button button-block button-balanced" ng-disabled="addPlayer.$invalid" value="Añadir">
             <p class="text-center padding-top">
                 <a href="#/tabs/players" class="button button-clear button-positive">Volver</a>
             </p>

@@ -8,7 +8,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
     var interfaz = {};
 
     //JUGADORES
-    interfaz.getJugadores =function(){
+    interfaz.getJugadores = function(){
         var jugadores = $firebaseArray(playersRef);
         return jugadores;
     };
@@ -69,7 +69,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
 
 
     //EVENTOS
-    interfaz.getEventos =function(){
+    interfaz.getEventos = function(){
         var eventos = $firebaseArray(eventsRef);
         return eventos;
     };
@@ -78,8 +78,8 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         var userRef = ref.child('profile').child($localStorage.userkey).child("event");
         var diaSemana = $filter('date')(evento.day, "EEEE");
         diaSemana = translatedayWeek(diaSemana);
-        diaMes = $filter('date')(evento.day, "MMMM");
-        diaMes = translatedayMonth(diaMes);
+        mes = $filter('date')(evento.day, "MMMM");
+        mes = translatedayMonth(mes);
 
         if(evento.type == 'Partido'){
             userRef.push({
@@ -89,7 +89,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 place: evento.place,
                 date: $filter('date')(evento.day, "dd-MM-yyyy"),
                 month: $filter('date')(evento.day, "M"),
-                dayMonth: diaMes,
+                dayMonth: mes,
                 dayWeek: diaSemana,
                 monthWord: $filter('date')(evento.day, "MMMM"),
                 dayNumber: $filter('date')(evento.day, "d"),
@@ -106,7 +106,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 date: $filter('date')(evento.day, "dd-MM-yyyy"),
                 month: $filter('date')(evento.day, "M"),
                 monthWord: $filter('date')(evento.day, "MMMM"),
-                dayMonth: diaMes,
+                dayMonth: mes,
                 dayWeek:  diaSemana,
                 dayNumber: $filter('date')(evento.day, "d"),
                 hourStart: $filter('date')(evento.hourStart, "H:mm"),
@@ -161,31 +161,31 @@ function translatedayWeek(diaSemana){
             return diaSemana;
 }
 
-function translatedayMonth(diaMes){
-            if(diaMes =='January')
-                diaMes = 'Enero';
-            else if(diaMes =='February')
-                diaMes = 'Febrero';
-            else if(diaMes =='March')
-                diaMes = 'Marzo';
-            else if(diaMes =='April')
-                diaMes = 'Abril';
-            else if(diaMes =='May')
-                diaMes = 'Mayo';
-            else if(diaMes =='June')
-                diaMes = 'Junio';
-            else if(diaMes =='July')
-                diaMes = 'Julio';
-            else if(diaMes =='August')
-                diaMes = 'Agosto';
-            else if(diaMes =='September')
-                diaMes = 'Septiembre';
-            else if(diaMes =='October')
-                diaMes = 'Octubre';
-            else if(diaMes =='November')
-                diaMes = 'Noviembre';
-            else if(diaMes =='December')
-                diaMes = 'Diciembre';
+function translatedayMonth(mes){
+            if(mes =='January')
+                mes = 'Enero';
+            else if(mes =='February')
+                mes = 'Febrero';
+            else if(mes =='March')
+                mes = 'Marzo';
+            else if(mes =='April')
+                mes = 'Abril';
+            else if(mes =='May')
+                mes = 'Mayo';
+            else if(mes =='June')
+                mes = 'Junio';
+            else if(mes =='July')
+                mes = 'Julio';
+            else if(mes =='August')
+                mes = 'Agosto';
+            else if(mes =='September')
+                mes = 'Septiembre';
+            else if(mes =='October')
+                mes = 'Octubre';
+            else if(mes =='November')
+                mes = 'Noviembre';
+            else if(mes =='December')
+                mes = 'Diciembre';
             
-            return diaMes;
+            return mes;
 }

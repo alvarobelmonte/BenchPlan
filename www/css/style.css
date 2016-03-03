@@ -77,7 +77,7 @@ label.item.valid-lr {
 }
 
 .dci4{
-  padding-left: 23%;
+  padding-left: 15%;
   padding-top: 10%;
   float: left;
 }
@@ -102,7 +102,7 @@ label.item.valid-lr {
 }
 
 .mci4{
-  padding-left: 23%;
+  padding-left: 15%;
   padding-top: 20%;
   float: left;
 }
@@ -165,3 +165,4 @@ label.item.valid-lr {
   border-radius: 50%;
   background-color: #636363;
 }
+

@@ -1,15 +1,15 @@
 <ion-view view-title="Detalle Jugador">
 	<ion-content has-subheader="false">
 		
-		<button class="button icon-left ion-edit button-block button-positive" ng-click="editing = true">
+		<button class="button icon-left ion-edit button-block button-positive" ng-click="editing = !editing">
               Editar
         </button>
 
 		<ion-list class="list-inset" >
 			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {name: whichplayer}">
 				<img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
-	            <div ng-hide="editing">
-
+	            <div ng-switch on="editing">
+				<div ng-switch-when="false">
 		            <h1>{{player.dorsal}} {{player.name}}</h1>
 		            <b>Posición</b>
 		            <h2>{{player.position}}</h2>
@@ -21,17 +21,18 @@
 		            {{player.condition}} <i class="icon " ng-class="player.condition=='Disponible' ? 'ion-happy' : 'ion-sad'"></i></div> </h2>
 		            <b>Anotaciones</b>
 		            <h2>{{player.notes}}</h2>
-
+				</div>
 				</div>
 
-	            <div ng-show="editing">
+	            <div ng-switch on="editing">
+	            <div ng-switch-when="true">
 				<form novalidate name="editPlayer" ng-submit="editPlayer.$valid && editP(player)">
 		            <b>Dorsal</b><br>
 		            <select name="dorsal" ng-model="player.dorsal">
 	                	<option ng-repeat="dorsal in dorsals">{{dorsal}}</option>
 	              	</select><br>
 		            <b>Nombre</b>
-		            <input type="text" name="" ng-model="player.name" value="{{player.name}}">
+		            <input type="text" name="" ng-model="player.name" value="{{playerEdited.name}}">
 
 		            <label  class="item item-input item-select" >
 		              <div class="input-label">
@@ -61,7 +62,8 @@
 					<input type="submit" class="button button-block button-balanced" value="Aceptar">
 
 				</form>
-				<button class="button icon-left ion-minus-circled button-block button-assertive" ng-click="editing = false">Cancelar</button>
+				<button class="button icon-left ion-minus-circled button-block button-assertive" ng-click="editing = !editing">Cancelar</button>
+				</div>
 	            </div>
 	         </ion-item>
 	          

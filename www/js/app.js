@@ -72,7 +72,7 @@ $stateProvider
       views: {
         'lineups-tab' : {
           templateUrl: 'views/lineupDetail/lineupDetail.html',
-          controller:'lineupsController'
+          controller:'lineupDetailController'
         }
       }
     })
