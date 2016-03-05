@@ -31,10 +31,13 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
       $scope.editing = true;
   }
 
+
+
   $scope.editP = function (player) {
     console.log("Enviada peticion editar jugador");
 
     //Recogemos datos del formulario
+
     $scope.name = player.name;
     $scope.position = player.position;
     $scope.dorsal = player.dorsal;

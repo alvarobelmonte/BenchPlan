@@ -64,7 +64,11 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
           };
 
     
-        
+    $scope.calculateAge = function calculateAge(birthday) { // birthday is a date
+    var ageDifMs = Date.now() - birthday.getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }   
 
     $scope.addP = function (player) {
       console.log("Enviada peticion crear jugador");
@@ -73,7 +77,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
       $scope.name = player.name;
       $scope.position = player.position;
       $scope.dorsal = player.dorsal;
-      
+      player.edad = $scope.calculateAge(fecha);
       $scope.estado = player.condition;
       
       

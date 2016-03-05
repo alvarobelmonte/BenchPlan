@@ -14,7 +14,7 @@
 		            <b>Posición</b>
 		            <h2>{{player.position}}</h2>
 		            <b>Fecha de nacimiento</b>
-		            <h2>{{player.date | date: "MM-dd-yyyy"}}</h2>
+		            <h2>{{player.date | date: "MM-dd-yyyy"}} ({{player.age}} años)</h2>
 		            <b>Estado</b>
 		            <h2>
 		            <div ng-class="player.condition=='Disponible' ? 'disponible' : 'lesionado'">

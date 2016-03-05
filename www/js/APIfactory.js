@@ -20,6 +20,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
             position: jugador.position,
             dorsal: jugador.dorsal,
             date: $filter('date')(jugador.fecha, "dd-MM-yyyy"),
+            age: jugador.edad,
             condition: jugador.condition
         });
     };
@@ -93,7 +94,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 dayWeek: diaSemana,
                 monthWord: $filter('date')(evento.day, "MMMM"),
                 dayNumber: $filter('date')(evento.day, "d"),
-                time: $filter('date')(evento.hour, "H:mm"),
+                hourStart: $filter('date')(evento.hour, "H:mm"),
                 
             });
         }

@@ -42,9 +42,11 @@
         <ion-list show-delete="data.showDelete">
           <ion-item ng-repeat="event in events | filter: {monthWord: event.month}" href="#/tabs/calendar/{{event.name}}" class="item-icon-left">
             <i class="icon " ng-class="event.type=='Partido' ? 'ion-ios-football-outline' : 'ion-flag'"></i>
-      			<h2>{{event.dayWeek}}, {{event.dayNumber}} de {{event.dayMonth}}</h2>
+      			<span class="item-note">Hora: {{event.hourStart}}</span><br>
+            <span class="item-note">Lugar: {{event.place}}</span>
+            <h2>{{event.dayWeek}}, {{event.dayNumber}} de {{event.dayMonth}}</h2>
       			<h2><b>{{ event.type}}</b></h2>
-
+            
             <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(event)"></ion-delete-button>
 
           </ion-item>
