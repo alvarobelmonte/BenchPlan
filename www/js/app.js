@@ -1,6 +1,9 @@
 'Use Strict';
 angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngRoute', 'ionic-datepicker'])
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+$ionicConfigProvider.tabs.position('top');
+
 $stateProvider
     .state('login', {
       url: '/login',

@@ -13,6 +13,17 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         return jugadores;
     };
 
+    interfaz.getNombreJugador = function(idJugador){
+        var nameRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador).child("name");
+        var playerName;
+        nameRef.on("value", function(snapshot) {
+          playerName = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+        return playerName;
+    };
+
     interfaz.pushJugador = function(jugador){
         var userRef = ref.child('profile').child($localStorage.userkey).child("player");
         userRef.push({
