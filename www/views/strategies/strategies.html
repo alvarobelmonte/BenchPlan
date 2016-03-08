@@ -1,0 +1,33 @@
+<ion-view view-title="Estrategias" hide-back-button="true">
+        
+<ion-content  class="">
+        
+
+          <ion-item href="#/tabs/strategies/addStrategy">
+            <button class="button icon-left ion-plus-circled button-block button-balanced" >
+              Añadir Estrategia
+            </button>
+          </ion-item>
+
+          <button class="button icon-left ion-close-circled button-block button-assertive" ng-click="data.showDelete = !data.showDelete;">
+              Borrar Estrategia
+          </button>
+
+          <div class="item item-divider item-divider-calm">
+            Estrategias
+          </div>
+
+          <ion-list show-delete="data.showDelete">
+            <ion-item ng-repeat="strategy in strategies" href="#/tabs/strategies/{{strategy.name}}" class="item-icon-left">
+              <i class="icon ion-android-clipboard"></i>
+        			<h2>{{strategy.name}}</h2>
+        			<h3>{{strategy.description}}</h3>
+
+              <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(event)"></ion-delete-button>
+
+            </ion-item>
+          
+          
+          </ion-list>
+      </ion-content>
+</ion-view>
