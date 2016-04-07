@@ -79,6 +79,33 @@ $stateProvider
         }
       }
     })
+    .state('tabs.strategies', {
+      url: '/strategies',
+      views: {
+        'strategies-tab' : {
+          templateUrl: 'views/strategies/strategies.html',
+          controller:'strategiesController'
+        }
+      }
+    })
+    .state('tabs.addStrategy', {
+      url: '/strategies/addStrategy',
+      views: {
+        'strategies-tab' : {
+          templateUrl: 'views/addStrategy/addStrategy.html',
+          controller:'addStrategyController'
+        }
+      }
+    })
+    .state('tabs.strategyDetail', {
+      url: '/strategies/:aId',
+      views: {
+        'strategies-tab' : {
+          templateUrl: 'views/strategyDetail/strategyDetail.html',
+          controller:'strategyDetailController'
+        }
+      }
+    })
     .state('tabs.calendar', {
       url: '/calendar',
       views: {

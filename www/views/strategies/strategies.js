@@ -13,6 +13,27 @@ angular.module('App').controller('strategiesController', function (APIfactory, $
 
   $scope.showE();
 
+  $scope.onItemDelete = function (strategy) {
+     // A confirm dialog
+    $scope.showConfirm = function() {
+     var confirmPopup = $ionicPopup.confirm({
+       title: 'Borrar estrategia',
+       template: '¿Estás seguro de que quieres borrar esta estrategia?',
+       cancelText: 'Cancelar'
+     });
+
+     confirmPopup.then(function(res) {
+       if(res) {
+         APIfactory.deleteStrategy(strategy);
+       } else {
+
+       }
+     });
+    };
+
+    $scope.showConfirm();
+
+  }
 
 }
 );

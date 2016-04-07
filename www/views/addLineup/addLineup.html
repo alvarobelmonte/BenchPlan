@@ -1,12 +1,12 @@
 <ion-view view-title="AddLineup" hide-back-button="true">
         <ion-content class="padding-top">
           <h1>Añadir alineación</h1>
-          <form novalidate name="addLineup" ng-submit="addLineup.$valid && addAl(Lineup)">
+          <form novalidate name="addLineup" ng-submit="addLineup.$valid && addAl(lineup)">
           <div class="list">
 
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addLineup.txtName.$invalid && addLineup.$submitted }">
               <span class="input-label">Nombre</span>
-              <input name="txtName" type="text" ng-model="alineacion.name" placeholder="Nombre"
+              <input name="txtName" type="text" ng-model="lineup.name" placeholder="Nombre"
               ng-minlength="0"
               ng-maxlength="30"
               required>
@@ -14,7 +14,7 @@
 
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addLineup.txtName.$invalid && addLineup.$submitted }">
               <span class="input-label">Descripción</span>
-              <input name="txtName" type="text" ng-model="alineacion.descripcion" placeholder="Descripción"
+              <input name="txtName" type="text" ng-model="lineup.description" placeholder="Descripción"
               ng-minlength="0"
               ng-maxlength="300"
               required>

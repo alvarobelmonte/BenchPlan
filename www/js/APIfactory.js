@@ -77,8 +77,42 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
     };
 
 
+    //ALINEACIONES
+    interfaz.pushAlineacion = function(alineacion){
+        var userRef = ref.child('profile').child($localStorage.userkey).child("lineups");
+        userRef.push({
+            name: alineacion.name,
+            description: alineacion.description
+        });
+    };
+    interfaz.deleteLineup = function(lineup){
+        var ID = lineup.$id;
+        var lineupRef = ref.child('profile').child($localStorage.userkey).child("lineups").child(ID);
+        
+        lineupRef.remove();
 
+        var alertPopup = $ionicPopup.alert({
+            title: 'Alineación borrada',
+        }); 
+    };
+    //ESTRATEGIAS
+    interfaz.pushEstrategia = function(estrategia){
+        var userRef = ref.child('profile').child($localStorage.userkey).child("strategies");
+        userRef.push({
+            name: estrategia.name,
+            description: estrategia.description
+        });
+    };
+    interfaz.deleteStrategy = function(strategy){
+        var ID = strategy.$id;
+        var strategyRef = ref.child('profile').child($localStorage.userkey).child("strategies").child(ID);
+        
+        strategyRef.remove();
 
+        var alertPopup = $ionicPopup.alert({
+            title: 'Estrategia borrada',
+        }); 
+    };
 
     //EVENTOS
     interfaz.getEventos = function(){

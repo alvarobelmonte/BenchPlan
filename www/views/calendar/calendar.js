@@ -13,7 +13,25 @@ angular.module('App').controller('calendarController', function (APIfactory, $sc
   $scope.showE();
 
   $scope.onItemDelete = function (event) {
-	    APIfactory.deleteEvento(event);
+	    
+    // A confirm dialog
+    $scope.showConfirm = function() {
+     var confirmPopup = $ionicPopup.confirm({
+       title: 'Borrar evento',
+       template: '¿Estás seguro de que quieres borrar el evento "' + event.name + '"?',
+       cancelText: 'Cancelar'
+     });
+
+     confirmPopup.then(function(res) {
+       if(res) {
+         APIfactory.deleteEvento(event);
+       } else {
+
+       }
+     });
+    };
+
+    $scope.showConfirm();
   }
 
 

@@ -1,24 +1,6 @@
 <ion-view view-title="Detalle Alineación">
 	<ion-content has-subheader="false" class="alineaciones">
-<!-- 	<h2 class="title">Alineación nombre</h2>
-		<ion-list class="list-inset">
-			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {name: whichplayer}">
 
-	            <h1>{{player.name}}</h1>
-	            <b>Posición</b>
-	            <h2>{{player.position}}</h2>
-		
-			</ion-item>
-			<a href="#/tabs/plantilla" class="button button-clear button-positive">Volver a Plantilla</a>
-		</ion-list> -->
-		<div class="button-bar bar-royal">
-		  <a class="button">Titulares</a>
-		  <a class="button">Banquillo</a>
-		  <button class="button button-stable" ng-click="showLocationsModal()">
-          Formacion
-          </button>
-		  <select ng-model="formacion.valor" ng-change="update(formacion)" ng-options="f for f in formaciones"></select>
-		</div>
 		
 		
 
@@ -62,7 +44,7 @@
 		</div>
 
 
-		  <div ng-switch-when="defensa">
+		<div ng-switch-when="defensa">
 			<div class="modal">
 			    <ion-header-bar>
 			      <h1 class="title">Elegir defensa</h1>
@@ -123,6 +105,31 @@
 
 	</script>
 
+	<script id="lineupModal2.html" type="text/ng-template">
+	  <ion-modal-view>
 
+	  		<ion-header-bar>
+		      <h1 class="title">Elegir formación</h1>
+		    </ion-header-bar>
+			<ion-content>
+			    <ion-list>
+					<ion-item ng-repeat="f in formaciones" ng-click="setFormation(f)">
+						{{f}}
+					</ion-item>
+			    </ion-list>
+		    </ion-content>
+	  </ion-modal-view>
+
+	</script>
+
+	<div class="button-bar">
+		  <button class="button button-assertive" ng-click="openModalFormacion()">
+          {{formacion}}
+          </button>
+          <button class="button button-positive icon ion-android-folder-open"> Guardar</button>
+		  <!-- <select ng-model="formacion.valor" ng-change="update(formacion)" ng-options="f for f in formaciones"></select> -->
+	</div>
+		
 	</ion-content>
+
 </ion-view>

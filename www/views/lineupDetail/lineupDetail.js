@@ -7,6 +7,7 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
   console.log($scope.whichalineacion);
 
   var alineacionRef = ref.child('profile').child($localStorage.userkey).child("alineaciones");
+  $scope.formacion = '4-4-2';
 
     $scope.p1pos = 'portero';
     $scope.p2pos = 'defensa';
@@ -40,9 +41,9 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
   var delantero = "assertive";
 
   $scope.update = function(formacion){
-    console.log('formacion seleccionada ' + formacion.valor);
+    console.log('formacion seleccionada ' + formacion);
 
-    $scope.formacion = formacion.valor;
+    $scope.formacion = formacion;
     $scope.defensas = $scope.formacion.charAt(0);
     $scope.medios1 = $scope.formacion.charAt(2);
     $scope.medios2 = $scope.formacion.charAt(4);
@@ -131,28 +132,38 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
 
   $scope.getPlayers();
 
-  $scope.contact = {
-    name: 'Mittens Cat',
-    info: 'Tap anywhere on the card to open the modal'
-  }
-
 
   $ionicModal.fromTemplateUrl('lineupModal.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modal = modal
-  })  
+    $scope.modal1 = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('lineupModal2.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal2 = modal;
+  });   
 
   $scope.openModal = function(jugador, num) {
     $scope.num = num;
     $scope.jugador = jugador;
     console.log($scope.jugador);
-    $scope.modal.show()
-  }
+    $scope.modal1.show();
+  };
+
+  $scope.openModalFormacion = function() {
+    $scope.modal2.show();
+  };
 
   $scope.closeModal = function() {
-    $scope.modal.hide();
+    $scope.modal1.hide();
+  };
+
+  $scope.closeModal2 = function() {
+    $scope.modal2.hide();
   };
 
   $scope.$on('$destroy', function() {
@@ -187,5 +198,10 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
       //$scope.player+$scope.numJugador = APIfactory.getNombreJugador($scope.playerID);
   };
 
+  $scope.setFormation = function (f) {
+      $scope.formacion = f;
+      $scope.update(f);
+      $scope.closeModal2();
+  };
 }
 );

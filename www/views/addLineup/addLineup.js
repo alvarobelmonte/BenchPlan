@@ -1,30 +1,16 @@
 'Use Strict';
-angular.module('App').controller('addLineupController', function ($scope, $state,$cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
+angular.module('App').controller('addLineupController', function (APIfactory, $scope, $state,$cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
   
   var ref = new Firebase(FURL);
 
 
   
-  $scope.addAl = function (alineacion) {
+  $scope.addAl = function (lineup) {
     console.log("Enviada peticion crear alineacion");
 
-    //Recogemos datos del formulario
-    $scope.name = alineacion.name;
-    $scope.descripcion = alineacion.descripcion;
-    
-
-
-    //Referencia a la rama players del usuario que ha iniciado sesion
-    var userRef = ref.child('profile').child($localStorage.userkey).child("alineaciones");
-
-    //Introducimos los valores
-    userRef.push({
-                nombre: $scope.name,
-                descripcion: $scope.descripcion
-    });
+    APIfactory.pushAlineacion(lineup);
 
     //Resetear formulario
-
 
     //Pop up de confirmación
     var alertPopup = $ionicPopup.alert({

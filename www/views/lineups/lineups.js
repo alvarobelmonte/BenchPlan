@@ -3,108 +3,37 @@ angular.module('App').controller('lineupsController', function (APIfactory, $sco
   
   var ref = new Firebase(FURL);
 
-  $scope.whichalineacion = $state.params.aId;
-  console.log($scope.whichalineacion);
+  $scope.whichaLineup = $state.params.aId;
 
   //Referencia a la rama players del usuario que ha iniciado sesion
-  var alineacionRef = ref.child('profile').child($localStorage.userkey).child("alineaciones");
+  var lineupRef = ref.child('profile').child($localStorage.userkey).child("lineups");
 
   $scope.showA = function () {
-		$scope.alineaciones = $firebaseArray(alineacionRef);
-		console.log($scope.alineaciones);
+		$scope.lineups = $firebaseArray(lineupRef);
   }
 
   $scope.showA();
 
+  $scope.onItemDelete = function (lineup) {
+     // A confirm dialog
+    $scope.showConfirm = function() {
+     var confirmPopup = $ionicPopup.confirm({
+       title: 'Borrar alineación',
+       template: '¿Estás seguro de que quieres borrar esta alineación?',
+       cancelText: 'Cancelar'
+     });
 
-  $scope.showPlayers = function () {
-  	console.log('showPlayers()');
+     confirmPopup.then(function(res) {
+       if(res) {
+         APIfactory.deleteLineup(lineup);
+       } else {
+
+       }
+     });
+    };
+
+    $scope.showConfirm();
+
   }
-
-
-
-
-
-$scope.locations = [
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 109, Nome: 'Aeroporto Internacional Hercilio Luz' },
-      { ID: 161, Nome: 'Koxixos' },
-      { ID: 184, Nome: 'Praça XV de Novembro' }
-    ];
-
-    $scope.showLocationsModal = function() {
-      $scope.openLocationsModal();
-    }
-
-    $ionicModal.fromTemplateUrl('/lineups/locations-modal.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.locationsModal = modal;
-    });
-
-    $scope.openLocationsModal = function() {
-      $scope.locationsModal.show();
-    };
-
-    $scope.closeLocationsModal = function() {
-      $scope.locationsModal.hide();
-    };
-
-    $scope.$on('$destroy', function() {
-      $scope.locationsModal.remove();
-    });
-
-    $scope.$on('locationsModal.hidden', function() {
-      // Execute action
-    });
-
-    $scope.$on('locationsModal.removed', function() {
-      // Execute action
-    });
-    
-    $scope.clickLocationItem = function(id) {
-      alert('selected item id: ' + id);
-      $scope.closeLocationsModal();
-    }
-
-
 }
 );
