@@ -2,7 +2,7 @@
 angular.module('App').controller('playerDetailController', function (APIfactory, $scope, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils) {
   
   var ref = new Firebase(FURL);
-
+  $scope.botonEdit = 'Editar';
   //Dorsales
   $scope.dorsals = [];
   var initDorsals = function() {
@@ -33,6 +33,13 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
 
 
 
+  $scope.editar = function () {
+    $scope.editing = !$scope.editing;
+    if($scope.editing==true)
+      $scope.botonEdit = 'Cancelar';
+    else
+      $scope.botonEdit = 'Editar';
+  }
   $scope.editP = function (player) {
     console.log("Enviada peticion editar jugador");
 
