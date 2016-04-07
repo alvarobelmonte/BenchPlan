@@ -3,8 +3,8 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
   
   var ref = new Firebase(FURL);
   $scope.itemList=[];
-  $scope.whichalineacion = $state.params.aId;
-  console.log($scope.whichalineacion);
+  $scope.lineupID = $state.params.aId;
+
 
   var alineacionRef = ref.child('profile').child($localStorage.userkey).child("alineaciones");
   $scope.formacion = '4-4-2';
@@ -22,6 +22,7 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
     $scope.p11pos = 'delantero';
 
     $scope.alineados = [];
+    var players = ['', '', '', '', '', '', '', '', '', '', ''];
 
     $scope.mformado = medio;
     $scope.m2formado = medio;
@@ -177,7 +178,9 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
   $scope.assignPlayer = function (player) {
       $scope.playerID = player.$id;
       $scope.alineados.push(player.$id);
-      console.log($scope.alineados);
+      console.log($scope.num);
+      players[$scope.num-1] = player.$id;
+      console.log(players);
       $scope.updateDivPlayer();
       $scope.closeModal();
   };
@@ -203,5 +206,16 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
       $scope.update(f);
       $scope.closeModal2();
   };
+
+
+  $scope.saveLineup = function () {
+      var formacion = $scope.formacion;
+      APIfactory.updateLineup($scope.lineupID, formacion, players);
+      var alertPopup = $ionicPopup.alert({
+         title: 'Alineación guardada',
+         /*template: $scope.name*/
+      });
+  };
+
 }
 );

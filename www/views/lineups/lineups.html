@@ -18,7 +18,7 @@
           </div>
 
           <ion-list show-delete="data.showDelete">
-            <ion-item ng-repeat="lineup in lineups" href="#/tabs/lineups/{{lineup.name}}" class="item-icon-left">
+            <ion-item ng-repeat="lineup in lineups" href="#/tabs/lineups/{{lineup.$id}}" class="item-icon-left">
               <i class="icon ion-ios-keypad"></i>
         			<h2>{{lineup.name}}</h2>
         			<h3>{{lineup.description}}</h3>

@@ -85,6 +85,23 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
             description: alineacion.description
         });
     };
+    interfaz.updateLineup = function(idLineup, formation, players){
+        var userRef = ref.child('profile').child($localStorage.userkey).child("lineups").child(idLineup);
+        userRef.update({
+            formation: formation,
+            player1: players[0],
+            player2: players[1],
+            player3: players[2],
+            player4: players[3],
+            player5: players[4],
+            player6: players[5],
+            player7: players[6],
+            player8: players[7],
+            player9: players[8],
+            player10: players[9],
+            player11: players[10]
+        });
+    };
     interfaz.deleteLineup = function(lineup){
         var ID = lineup.$id;
         var lineupRef = ref.child('profile').child($localStorage.userkey).child("lineups").child(ID);
