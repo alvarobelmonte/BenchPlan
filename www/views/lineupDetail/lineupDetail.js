@@ -22,7 +22,8 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
     $scope.p11pos = 'delantero';
 
     $scope.alineados = [];
-    var players = ['', '', '', '', '', '', '', '', '', '', ''];
+    //Array que se envía a la BD
+    var players = [];
 
     $scope.mformado = medio;
     $scope.m2formado = medio;
@@ -133,6 +134,27 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
 
   $scope.getPlayers();
 
+  $scope.getLineup = function () {
+    if($scope.alineados.length == 0){
+      var lineup = APIfactory.getLineup($scope.lineupID);
+      if(lineup.formation != undefined && lineup.players != undefined){
+      $scope.formacion = lineup.formation;
+      $scope.alineados = (lineup.players).slice();
+      players = (lineup.players).slice();
+
+      for (var i = 0; i < 11; i++) {
+        $scope.numJugador = 'player' + (i+1);
+        var model = $parse($scope.numJugador);
+        model.assign($scope, APIfactory.getNombreJugador(players[i]));
+      }
+      $scope.update($scope.formacion);
+      }
+    }
+    else
+      console.log($scope.players);
+  }
+
+  $scope.getLineup();
 
   $ionicModal.fromTemplateUrl('lineupModal.html', {
     scope: $scope,

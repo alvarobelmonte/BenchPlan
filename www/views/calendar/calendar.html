@@ -19,28 +19,19 @@
             Calendario
           </div>
 
-            <label  class="item item-input item-select" >
-              <div class="input-label">
-                Mes
-              </div>
-              <select name="type" ng-model="event.month">
-                <option value="January">Enero</option>
-                <option value="February">Febrero</option>
-                <option value="March">Marzo</option>
-                <option value="April">Abril</option>
-                <option value="May">Mayo</option>
-                <option value="June">Junio</option>
-                <option value="July">Julio</option>
-                <option value="August">Agosto</option>
-                <option value="September">Septiembre</option>
-                <option value="October">Octubre</option>
-                <option value="November">Noviembre</option>
-                <option value="December">Diciembre</option>
-              </select>
-            </label>
+          <div class="button-bar">
+              <button class="button button-dark" ng-click="openMonthModal()">
+                  {{mesSelected}}
+              </button>
+              <button class="button button-dark" ng-click="openYearModal()">
+                  {{yearSelected}}
+              </button>
+          </div>
+
+
             
         <ion-list show-delete="data.showDelete">
-          <ion-item ng-repeat="event in events | filter: {monthWord: event.month}" href="#/tabs/calendar/{{event.name}}" class="item-icon-left">
+          <ion-item ng-repeat="event in events | filter: {monthWord: monthSelected, year: yearSelected}" href="#/tabs/calendar/{{event.name}}" class="item-icon-left">
             <i class="icon " ng-class="event.type=='Partido' ? 'ion-ios-football-outline' : 'ion-flag'"></i>
       			<span class="item-note">Hora: {{event.hourStart}}</span><br>
             <span class="item-note">Lugar: {{event.place}}</span>
@@ -53,5 +44,41 @@
           
           
         </ion-list>
+
+
+        <script id="monthModal.html" type="text/ng-template">
+          <ion-modal-view>
+
+              <ion-header-bar>
+                <h1 class="title">Elegir mes</h1>
+              </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                <ion-item ng-repeat="m in months" ng-click="assignMonth(m)">
+                  {{m}}
+                </ion-item>
+                </ion-list>
+              </ion-content>
+          </ion-modal-view>
+
+        </script>
+
+        <script id="yearModal.html" type="text/ng-template">
+          <ion-modal-view>
+
+              <ion-header-bar>
+                <h1 class="title">Elegir año</h1>
+              </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                <ion-item ng-repeat="y in years" ng-click="assignYear(y)">
+                  {{y}}
+                </ion-item>
+                </ion-list>
+              </ion-content>
+          </ion-modal-view>
+
+        </script>
+
       </ion-content>
 </ion-view>

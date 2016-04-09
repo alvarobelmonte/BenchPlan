@@ -1,4 +1,4 @@
-angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils){
+angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObject, $filter, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils){
 
 
     var ref = new Firebase(FURL);
@@ -78,6 +78,17 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
 
 
     //ALINEACIONES
+    interfaz.getLineup = function(idLineup){
+        var lineupRef = ref.child('profile').child($localStorage.userkey).child("lineups").child(idLineup);
+        var lineup;
+        lineupRef.on("value", function(snapshot) {
+          lineup = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+        return lineup;
+    };
+
     interfaz.pushAlineacion = function(alineacion){
         var userRef = ref.child('profile').child($localStorage.userkey).child("lineups");
         userRef.push({
@@ -89,17 +100,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         var userRef = ref.child('profile').child($localStorage.userkey).child("lineups").child(idLineup);
         userRef.update({
             formation: formation,
-            player1: players[0],
-            player2: players[1],
-            player3: players[2],
-            player4: players[3],
-            player5: players[4],
-            player6: players[5],
-            player7: players[6],
-            player8: players[7],
-            player9: players[8],
-            player10: players[9],
-            player11: players[10]
+            players: players
         });
     };
     interfaz.deleteLineup = function(lineup){
@@ -142,6 +143,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
         var diaSemana = $filter('date')(evento.day, "EEEE");
         diaSemana = translatedayWeek(diaSemana);
         mes = $filter('date')(evento.day, "MMMM");
+        var year = $filter('date')(evento.day, "yyyy");
         mes = translatedayMonth(mes);
 
         if(evento.type == 'Partido'){
@@ -154,6 +156,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 month: $filter('date')(evento.day, "M"),
                 dayMonth: mes,
                 dayWeek: diaSemana,
+                year: year,
                 monthWord: $filter('date')(evento.day, "MMMM"),
                 dayNumber: $filter('date')(evento.day, "d"),
                 hourStart: $filter('date')(evento.hour, "H:mm"),
@@ -171,6 +174,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $filter, $lo
                 monthWord: $filter('date')(evento.day, "MMMM"),
                 dayMonth: mes,
                 dayWeek:  diaSemana,
+                year: year,
                 dayNumber: $filter('date')(evento.day, "d"),
                 hourStart: $filter('date')(evento.hourStart, "H:mm"),
                 hourEnd: $filter('date')(evento.hourEnd, "H:mm"),
