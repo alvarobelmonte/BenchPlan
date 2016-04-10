@@ -3,16 +3,27 @@
           <h1>Añadir evento</h1>
           
           <div class="list">
-            <label  class="item item-input item-select" >
+            <label  class="item item-input" >
               <div class="input-label">
-                Tipo
+                <b>Tipo</b>
               </div>
-              <select name="type" ng-model="event.type">
-                <option>Partido</option>
-                <option>Entrenamiento</option>
-              </select>
             </label>
-          </div>
+            <label class="item item-radio" ng-init ="player = {type: 'Partido'}">
+                <input type="radio" name="group1" ng-model="event.type" value="Partido">
+                <div class="item-content">
+                   Partido
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+            <label class="item item-radio">
+                <input type="radio" name="group1" ng-model="event.type" value="Entrenamiento">
+                <div class="item-content">
+                   Entrenamiento
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label>
+            
+
 
           <!-- PARTIDO -->
           <form novalidate name="addEventMatch" ng-submit="addEventMatch.$valid && addE(event)" ng-show="event.type == 'Partido'">

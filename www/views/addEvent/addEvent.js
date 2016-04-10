@@ -16,6 +16,7 @@ angular.module('App').controller('addEventController', function (APIfactory, $sc
        /*template: $scope.name*/
      });
 
-  }
+  };
+
 
 });

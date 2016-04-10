@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App').controller('addPlayerController', function (APIfactory, $filter, $scope, $state,$cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
+angular.module('App').controller('addPlayerController', function (APIfactory, $filter, $scope, $state, $ionicModal, $cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
   
   var ref = new Firebase(FURL);
 
@@ -14,7 +14,9 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     initDorsals();
 
     var fecha = new Date("08-14-1993");
-    $scope.fechaMostrar = $filter('date')(fecha, "dd-MM-yyyy");
+    $scope.dateSelected = $filter('date')(fecha, "dd-MM-yyyy");
+    $scope.positionSelected = 'Portero';
+    $scope.dorsalSelected = '1';
 
     var disabledDates = [
       new Date(1437719836326),
@@ -26,6 +28,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     ];
 
     var weekDaysList = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+    $scope.positions = ["Portero", "Defensa", "Centrocampista", "Delantero"];
     var monthList = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   
     var datePickerCallback = function (val) {
@@ -34,7 +37,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     } else {
       console.log('Selected date is : ', val)
       fecha = val;
-      $scope.fechaMostrar = $filter('date')(fecha, "dd-MM-yyyy");
+      $scope.dateSelected = $filter('date')(fecha, "dd-MM-yyyy");
     }
     };
     $scope.datepickerObjectModal = {
@@ -75,9 +78,9 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
       console.log(fecha);
       //Recogemos datos del formulario
       $scope.name = player.name;
-      $scope.position = player.position;
-      $scope.dorsal = player.dorsal;
       player.edad = $scope.calculateAge(fecha);
+      player.position = $scope.positionSelected;
+      player.dorsal = $scope.dorsalSelected;
       $scope.estado = player.condition;
       
       
@@ -101,9 +104,52 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
       //Pop up de confirmación
       var alertPopup = $ionicPopup.alert({
          title: 'Jugador añadido',
-         /*template: $scope.name*/
        });
 
-  }
+      $state.go('tabs.players');
+
+  };
+
+  //Modal Posiciones
+  $ionicModal.fromTemplateUrl('positionModal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal1 = modal;
+  });
+
+  $scope.openPositionModal = function(jugador, num) {
+    $scope.modal1.show();
+  };
+
+  $scope.closePositionModal = function() {
+    $scope.modal1.hide();
+  };
+
+  $scope.assignPosition = function (p) {
+    $scope.closePositionModal();
+    $scope.positionSelected = p;
+  };
+
+  //Modal Dorsales
+  $ionicModal.fromTemplateUrl('dorsalModal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal2 = modal;
+  });
+
+  $scope.openDorsalModal = function(jugador, num) {
+    $scope.modal2.show();
+  };
+
+  $scope.closeDorsalModal = function() {
+    $scope.modal2.hide();
+  };
+
+  $scope.assignDorsal = function (d) {
+    $scope.closeDorsalModal();
+    $scope.dorsalSelected = d;
+  };
 
 });

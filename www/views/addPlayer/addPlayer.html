@@ -7,7 +7,7 @@
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addPlayer.txtName.$invalid && addPlayer.$submitted }">
               <span class="input-label">Nombre</span>
               <input name="txtName" type="text" ng-model="player.name" placeholder="Nombre"
-              ng-minlength="5"
+              ng-minlength="3"
               ng-maxlength="30"
               required>
             </label>
@@ -17,30 +17,27 @@
             <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
               <div class="form-error" ng-message="required">Este campo es obligatorio</div>
               <div class="form-error" ng-message="email">This field must be an email.</div>
-              <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+              <div class="form-error" ng-message="minlength">This field must be at least 3 characters.</div>
               <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
             </div>
 
 
-            <label  class="item item-input item-select" >
+            <label  class="item item-input" >
               <div class="input-label" ng-init = "player.position = 'Portero'">
                 Posición
               </div>
-              <select name="position" ng-model="player.position" >
-                <option>Portero</option>
-                <option>Defensa</option>
-                <option>Centrocampista</option>
-                <option>Delantero</option>
-              </select>
+              <button type="button" class="button button-dark" ng-click="openPositionModal()">
+                  {{positionSelected}}
+              </button>
             </label>
 
-            <label  class="item item-input item-select" >
+            <label  class="item item-input" >
               <div class="input-label">
                 Dorsal
               </div>
-              <select name="dorsal" ng-model="player.dorsal">
-                <option ng-repeat="dorsal in dorsals">{{dorsal}}</option>
-              </select>
+              <button type="button" class="button button-dark" ng-click="openDorsalModal()">
+                  {{dorsalSelected}}
+              </button>
             </label>
 
             <!-- <label class="item-input">
@@ -48,10 +45,12 @@
                   <input type="date" name="fecha" ng-model="player.fecha">
             </label>  -->
             <label  class="item" >
-            <ionic-datepicker input-obj="datepickerObjectModal">
-              <button class="button button-block button-positive"> Fecha de nacimiento</button>
-            </ionic-datepicker>
-            <h3>{{fechaMostrar}}</h3>
+              <div class="input-label">
+                  Fecha de nacimiento
+              </div>
+              <ionic-datepicker input-obj="datepickerObjectModal">
+                <button type="button" class="button button-block button-dark">{{dateSelected}}</button>
+              </ionic-datepicker>
             </label>
 
 
@@ -87,5 +86,38 @@
           </div>
 
         </form>
+
+        <script id="positionModal.html" type="text/ng-template">
+          <ion-modal-view>
+
+              <ion-header-bar>
+                <h1 class="title">Posición</h1>
+              </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                <ion-item ng-repeat="p in positions" ng-click="assignPosition(p)">
+                  {{p}}
+                </ion-item>
+                </ion-list>
+              </ion-content>
+          </ion-modal-view>
+        </script>
+
+        <script id="dorsalModal.html" type="text/ng-template">
+          <ion-modal-view>
+
+              <ion-header-bar>
+                <h1 class="title">Dorsal</h1>
+              </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                <ion-item ng-repeat="d in dorsals" ng-click="assignDorsal(d)">
+                  {{d}}
+                </ion-item>
+                </ion-list>
+              </ion-content>
+          </ion-modal-view>
+        </script>
+
         </ion-content>
 </ion-view>

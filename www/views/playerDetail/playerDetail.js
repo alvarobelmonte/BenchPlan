@@ -71,6 +71,7 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
      });
 
     $scope.editing = false;
+    $scope.botonEdit = 'Editar';
   }
 }
 );
