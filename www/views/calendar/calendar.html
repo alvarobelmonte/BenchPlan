@@ -31,7 +31,7 @@
 
             
         <ion-list show-delete="data.showDelete">
-          <ion-item ng-repeat="event in events | filter: {monthWord: monthSelected, year: yearSelected}" href="#/tabs/calendar/{{event.name}}" class="item-icon-left">
+          <ion-item ng-repeat="event in events | filter: {monthWord: monthSelected, year: yearSelected} | orderBy: 'dayNumber'" href="#/tabs/calendar/{{event.name}}" class="item-icon-left">
             <i class="icon " ng-class="event.type=='Partido' ? 'ion-ios-football-outline' : 'ion-flag'"></i>
       			<span class="item-note">Hora: {{event.hourStart}}</span><br>
             <span class="item-note">Lugar: {{event.place}}</span>
