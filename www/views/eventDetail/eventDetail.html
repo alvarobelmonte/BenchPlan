@@ -13,7 +13,42 @@
 	            <b>Hora <i class="icon ion-clock"></i></b>
 	            <h2>{{event.time | date: "H:mm"}}</h2>
 	            <b>Alineación</b>	
-	         	<h2>Estrategias creadas en Sección "Estrategias"</h2>					
+	         	<h2>Estrategias creadas en Sección "Estrategias"</h2>
+	         	<b>Resultado</b><br>
+	         	<button class="button button-dark" ng-show="!event.finished" ng-click="finishMatch(event.$id)">
+                  Terminar partido
+              	</button>
+              	 <form novalidate  ng-show="event.finished && editing" ng-submit="addLineup.$valid && addAl(lineup)">
+	              	 <div class="button-bar">
+		              Tu equipo 
+		              <button class="button button-dark" ng-click="openGoalsModal(1)">
+		                  {{teamGoals}}
+		              </button>
+		              - <button class="button button-dark" ng-click="openGoalsModal(2)">
+		                  {{rivalGoals}}
+		              </button>
+		                  {{event.rival}} 
+		          	 </div>
+
+		          	 <div class="padding-top" ng-show="editing">
+			            <button class="button button-block button-balanced" ng-click="saveGoals(event.$id)">
+		                  Aceptar
+		              	</button>
+			            <button class="button button-block button-assertive" ng-click="editing=false">
+		                  Cancelar
+		              	</button>
+			         </div>
+
+              	 </form>
+
+              	 <div ng-show="goalsSaved">Tu equipo {{teamGoals}} - {{rivalGoals}}  {{event.rival}}</div>
+
+              	 <div class="padding-top" ng-show="!editing && event.finished">
+			            <button class="button  button-balanced" ng-click="editing=true">
+		                  <i class="radio-icon ion-edit"></i>
+		              	</button>
+			     </div>	
+
 			</div>
 
 			<div ng-show="event.type == 'Entrenamiento'">
@@ -29,5 +64,40 @@
 
 			</ion-item>
 		</ion-list>
+
+		<script id="goalsModal.html" type="text/ng-template">
+          <ion-modal-view>
+
+              <ion-header-bar>
+                <h1 class="title">Goles marcados</h1>
+              </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                <ion-item ng-repeat="n in numbers" ng-click="assignGoals(1, n)">
+                  {{n}}
+                </ion-item>
+                </ion-list>
+              </ion-content>
+          </ion-modal-view>
+
+        </script>
+
+        <script id="goalsModal2.html" type="text/ng-template">
+          <ion-modal-view>
+
+              <ion-header-bar>
+                <h1 class="title">Goles marcados</h1>
+              </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                <ion-item ng-repeat="n in numbers" ng-click="assignGoals(2, n)">
+                  {{n}}
+                </ion-item>
+                </ion-list>
+              </ion-content>
+          </ion-modal-view>
+
+        </script>
+
 	</ion-content>
 </ion-view>

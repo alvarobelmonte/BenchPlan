@@ -138,6 +138,25 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         return eventos;
     };
 
+    interfaz.updateMatch = function(idEvent){
+        var eventRef = ref.child('profile').child($localStorage.userkey).child("event").child(idEvent);
+        eventRef.update({
+            finished: true,
+        });
+    };
+
+    interfaz.updateMatchGoals = function(idEvent, g1, g2){
+        var eventRef = ref.child('profile').child($localStorage.userkey).child("event").child(idEvent);
+        eventRef.update({
+            teamGoals: g1,
+            rivalGoals: g2
+        });
+
+        var alertPopup = $ionicPopup.alert({
+            title: 'Marcador guardado',
+        }); 
+    };
+
     interfaz.pushEvento = function(evento){
         var userRef = ref.child('profile').child($localStorage.userkey).child("event");
         var diaSemana = $filter('date')(evento.day, "EEEE");
@@ -160,7 +179,9 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
                 monthWord: $filter('date')(evento.day, "MMMM"),
                 dayNumber: $filter('date')(evento.day, "d"),
                 hourStart: $filter('date')(evento.hour, "H:mm"),
-                
+                finished: false,
+                teamGoals: 0,
+                rivalGoals: 0
             });
         }
         else if(evento.type == 'Entrenamiento'){
