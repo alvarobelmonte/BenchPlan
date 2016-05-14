@@ -1,7 +1,9 @@
 'Use Strict';
-angular.module('App').controller('addPlayerController', function (APIfactory, $filter, $scope, $state, $ionicModal, $cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
+angular.module('App').controller('addPlayerController', function (APIfactory, $filter, $ionicLoading, $scope, $state, $ionicModal, $cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, $cordovaCamera, $cordovaFileTransfer, Auth, FURL, Utils, Upload, Camara ) {
   
   var ref = new Firebase(FURL);
+
+
 
     //Dorsales
     $scope.dorsals = [];
@@ -17,6 +19,8 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     $scope.dateSelected = $filter('date')(fecha, "dd-MM-yyyy");
     $scope.positionSelected = 'Portero';
     $scope.dorsalSelected = '1';
+    $scope.photoUrl = 'https://cloudinary.com/console/media_library#/dialog/image/upload/perfil_li3dgc';
+    var url = '';
 
     var disabledDates = [
       new Date(1437719836326),
@@ -74,32 +78,28 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     }   
 
     $scope.addP = function (player) {
-      console.log("Enviada peticion crear jugador");
-      console.log(fecha);
+
+      $scope.uploadPicture();
+
       //Recogemos datos del formulario
+      setTimeout(function(){
       $scope.name = player.name;
       player.edad = $scope.calculateAge(fecha);
       player.position = $scope.positionSelected;
       player.dorsal = $scope.dorsalSelected;
+      //alert('url de foto subida a Cloudinary: '+url);  
+      player.photo = url;
       $scope.estado = player.condition;
       
       
-
-
       //Referencia a la rama players del usuario que ha iniciado sesion
       var userRef = ref.child('profile').child($localStorage.userkey).child("player");
 
-      //Introducimos los valores
-      /*userRef.push({
-                  name: $scope.name,
-                  position: $scope.dorsal
-      });*/
 
       player.fecha = fecha;
       APIfactory.pushJugador(player);
-
+    
       //Resetear formulario
-
 
       //Pop up de confirmación
       var alertPopup = $ionicPopup.alert({
@@ -107,7 +107,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
        });
 
       $state.go('tabs.players');
-
+      }, 6000);
   };
 
   //Modal Posiciones
@@ -150,6 +150,46 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
   $scope.assignDorsal = function (d) {
     $scope.closeDorsalModal();
     $scope.dorsalSelected = d;
+  };
+
+
+
+  $scope.uploadPicture = function(){                     
+    
+    Upload.uploadCloud($scope.photoUrl).then(
+          function(res) {
+            url = res.url;
+            $ionicLoading.hide().then(function(){
+                 console.log("The loading indicator is now hidden");
+            });            
+          }, function(err) {
+              alert('error subiendo foto con defer');
+          });
+           
+  };
+
+  $scope.takePicture = function(){
+
+    Camara.takePicture().then(
+          function(res) {
+            $scope.photoUrl = res;
+            //alert('photourl con defer'+ $scope.photoUrl);
+          }, function(err) {
+              alert('error cogiendo foto');
+          });
+    
+  };
+
+  $scope.getPicture = function(){
+
+    Camara.getPicture().then(
+          function(res) {
+            $scope.photoUrl = res;
+            //alert('photourl con defer'+ $scope.photoUrl);
+          }, function(err) {
+              alert('error cogiendo foto');
+          });
+
   };
 
 });

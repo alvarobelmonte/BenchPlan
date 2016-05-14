@@ -53,6 +53,30 @@
               </ionic-datepicker>
             </label>
 
+            <label  class="item" >
+              <div class="input-label">
+                  Foto
+              </div>
+
+             
+                <button type="button" class="button button-block button-dark" ng-click="takePicture()">Hacer foto</button>
+     
+              <img ng-src="{{photoUrl}}" width="100px" height="100px"></img>
+              
+            </label>
+
+            <label  class="item" >
+              <div class="input-label">
+                  Galería Foto
+              </div>
+
+
+                <button type="button" class="button button-block button-dark" ng-click="getPicture()">Galería</button>
+              
+              <img ng-src="{{photoUrl}}" width="100px" height="100px"></img>
+
+            </label>
+
 
             <div class="input-label">
                 Estado

@@ -10,10 +10,8 @@ angular.module('App').controller('addEventController', function (APIfactory, $sc
     //Resetear formulario
 
 
-    //Pop up de confirmación
     var alertPopup = $ionicPopup.alert({
        title: 'Evento añadido',
-       /*template: $scope.name*/
      });
 
   };

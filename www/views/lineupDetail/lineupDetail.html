@@ -1,15 +1,50 @@
 <ion-view view-title="Detalle Alineación">
-	<ion-content has-subheader="false" class="alineaciones">
+	<ion-content has-subheader="false" class="alineaciones" scroll="false">
 
 		
 		
 
-		<div class="l442">
-				<div class="portero" ><a ng-class="pformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p1pos, 1)"> {{player1}}</a></div>
+		<div class="l442" ng-style="{height: iframeHeight + 'px'}" scroll="false">
 				
-				<div class="ld4"><a ng-class="dformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p2pos, 2)"> <br>{{player2}}</br></a></div>
-				<div class="dcd4"><a ng-class="dformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p3pos, 3)"><br>{{player3}}</br></a></div>
-				<div class="dci4"><a ng-class="dformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p4pos, 4)"><br>{{player4}}</br></a></div>
+				<div class="portero">
+					<a  ng-class="pformado" class="button button-icon" ng-click="openModal(p1pos, 1)">
+						<i ng-show="checkPlayerEmpty(player1)"class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player1)" style="width:50px; height:50px;" src="{{player1foto}}">
+					</a>
+					
+					<br>{{player1}}</br>
+				</div>
+
+
+				<div class="ld4">
+					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p2pos, 2)">
+						<i ng-show="checkPlayerEmpty(player2)"class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player2)" style="width:50px; height:50px;" src="{{player2foto}}">
+					</a>
+					
+					<br>{{player2}}</br>
+				</div>
+				
+				
+				<div class="dcd4">
+					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p3pos, 3)">
+						<i ng-show="checkPlayerEmpty(player3)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player3)" style="width:50px; height:50px;" src="{{player3foto}}">
+					</a>
+					
+					<br>{{player3}}</br>
+				</div>
+
+				<div class="dci4">
+					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p4pos, 4)">
+						<i ng-show="checkPlayerEmpty(player4)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player4)" style="width:50px; height:50px;" src="{{player4foto}}">
+					</a>
+					
+					<br>{{player4}}</br>
+				</div>
+
+
 				<div class="li4"><a ng-class="dmformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p5pos, 5)"><br>{{player5}}</br></a></div>
 
 				<div class="ed4"><a ng-class="dm2formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p6pos, 6)"><br>{{player6}}</br></a></div>
@@ -32,8 +67,13 @@
 		    </ion-header-bar>
 		    <ion-content>
 		      <ion-list>
-			      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-		            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
+		          <ion-item>
+			      		<button ng-click="removePlayer(num)" class="button button-assertive">
+			      			Quitar jugador
+						</button>
+				  </ion-item>
+			      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'} | filter:filtroComprobarAlineado"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+		            <img style="width:150px; height:150px;" src="{{ player.photo }}">
 					      <h2><b>{{ player.name }}</b></h2>
 					      <h3 class="player-box po">PO</h3>
 		            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
@@ -51,8 +91,13 @@
 			    </ion-header-bar>
 			    <ion-content>
 			      <ion-list>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
+			      	  <ion-item>
+			      		<button ng-click="removePlayer(num)" class="button button-assertive">
+			      			Quitar jugador
+						</button>
+					  </ion-item>
+				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'} | filter:filtroComprobarAlineado"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+			            <img style="width:150px; height:150px;" src="{{ player.photo }}">
 						      <h2><b>{{ player.name }}</b></h2>
 						      <h3 class="player-box df">DF</h3>
 			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
@@ -72,8 +117,13 @@
 			    </ion-header-bar>
 			    <ion-content>
 			      <ion-list>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
+			      	  <ion-item>
+			      		<button ng-click="removePlayer(num)" class="button button-assertive">
+			      			Quitar jugador
+						</button>
+					  </ion-item>
+				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'} | filter:filtroComprobarAlineado"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+			            <img style="width:150px; height:150px;" src="{{ player.photo }}">
 						      <h2><b>{{ player.name }}</b></h2>
 						      <h3 class="player-box mc">MC</h3>
 			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
@@ -86,12 +136,17 @@
 		<div ng-switch-when="delantero">
 			<div class="modal">
 			    <ion-header-bar>
-			      <h1 class="title">Elegir centrocampista</h1>
+			      <h1 class="title">Elegir delantero</h1>
 			    </ion-header-bar>
 			    <ion-content>
 			      <ion-list>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
+			      	  <ion-item>
+			      		<button ng-click="removePlayer(num)" class="button button-assertive">
+			      			Quitar jugador
+						</button>
+					  </ion-item>
+				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'} | filter: filtroComprobarAlineado"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+			            <img style="width:150px; height:150px;" src="{{ player.photo }}">
 						      <h2><b>{{ player.name }}</b></h2>
 						      <h3 class="player-box dl">DL</h3>
 			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
@@ -122,14 +177,16 @@
 
 	</script>
 
-	<div class="button-bar">
+	</ion-content>
+
+	<ion-footer-bar class="bar-dark">
+	<div class="button-bar fixed-outside">
 		  <button class="button button-assertive" ng-click="openModalFormacion()">
           {{formacion}}
           </button>
           <button class="button button-positive icon ion-android-folder-open" ng-click="saveLineup()"> Guardar</button>
 		  <!-- <select ng-model="formacion.valor" ng-change="update(formacion)" ng-options="f for f in formaciones"></select> -->
 	</div>
-		
-	</ion-content>
+	</ion-footer-bar>
 
 </ion-view>

@@ -58,71 +58,82 @@ label.item.valid-lr {
 
 
 /****ALINEACIONES****/
+.l442{
+  
+  width:100%;
+}
 
+.l442 div{
+  width: 100px;
+  height: auto;
+  line-height: 90%;
+}
 .portero{
-  padding-left: 45%;
-  padding-top: 0%;
+  position: absolute;
+  top: 1%;
+  left: 45%;
 }
 
 .ld4{
-  padding-left: 15%;
-  padding-top: 10%;
-  float: left;
+  position: absolute;
+  top: 20%;
+  left: 10%;
 }
 
 .dcd4{
-  padding-left: 10%;
-  padding-top: 10%;
-  float: left;
+  position: absolute;
+  top: 20%;
+  left: 30%;
 }
 
 .dci4{
-  padding-left: 15%;
-  padding-top: 10%;
-  float: left;
+  position: absolute;
+  top: 20%;
+  left: 55%;
 }
 
 .li4{
-  padding-left: 10%;
-  padding-top: 10%;
-  float: left;
+  position: absolute;
+  top: 20%;
+  left: 75%;
 }
 
 
 .ed4{
-  padding-left: 15%;
-  padding-top: 20%;
-  float: left;
+  position: absolute;
+  top: 45%;
+  left: 10%;
 }
 
 .mcd4{
-  padding-left: 10%;
-  padding-top: 20%;
-  float: left;
+  position: absolute;
+  top: 45%;
+  left: 30%;
+
 }
 
 .mci4{
-  padding-left: 15%;
-  padding-top: 20%;
-  float: left;
+  position: absolute;
+  top: 45%;
+  left: 55%;
 }
 
 .ei4{
-  padding-left: 10%;
-  padding-top: 20%;
-  float: left;
+  position: absolute;
+  top: 45%;
+  left: 75%;
 }
 
 .ddm2{
-  padding-left: 35%;
-  padding-top: 15%;
-  float: left;
+  position: absolute;
+  top: 65%;
+  left: 30%;
 }
 
 .dim2{
-  padding-left: 15%;
-  padding-top: 15%;
-  float: left;
+  position: absolute;
+  top: 65%;
+  left: 55%;
 }
 
 
@@ -166,3 +177,10 @@ label.item.valid-lr {
   background-color: #636363;
 }
 
+.alineaciones div div{
+
+  background-color: green;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}

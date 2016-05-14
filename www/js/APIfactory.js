@@ -24,6 +24,17 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         return playerName;
     };
 
+    interfaz.getFotoJugador = function(idJugador){
+        var nameRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador).child("photo");
+        var playerPhoto;
+        nameRef.on("value", function(snapshot) {
+          playerPhoto = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+        return playerPhoto;
+    };
+
     interfaz.pushJugador = function(jugador){
         var userRef = ref.child('profile').child($localStorage.userkey).child("player");
         userRef.push({
@@ -32,7 +43,8 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
             dorsal: jugador.dorsal,
             date: $filter('date')(jugador.fecha, "dd-MM-yyyy"),
             age: jugador.edad,
-            condition: jugador.condition
+            condition: jugador.condition,
+            photo: jugador.photo
         });
     };
 

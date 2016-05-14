@@ -21,6 +21,11 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
     $scope.p10pos = 'delantero';
     $scope.p11pos = 'delantero';
 
+    var alineado = false;
+
+    $scope.iframeHeight = window.innerHeight;
+    console.log($scope.iframeHeight);
+
     $scope.alineados = [];
     //Array que se envía a la BD
     var players = [];
@@ -145,7 +150,16 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
       for (var i = 0; i < 11; i++) {
         $scope.numJugador = 'player' + (i+1);
         var model = $parse($scope.numJugador);
-        model.assign($scope, APIfactory.getNombreJugador(players[i]));
+        if(players[i]!=''){
+          var nombre = APIfactory.getNombreJugador(players[i]);
+          model.assign($scope, nombre);
+          $scope.fotoJugador = 'player' + (i+1)+'foto';
+          var model = $parse($scope.fotoJugador);
+          var foto = APIfactory.getFotoJugador(players[i]);
+          model.assign($scope, foto);
+        }
+
+        
       }
       $scope.update($scope.formacion);
       }
@@ -173,7 +187,7 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
   $scope.openModal = function(jugador, num) {
     $scope.num = num;
     $scope.jugador = jugador;
-    console.log($scope.jugador);
+    console.log('open modal '+$scope.num);
     $scope.modal1.show();
   };
 
@@ -211,16 +225,37 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
       $scope.numJugador = 'player' + $scope.num;
   
       // Get the model
-      var model = $parse($scope.numJugador);
+      if(players[$scope.num-1]!=''){
+        var model = $parse($scope.numJugador);
 
-      // Assigns a value to it
-      model.assign($scope, APIfactory.getNombreJugador($scope.playerID));
+        // Assigns a value to it
+        model.assign($scope, APIfactory.getNombreJugador($scope.playerID));
+        
+        $scope.fotoJugador = 'player' + $scope.num +'foto';
+    
+        // Get the model
+        var model2 = $parse($scope.fotoJugador);
+        model2.assign($scope, APIfactory.getFotoJugador($scope.playerID));
 
-      // Apply it to the scope
-      //$scope.$apply();
+        // Apply it to the scope
+        //$scope.$apply();
 
-      console.log($scope.numJugador);
-      //$scope.player+$scope.numJugador = APIfactory.getNombreJugador($scope.playerID);
+        console.log($scope.numJugador);
+        console.log($scope.fotoJugador);
+        //$scope.player+$scope.numJugador = APIfactory.getNombreJugador($scope.playerID);
+      }
+      else{
+        var model = $parse($scope.numJugador);
+
+        // Assigns a value to it
+        model.assign($scope, '');
+        
+        $scope.fotoJugador = 'player' + $scope.num +'foto';
+    
+        // Get the model
+        var model2 = $parse($scope.fotoJugador);
+        model2.assign($scope, '');
+      }
   };
 
   $scope.setFormation = function (f) {
@@ -232,11 +267,39 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
 
   $scope.saveLineup = function () {
       var formacion = $scope.formacion;
+      for(var i=0; i<=10; i++){
+        if(players[i]==undefined)
+          players[i] = '';
+      }
+
       APIfactory.updateLineup($scope.lineupID, formacion, players);
       var alertPopup = $ionicPopup.alert({
          title: 'Alineación guardada',
          /*template: $scope.name*/
       });
+  };
+
+  $scope.filtroComprobarAlineado = function(item) {
+      alineado = players.indexOf(item.$id) > -1;
+      return !alineado;
+  };
+
+  $scope.removePlayer= function(jugador) {
+      players[jugador-1] = '';
+      $scope.numJugador = 'player' + $scope.num;
+      console.log('numjug ' + $scope.numJugador);
+      $scope.updateDivPlayer();
+      $scope.closeModal();
+      console.log('player1: '+$scope.player1);
+  };
+
+    $scope.checkPlayerEmpty= function(jugador) {
+      var vacio;
+      if(jugador=='')
+        vacio = true;
+      else
+        vacio = false;
+      return vacio;
   };
 
 }

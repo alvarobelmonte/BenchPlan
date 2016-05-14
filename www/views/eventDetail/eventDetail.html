@@ -5,6 +5,7 @@
 			
 			<div ng-show="event.type == 'Partido'">
 	            <h1>{{event.type}} vs {{event.rival}} | {{event.dayWeek}} {{event.dayNumber}}</h1></h1>
+	            <h2 style="text-align: center" ng-show="goalsSaved">Tu equipo {{teamGoals}} - {{rivalGoals}} {{event.rival}}</h2>
 	            <b>{{event.name}} </b><br>
 	            <b>Lugar</b>
 	            <h2>{{event.place}}</h2>
@@ -18,7 +19,11 @@
 	         	<button class="button button-dark" ng-show="!event.finished" ng-click="finishMatch(event.$id)">
                   Terminar partido
               	</button>
+              	<div>
+
+              	</div>
               	 <form novalidate  ng-show="event.finished && editing" ng-submit="addLineup.$valid && addAl(lineup)">
+	              	 <h2>Editar resultado</h2>
 	              	 <div class="button-bar">
 		              Tu equipo 
 		              <button class="button button-dark" ng-click="openGoalsModal(1)">
@@ -41,7 +46,7 @@
 
               	 </form>
 
-              	 <div ng-show="goalsSaved">Tu equipo {{teamGoals}} - {{rivalGoals}}  {{event.rival}}</div>
+              
 
               	 <div class="padding-top" ng-show="!editing && event.finished">
 			            <button class="button  button-balanced" ng-click="editing=true">

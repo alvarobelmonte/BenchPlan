@@ -30,7 +30,7 @@ $stateProvider
       views: {
         'players-tab' : {
           templateUrl: 'views/players/players.html',
-          controller:'playersController'
+          controller:'playersController',
         }
       }
     }) 
@@ -129,7 +129,7 @@ $stateProvider
       views: {
         'calendar-tab' : {
           templateUrl: 'views/eventDetail/eventDetail.html',
-          controller:'calendarController'
+          controller:'eventDetailController'
         }
       }
     });
