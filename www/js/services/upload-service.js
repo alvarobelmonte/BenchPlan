@@ -116,7 +116,11 @@
 							}, function (progress) {
 				            //percentage = Math.floor(progress.loaded / fileSize * 100);
 				            $ionicLoading.show({
-						      template: 'Loading...'
+						      content: 'Cargando',
+							  animation: 'fade-in',
+							  showBackdrop: true,
+							  maxWidth: 200,
+							  showDelay: 0
 						    }).then(function(){
 						       console.log("The loading indicator is now displayed");
 						    });

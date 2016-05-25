@@ -114,6 +114,18 @@ angular.module('App').controller('calendarController', function (APIfactory, $io
   };
 
 
+  $scope.resultClass = function (res) {
+    var clase;
+    if(res == 'Victoria')
+      clase = 'victoria';
+    else if(res == 'Derrota')
+      clase = 'derrota';
+    else if(res == 'Empate')
+      clase = 'empate';
+    return clase;
+
+  };
+
  
 }
 );

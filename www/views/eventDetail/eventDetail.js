@@ -25,8 +25,18 @@ angular.module('App').controller('eventDetailController', function (APIfactory, 
     
     APIfactory.updateMatch(idEvent);
     console.log($scope.yearSelected);
+    $scope.getGoals(idEvent);
+  };
+
+  $scope.getGoals = function (idEvent) {
+    
+    $scope.teamGoals = APIfactory.getTeamGoals(idEvent);
+    $scope.rivalGoals = APIfactory.getRivalGoals(idEvent);
 
   };
+
+
+
 
   //Modal 1
   $ionicModal.fromTemplateUrl('goalsModal.html', {
@@ -66,9 +76,21 @@ angular.module('App').controller('eventDetailController', function (APIfactory, 
   };
 
   $scope.saveGoals = function (idEvent) {
-    APIfactory.updateMatchGoals(idEvent, $scope.teamGoals, $scope.rivalGoals);
     $scope.editing = false;
+    APIfactory.updateMatchGoals(idEvent, $scope.teamGoals, $scope.rivalGoals);  
+    APIfactory.updateMatchResult(idEvent, $scope.teamGoals, $scope.rivalGoals);    
+    console.log($scope.editing);
     $scope.goalsSaved = true;
+    $scope.getGoals(idEvent);
+  };
+
+  $scope.edit = function (idEvent) {
+      $scope.editing = true;
+      $scope.getGoals(idEvent);
+  };
+
+  $scope.stopEdit = function () {
+      $scope.editing = false;
   };
 
 }

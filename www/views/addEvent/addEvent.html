@@ -57,13 +57,6 @@
                   required>
                 </label>
 
-                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEventMatch.txtPlace.$invalid && addEventMatch.$submitted }">
-                  <span class="input-label">Lugar</span>
-                  <input name="txtPlace" type="text" ng-model="event.place" placeholder="Lugar"
-                  ng-minlength="5"
-                  ng-maxlength="20"
-                  required>
-                </label>
 
                 <label class="item-input">
                       <span class="input-label">Día</span>
@@ -74,7 +67,25 @@
                       <span class="input-label">Hora</span>
                       <input type="time" name="hora" ng-model="event.hour">
                 </label>
-            </div>
+
+                <div class="input-label">
+                Lugar
+                </div>
+                <label class="item item-radio" ng-init ="player = {place: 'En casa'}">
+                    <input type="radio" name="group1" ng-model="event.place" value="En casa">
+                    <div class="item-content">
+                       En casa
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                <label class="item item-radio">
+                    <input type="radio" name="group1" ng-model="event.place" value="Fuera">
+                    <div class="item-content">
+                       Fuera
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+
+                </div>
 
             <div class="padding-top">
               <input type="submit" class="button button-block button-positive" value="Añadir Partido">

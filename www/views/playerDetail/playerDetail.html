@@ -6,7 +6,7 @@
         </button>
 
 		<ion-list class="list-inset" >
-			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {name: whichplayer}">
+			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {$id: whichplayer}">
 				<img style="width:150px; height:150px;" src="{{player.photo}}">
 	            <div ng-switch on="editing">
 				<div ng-switch-when="false">

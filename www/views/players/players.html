@@ -21,7 +21,7 @@
           <div class="item item-divider item-divider-dark" style="text-align: center; background-color: #444444; color: white;">
             Porteros
           </div>
-          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}" href="#/tabs/players/{{player.name}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}" href="#/tabs/players/{{player.$id}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
             <img style="width:150px; height:150px;" src="{{player.photo}}">
 			      <h2><b>{{ player.name }}</b></h2>
 			      <h3 class="player-box po">PO</h3>

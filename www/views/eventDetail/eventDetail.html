@@ -1,11 +1,14 @@
 <ion-view view-title="Evento">
 	<ion-content has-subheader="false">
 		<ion-list class="list-inset">
-			<ion-item class="item-text-wrap" ng-repeat="event in events| filter: {name: whichevent}">
+			<ion-item class="item-text-wrap" ng-repeat="event in events| filter: {$id: whichevent}">
 			
 			<div ng-show="event.type == 'Partido'">
 	            <h1>{{event.type}} vs {{event.rival}} | {{event.dayWeek}} {{event.dayNumber}}</h1></h1>
-	            <h2 style="text-align: center" ng-show="goalsSaved">Tu equipo {{teamGoals}} - {{rivalGoals}} {{event.rival}}</h2>
+	            <h2 style="text-align: center" ng-show="{{event.finished}}">
+	            <div ng-hide="event.place == 'Fuera'">Tu equipo {{event.teamGoals}} - {{event.rivalGoals}} {{event.rival}}</div>
+	            <div ng-hide="event.place == 'En casa'">{{event.rival}} {{event.rivalGoals}} - {{event.teamGoals}} Tu equipo</div>
+	            </h2>
 	            <b>{{event.name}} </b><br>
 	            <b>Lugar</b>
 	            <h2>{{event.place}}</h2>
@@ -15,16 +18,16 @@
 	            <h2>{{event.time | date: "H:mm"}}</h2>
 	            <b>Alineación</b>	
 	         	<h2>Estrategias creadas en Sección "Estrategias"</h2>
-	         	<b>Resultado</b><br>
+	         	<b>Resultado</b><br>	         
 	         	<button class="button button-dark" ng-show="!event.finished" ng-click="finishMatch(event.$id)">
                   Terminar partido
               	</button>
               	<div>
 
               	</div>
-              	 <form novalidate  ng-show="event.finished && editing" ng-submit="addLineup.$valid && addAl(lineup)">
-	              	 <h2>Editar resultado</h2>
-	              	 <div class="button-bar">
+              	 <form novalidate  ng-show="event.finished && editing" ng-submit="">
+
+	              	 <div ng-hide="event.place == 'Fuera'" class="button-bar">
 		              Tu equipo 
 		              <button class="button button-dark" ng-click="openGoalsModal(1)">
 		                  {{teamGoals}}
@@ -35,11 +38,22 @@
 		                  {{event.rival}} 
 		          	 </div>
 
+		          	 <div ng-hide="event.place == 'En casa'" class="button-bar">
+		               {{event.rival}} 
+		              <button class="button button-dark" ng-click="openGoalsModal(2)">
+		                  {{rivalGoals}}
+		              </button>
+		              - <button class="button button-dark" ng-click="openGoalsModal(1)">
+		                  {{teamGoals}}
+		              </button>
+		                Tu equipo
+		          	 </div>
+
 		          	 <div class="padding-top" ng-show="editing">
 			            <button class="button button-block button-balanced" ng-click="saveGoals(event.$id)">
 		                  Aceptar
 		              	</button>
-			            <button class="button button-block button-assertive" ng-click="editing=false">
+			            <button class="button button-block button-assertive" ng-click="stopEdit()">
 		                  Cancelar
 		              	</button>
 			         </div>
@@ -48,9 +62,9 @@
 
               
 
-              	 <div class="padding-top" ng-show="!editing && event.finished">
-			            <button class="button  button-balanced" ng-click="editing=true">
-		                  <i class="radio-icon ion-edit"></i>
+              	 <div class="padding-top" ng-show="event.finished && !editing">
+			            <button class="button  button-balanced" ng-click="edit(event.$id)">
+		                  <i class="radio-icon ion-edit"> Editar</i>
 		              	</button>
 			     </div>	
 

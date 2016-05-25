@@ -169,6 +169,46 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         }); 
     };
 
+    interfaz.updateMatchResult = function(idEvent, g1, g2){
+        var eventRef = ref.child('profile').child($localStorage.userkey).child("event").child(idEvent);
+        var resultado;
+        if(g1 > g2)
+            resultado = 'Victoria';
+        else if(g1 < g2)
+            resultado = 'Derrota';
+        else if(g1 == g2)
+            resultado = 'Empate';
+
+        eventRef.update({
+            result: resultado
+        });
+
+    };
+
+    interfaz.getTeamGoals = function(idEvent){
+        var goalsRef = ref.child('profile').child($localStorage.userkey).child("event").child(idEvent).child("teamGoals");
+        var teamGoals;
+        goalsRef.on("value", function(snapshot) {
+          teamGoals = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+        return teamGoals;
+    };
+
+    interfaz.getRivalGoals = function(idEvent){
+        var goalsRef = ref.child('profile').child($localStorage.userkey).child("event").child(idEvent).child("rivalGoals");
+        var rivalGoals;
+        goalsRef.on("value", function(snapshot) {
+          rivalGoals = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+        return rivalGoals;
+    };
+
+
+
     interfaz.pushEvento = function(evento){
         var userRef = ref.child('profile').child($localStorage.userkey).child("event");
         var diaSemana = $filter('date')(evento.day, "EEEE");
@@ -193,7 +233,8 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
                 hourStart: $filter('date')(evento.hour, "H:mm"),
                 finished: false,
                 teamGoals: 0,
-                rivalGoals: 0
+                rivalGoals: 0,
+                result: ''
             });
         }
         else if(evento.type == 'Entrenamiento'){
