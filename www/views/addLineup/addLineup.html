@@ -7,25 +7,24 @@
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addLineup.txtName.$invalid && addLineup.$submitted }">
               <span class="input-label">Nombre</span>
               <input name="txtName" type="text" ng-model="lineup.name" placeholder="Nombre"
-              ng-minlength="0"
-              ng-maxlength="30"
+              ng-minlength="3"
+              ng-maxlength="10"
               required>
             </label>
 
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addLineup.txtName.$invalid && addLineup.$submitted }">
               <span class="input-label">Descripción</span>
               <input name="txtName" type="text" ng-model="lineup.description" placeholder="Descripción"
-              ng-minlength="0"
-              ng-maxlength="300"
+              ng-minlength="3"
+              ng-maxlength="20"
               required>
             </label>
 
             <!-- Edit this messages if you want -->
             <div class="form-errors" ng-messages="addLineup.txtName.$error" ng-if="addLineup.$submitted">
-              <div class="form-error" ng-message="required">This field is required.</div>
-              <div class="form-error" ng-message="email">This field must be an email.</div>
-              <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
-              <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
+              <div class="form-error" ng-message="required">Este campo es obligatorio</div>    
+              <div class="form-error" ng-message="minlength">Este campo debe tener al menos 3 caracteres</div>
+              <div class="form-error" ng-message="maxlength">Este campo debe tener al menos 3 caracteres</div>
             </div>
 
 
@@ -34,7 +33,7 @@
 
 
           <div class="padding-top">
-            <input type="submit" class="button button-block button-positive" value="Añadir">
+            <input type="submit" class="button button-block button-balanced" ng-disabled="addLineup.$invalid" value="Añadir">
             <p class="text-center padding-top">
                 <a href="#/tabs/lineups" class="button button-clear button-positive">Volver</a>
           </div>

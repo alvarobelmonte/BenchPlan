@@ -15,6 +15,15 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+/*$dark:                            #152561 !default;
+$balanced:                        #213FAD !default;
+$calm:                       #3750AD !default;*/
+
+$dark:                            #070D06 !default;
+$balanced:                        #4d8b3f !default;
+$calm:                            #5AA849 !default;
+
+
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -22,3 +31,289 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+
+.larger {
+    font-size: 120px;
+}
+
+
+/** Error Messages **/
+
+/** Styling for the username field **/
+label.item.has-error {
+  border-bottom: 2px solid red;
+}
+
+/** Styling for the password field when an error exists**/
+label.item.has-error-lr {
+  border-bottom: 2px solid red;
+}
+
+/** Styling for the password field when an error has been resolved**/
+label.item.valid-lr {
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+}
+
+/** Styling for the error text and container **/
+.form-errors {
+  margin: 5px 0
+}
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: red;
+}
+
+
+
+h1{
+  text-align: center;
+}
+
+.alineaciones{
+	background: url(../img/alineaciones.png) no-repeat center center fixed;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+}
+.alineacion-icon{
+  width: 30px;
+  height: auto;
+}
+
+.disponible{
+  color: green;
+}
+.lesionado{
+  color: red;
+}
+
+
+
+/****ALINEACIONES****/
+
+.alineacion b{
+  background-color: $dark;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 25%;
+}
+.alineacion p{
+   line-height: 1%;
+}
+
+.l442{
+  
+  width:100%;
+}
+
+.l442 div{
+  width: 100px;
+  height: auto;
+  line-height: 90%;
+}
+.portero{
+  position: absolute;
+  top: 1%;
+  left: 42%;
+}
+
+.def{
+	position: absolute;
+	top: 20%;
+}
+/*4-4-2*/
+.df4p1{
+  left: 10%;
+}
+.df4p2{
+  left: 30%;
+}
+.df4p3{
+  left: 55%;
+}
+.df4p4{
+  left: 75%;
+}
+
+/*3-4-3*/
+.df3p1{
+  left: 20%;
+}
+.df3p2{
+  left: 42%;
+}
+.df3p3{
+  left: 65%;
+}
+
+.df5p1{
+  left: 5%;
+}
+.df5p2{
+  left: 20%;
+}
+.df5p3{
+  left: 39%;
+}
+.df5p4{
+  left: 58%;
+}
+.df5p5{
+  left: 78%;
+}
+
+
+.mc1{
+  position: absolute;
+  top: 40%;
+}
+
+.mc2{
+  position: absolute;
+  top: 60%;
+}
+
+.m4p1{
+  left: 10%;
+}
+.m4p2{
+  left: 30%;
+}
+.m4p3{
+  left: 55%;
+}
+.m4p4{
+  left: 75%;
+}
+
+
+
+.del{
+  position: absolute;
+  top: 80%;
+}
+
+.dl2p1{
+  left: 30%;
+}
+
+.dl2p2{
+  left: 55%;
+}
+
+.ed4{
+  position: absolute;
+  top: 45%;
+  left: 10%;
+}
+
+.mcd4{
+  position: absolute;
+  top: 45%;
+  left: 30%;
+
+}
+
+.mci4{
+  position: absolute;
+  top: 45%;
+  left: 55%;
+}
+
+.ei4{
+  position: absolute;
+  top: 45%;
+  left: 75%;
+}
+
+.ddm2{
+  position: absolute;
+  top: 60%;
+  left: 30%;
+}
+
+.dim2{
+  position: absolute;
+  top: 80%;
+  left: 55%;
+}
+
+
+
+/*Players*/
+
+.player-box{
+  width: 25px;
+  height: auto;
+  color:white;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.po{
+  background-color: #53917E;
+}
+
+.df{
+  background-color: #6E0D25;
+}
+
+.mc{
+  background-color: #5A54C4;
+}
+
+.dl{
+  background-color: #C97064;
+}
+
+
+
+.dorsal-box{
+  width: 20px;
+  height: 20px;
+  color:white;
+  text-align: center;
+  line-height: 20px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #636363;
+}
+
+.alineaciones div div{
+
+  /*background-color: green;*/
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+
+.victoria{
+  color: green;
+}
+
+.derrota{
+  color: red;
+}
+
+.empate{
+  color: orange;
+}
+
+.circular{
+  width:60px; 
+  height:60px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border: 3px black;
+}
+
+.profile{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

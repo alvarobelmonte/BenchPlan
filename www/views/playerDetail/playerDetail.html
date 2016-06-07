@@ -6,8 +6,8 @@
         </button>
 
 		<ion-list class="list-inset" >
-			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {$id: whichplayer}">
-				<img style="width:150px; height:150px;" src="{{player.photo}}">
+			<ion-item class="item-text-wrap" >
+				<img style="width:150px; height:150px;" class="circular profile" src="{{player.photo}}">
 	            <div ng-switch on="editing">
 				<div ng-switch-when="false">
 		            <h1>{{player.dorsal}} {{player.name}}</h1>
@@ -27,41 +27,74 @@
 	            <div ng-switch on="editing">
 	            <div ng-switch-when="true">
 				<form novalidate name="editPlayer" ng-submit="editPlayer.$valid && editP(player)">
-		            <b>Dorsal</b><br>
-		            <select name="dorsal" ng-model="player.dorsal">
-	                	<option ng-repeat="dorsal in dorsals">{{dorsal}}</option>
-	              	</select><br>
-		            <b>Nombre</b>
-		            <input type="text" name="" ng-model="player.name" value="{{playerEdited.name}}">
+				
+				<label class="item item-input item-floating-label" ng-class="{ 'has-error' : editPlayer.txtName.$invalid && editPlayer.$submitted }">
+	              <span class="input-label">Nombre</span>
+	              <input name="txtName" type="text" ng-model="player.name" placeholder="Nombre"
+	              ng-minlength="3"
+	              ng-maxlength="11"
+	              required>
+	            </label>
 
-		            <label  class="item item-input item-select" >
-		              <div class="input-label">
+
+		            <!-- Edit this messages if you want -->
+		            <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
+		              <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+		              <div class="form-error" ng-message="email">This field must be an email.</div>
+		              <div class="form-error" ng-message="minlength">This field must be at least 3 characters.</div>
+		              <div class="form-error" ng-message="maxlength">This field must be less than 11 characters.</div>
+		            </div>
+
+		            <label  class="item item-input" >
+		              <div class="input-label" ng-init = "player.position = 'Portero'">
 		                Posición
 		              </div>
-		              <select name="position" ng-model="player.position">
-		                <option>Portero</option>
-		                <option>Defensa</option>
-		                <option>Centrocampista</option>
-		                <option>Delantero</option>
-		              </select>
+		              <button type="button" class="button button-dark" ng-click="openPositionModal()">
+		                  {{positionSelected}}
+		              </button>
 		            </label>
 
-		            <label class="item-input">
-	                  <span class="input-label">Fecha de nacimiento</span>
-	                  <input type="date" name="fecha" ng-model="player.fecha">
-	            	</label>
+		            <label  class="item item-input" >
+		              <div class="input-label">
+		                Dorsal
+		              </div>
+		              <button type="button" class="button button-dark" ng-click="openDorsalModal()">
+		                  {{dorsalSelected}}
+		              </button>
+		            </label>		            
+
+		            <label  class="item" >
+		              <div class="input-label">
+		                  Fecha de nacimiento
+		              </div>
+		              <ionic-datepicker input-obj="datepickerObjectModal">
+		                <button type="button" class="button button-block button-dark">{{dateSelected}}</button>
+		              </ionic-datepicker>
+		            </label>
 	     
-		            <b>Estado</b><br>
-		              <select name="condition" ng-model="player.condition">
-		                <option>Disponible</option>
-		                <option>Lesionado</option>
-		              </select><br>
+		            <div class="input-label">
+		                Estado
+		            </div>
+		            <label class="item item-radio" ng-init ="player = {condition: 'Disponible'}">
+		                <ion-radio name="group1" ng-model="player.condition" value="Disponible">
+		                   Disponible
+						</ion-radio>
+		            <label class="item item-radio">
+		                <ion-radio name="group1" ng-model="player.condition" value="Lesionado">
+		                   Lesionado
+		                </ion-radio>
+		            </label>
+		            
+		            </label>
+
+
 		       		<b>Anotaciones</b>
 		            <input type="text" name="" value="{{player.notes}}">
 
 					<input type="submit" class="button button-block button-balanced" value="Aceptar">
 
 				</form>
+
 				</div>
 	            </div>
 	         </ion-item>
@@ -69,7 +102,41 @@
 		
 			
 
-			<a href="#/tabs/players" class="button button-clear button-positive">Volver a Plantilla</a>
+			
 		</ion-list>
+
+
+		<script id="positionModal.html" type="text/ng-template">
+          <ion-modal-view>
+
+              <ion-header-bar>
+                <h1 class="title">Posición</h1>
+              </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                <ion-item ng-repeat="p in positions" ng-click="assignPosition(p)">
+                  {{p}}
+                </ion-item>
+                </ion-list>
+              </ion-content>
+          </ion-modal-view>
+        </script>
+
+        <script id="dorsalModal.html" type="text/ng-template">
+          <ion-modal-view>
+
+              <ion-header-bar>
+                <h1 class="title">Dorsal</h1>
+              </ion-header-bar>
+            <ion-content>
+                <ion-list>
+                <ion-item ng-repeat="d in dorsals" ng-click="assignDorsal(d)">
+                  {{d}}
+                </ion-item>
+                </ion-list>
+              </ion-content>
+          </ion-modal-view>
+        </script>
+
 	</ion-content>
 </ion-view>

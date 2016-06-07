@@ -13,6 +13,19 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         return jugadores;
     };
 
+
+    interfaz.getPlayer = function(idJugador){
+        var nameRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador);
+        var player;
+        nameRef.on("value", function(snapshot) {
+          player = snapshot.val();
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+
+        return player;
+    };
+
     interfaz.getNombreJugador = function(idJugador){
         var nameRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador).child("name");
         var playerName;
@@ -230,7 +243,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
                 year: year,
                 monthWord: $filter('date')(evento.day, "MMMM"),
                 dayNumber: $filter('date')(evento.day, "d"),
-                hourStart: $filter('date')(evento.hour, "H:mm"),
+                hourStart: evento.startHour,
                 finished: false,
                 teamGoals: 0,
                 rivalGoals: 0,
@@ -250,8 +263,10 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
                 dayWeek:  diaSemana,
                 year: year,
                 dayNumber: $filter('date')(evento.day, "d"),
-                hourStart: $filter('date')(evento.hourStart, "H:mm"),
-                hourEnd: $filter('date')(evento.hourEnd, "H:mm"),
+                hourStart: evento.startHour,
+                hourEnd: evento.endHour
+                /*hourStart: $filter('date')(evento.hourStart, "H:mm"),
+                hourEnd: $filter('date')(evento.hourEnd, "H:mm"),*/
             }); 
         }
     };

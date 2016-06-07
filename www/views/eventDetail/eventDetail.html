@@ -15,7 +15,7 @@
 	            <b>Día</b>
 	            <h2>{{event.date}}</h2>	
 	            <b>Hora <i class="icon ion-clock"></i></b>
-	            <h2>{{event.time | date: "H:mm"}}</h2>
+	            <h2>{{event.hourStart}}</h2>
 	            <b>Alineación</b>	
 	         	<h2>Estrategias creadas en Sección "Estrategias"</h2>
 	         	<b>Resultado</b><br>	         
@@ -76,7 +76,7 @@
 	            <b>Lugar</b>
 	            <h2>{{event.place}}</h2>
 	            <b>Hora  <i class="icon ion-clock"></i> </b>
-	            <h2>De {{event.hourStart | date: "H:mm"}} a {{event.hourEnd | date: "H:mm"}}</h2>	
+	            <h2>De {{event.hourStart}} a {{event.hourEnd}}</h2>	
 	         	<b>Ejercicios</b>	
 	         	<h2>Estrategias creadas en Sección "Estrategias"</h2>	
 			</div>

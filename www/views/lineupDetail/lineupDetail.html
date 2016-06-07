@@ -4,56 +4,130 @@
 		
 		
 
-		<div class="l442" ng-style="{height: iframeHeight + 'px'}" scroll="false">
+		<div class="alineacion l442" ng-style="{height: iframeHeight + 'px'}" scroll="false">
 				
 				<div class="portero">
+					<p>
 					<a  ng-class="pformado" class="button button-icon" ng-click="openModal(p1pos, 1)">
 						<i ng-show="checkPlayerEmpty(player1)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player1)" class="circular" style="width:50px; height:50px;" src="{{player1foto}}">
+						<img ng-show="!checkPlayerEmpty(player1)" class="circular" src="{{player1foto}}">
 					</a>
 					
-					<br>{{player1}}</br>
+					<br><b>{{player1}}</b></br>
+					</p>
 				</div>
 
 
-				<div class="ld4">
+				<div ng-class="p2class">
+					<p>
 					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p2pos, 2)">
 						<i ng-show="checkPlayerEmpty(player2)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player2)" class="circular" style="width:50px; height:50px;" src="{{player2foto}}">
+						<img ng-show="!checkPlayerEmpty(player2)" class="circular" src="{{player2foto}}">
 					</a>
 					
-					<br>{{player2}}</br>
+					<br><b>{{player2}}</b></br>
+					</p>
 				</div>
 				
 				
-				<div class="dcd4">
+				<div ng-class="p3class">
+					<p>
 					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p3pos, 3)">
 						<i ng-show="checkPlayerEmpty(player3)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player3)" class="circular" style="width:50px; height:50px;" src="{{player3foto}}">
+						<img ng-show="!checkPlayerEmpty(player3)" class="circular" src="{{player3foto}}">
 					</a>
 					
-					<br>{{player3}}</br>
+					<br><b>{{player3}}</b></br>
+					</p>
 				</div>
 
-				<div class="dci4">
+				<div ng-class="p4class">
+					<p>
 					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p4pos, 4)">
 						<i ng-show="checkPlayerEmpty(player4)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player4)" class="circular" style="width:50px; height:50px;" src="{{player4foto}}">
+						<img ng-show="!checkPlayerEmpty(player4)" class="circular" src="{{player4foto}}">
 					</a>
 					
-					<br>{{player4}}</br>
+					<br><b>{{player4}}</b></br>
+					</p>
 				</div>
 
+				<div ng-class="p5class">
+					<p>
+					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p5pos, 5)">
+						<i ng-show="checkPlayerEmpty(player5)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player5)" class="circular" src="{{player5foto}}">
+					</a>
+					
+					<br><b>{{player5}}</b></br>
+					</p>
+				</div>
 
-				<div class="li4"><a ng-class="dmformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p5pos, 5)"><br>{{player5}}</br></a></div>
+				<div ng-class="p6class">
+					<p>
+					<a  ng-class="dm2formado" class="button button-icon" ng-click="openModal(p6pos, 6)">
+						<i ng-show="checkPlayerEmpty(player6)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player6)" class="circular" src="{{player6foto}}">
+					</a>
+					
+					<br><b>{{player6}}</b></br>
+					</p>
+				</div>
 
-				<div class="ed4"><a ng-class="dm2formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p6pos, 6)"><br>{{player6}}</br></a></div>
-				<div class="mcd4"><a ng-class="mformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p7pos, 7)"><br>{{player7}}</br></a></div>
-				<div class="mci4"><a ng-class="m2formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p8pos, 8)"><br>{{player8}}</br></a></div>
-				<div class="ei4"><a ng-class="md1formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p9pos, 9)"><br>{{player9}}</br></a></div>
+				<div ng-class="p7class">
+					<p>
+					<a  ng-class="mformado" class="button button-icon" ng-click="openModal(p7pos, 7)">
+						<i ng-show="checkPlayerEmpty(player7)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player7)" class="circular" src="{{player7foto}}">
+					</a>
+					
+					<br><b>{{player7}}</b></br>
+					</p>
+				</div>
 
-				<div class="ddm2"><a ng-class="md2formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p10pos, 10)"><br>{{player10}}</br></a></div>
-				<div class="dim2"><a ng-class="dlformado"class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p11pos, 11)"><br>{{player11}}</br></a></div>
+				<div ng-class="p8class">
+					<p>
+					<a  ng-class="m2formado" class="button button-icon" ng-click="openModal(p8pos, 8)">
+						<i ng-show="checkPlayerEmpty(player8)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player8)" class="circular" src="{{player8foto}}">
+					</a>
+					
+					<br><b>{{player8}}</b></br>
+					</p>
+				</div>
+
+				<div ng-class="p9class">
+					<p>
+					<a  ng-class="md1formado" class="button button-icon" ng-click="openModal(p9pos, 9)">
+						<i ng-show="checkPlayerEmpty(player9)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player9)" class="circular" src="{{player9foto}}">
+					</a>
+					
+					<br><b>{{player9}}</b></br>
+					</p>
+				</div>
+
+				<div ng-class="p10class">
+					<p>
+					<a  ng-class="md2formado" class="button button-icon" ng-click="openModal(p10pos, 10)">
+						<i ng-show="checkPlayerEmpty(player10)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player10)" class="circular" src="{{player10foto}}">
+					</a>
+					
+					<br><b>{{player10}}</b></br>
+					</p>
+				</div>
+
+				<div ng-class="p11class">
+					<p>
+					<a  ng-class="dlformado" class="button button-icon" ng-click="openModal(p11pos, 11)">
+						<i ng-show="checkPlayerEmpty(player11)" class="icon ion-plus-circled stable"></i>
+						<img ng-show="!checkPlayerEmpty(player11)" class="circular" src="{{player11foto}}">
+					</a>
+					
+					<br><b>{{player11}}</b></br>
+					</p>
+				</div>
 			
 		</div>
 
@@ -181,10 +255,10 @@
 
 	<ion-footer-bar class="bar-dark">
 	<div class="button-bar fixed-outside">
-		  <button class="button button-assertive" ng-click="openModalFormacion()">
+		  <button class="button button-calm" ng-click="openModalFormacion()">
           {{formacion}}
           </button>
-          <button class="button button-positive icon ion-android-folder-open" ng-click="saveLineup()"> Guardar</button>
+          <button class="button button-balanced icon ion-android-folder-open" ng-click="saveLineup()"> Guardar</button>
 		  <!-- <select ng-model="formacion.valor" ng-change="update(formacion)" ng-options="f for f in formaciones"></select> -->
 	</div>
 	</ion-footer-bar>

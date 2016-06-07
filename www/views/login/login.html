@@ -1,7 +1,7 @@
-<ion-view view-title="Firebase Starter Pack" hide-back-button="true">
+<ion-view view-title="BenchPlan" hide-back-button="true">
         <ion-content class="padding-top">
           <div class="list text-center padding">
-            <i class="icon ion-ios-game-controller-b larger positive"></i>
+            <img style="width:150px; height:150px;" class="circular profile" src="img/icon.png">
           </div>
           <form novalidate name="loginForm" ng-submit="loginForm.$valid && signIn(user)">
           <div class="list">
@@ -20,8 +20,8 @@
               <div class="form-error" ng-message="maxlength">This field is must be less than 30 characters.</div>
             </div>
             <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : loginForm.txtPassword.$invalid && loginForm.$submitted }">
-              <span class="input-label">Password</span>
-              <input name="txtPassword" type="password" ng-model="user.password" placeholder="Password"
+              <span class="input-label">Contraseña</span>
+              <input name="txtPassword" type="password" ng-model="user.password" placeholder="Contraseña"
               ng-minlength="5"
               ng-maxlength="30"
               required>
@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="padding-top">
-            <input type="submit" class="button button-block button-positive" value="Sign-In">
+            <input type="submit" class="button button-block button-positive" value="Login">
             <p class="text-center padding-top">
                 <a href="#/forgot" class="button button-clear button-positive">Forgot password</a><a href="#/register" class="button button-clear button-positive">Register</a>
           </div>

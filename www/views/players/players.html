@@ -37,7 +37,7 @@
           </ion-item>
 
           <div class="item item-divider item-divider-calm" style="text-align: center; background-color: #444444; color: white;">Defensas</div>
-          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}" href="#/tabs/players/{{player.name}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}" href="#/tabs/players/{{player.$id}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
             <img style="width:150px; height:150px;" src="{{player.photo}}">
             <h2><b>{{ player.name }}</b></h2>
             <h3 class="player-box df">DF</h3>
@@ -53,7 +53,7 @@
           </ion-item>
 
           <div class="item item-divider item-divider-calm" style="text-align: center; background-color: #444444; color: white;">Centrocampistas</div>
-          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}" href="#/tabs/players/{{player.name}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}" href="#/tabs/players/{{player.$id}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
             <img style="width:150px; height:150px;" src="{{player.photo}}">
             <h2><b>{{ player.name }}</b></h2>
             <h3 class="player-box mc">MC</h3>
@@ -69,7 +69,7 @@
           </ion-item>
 
           <div class="item item-divider item-divider-calm" style="text-align: center; background-color: #444444; color: white;">Delanteros</div>
-          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}" href="#/tabs/players/{{player.name}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}" href="#/tabs/players/{{player.$id}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
             <img style="width:150px; height:150px;" src="{{player.photo}}">
             <h2><b>{{ player.name }}</b></h2>
             <h3 class="player-box dl">DL</h3>

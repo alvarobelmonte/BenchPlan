@@ -19,8 +19,8 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     $scope.dateSelected = $filter('date')(fecha, "dd-MM-yyyy");
     $scope.positionSelected = 'Portero';
     $scope.dorsalSelected = '1';
-    $scope.photoUrl = 'https://cloudinary.com/console/media_library#/dialog/image/upload/perfil_li3dgc';
-    var url = '';
+    $scope.photoUrl = 'vacio';
+    var url = 'http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png';
 
     var disabledDates = [
       new Date(1437719836326),
@@ -78,36 +78,42 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     }   
 
     $scope.addP = function (player) {
+      if($scope.photoUrl == 'vacio'){
+        player.edad = $scope.calculateAge(fecha);
+        player.position = $scope.positionSelected;
+        player.dorsal = $scope.dorsalSelected;
+        player.photo = url;
+        player.fecha = fecha;
 
-      $scope.uploadPicture();
+        APIfactory.pushJugador(player);
 
-      //Recogemos datos del formulario
-      setTimeout(function(){
-      $scope.name = player.name;
-      player.edad = $scope.calculateAge(fecha);
-      player.position = $scope.positionSelected;
-      player.dorsal = $scope.dorsalSelected;
-      //alert('url de foto subida a Cloudinary: '+url);  
-      player.photo = url;
-      $scope.estado = player.condition;
-      
-      
-      //Referencia a la rama players del usuario que ha iniciado sesion
-      var userRef = ref.child('profile').child($localStorage.userkey).child("player");
+        //Pop up de confirmación
+        var alertPopup = $ionicPopup.alert({
+           title: 'Jugador añadido',
+         });
+        
+      }
+      else{
+        $scope.uploadPicture();
 
+        //Recogemos datos del formulario
+        setTimeout(function(){
+        player.edad = $scope.calculateAge(fecha);
+        player.position = $scope.positionSelected;
+        player.dorsal = $scope.dorsalSelected;
+        player.photo = url;
+        player.fecha = fecha;
 
-      player.fecha = fecha;
-      APIfactory.pushJugador(player);
-    
-      //Resetear formulario
+        APIfactory.pushJugador(player);
 
-      //Pop up de confirmación
-      var alertPopup = $ionicPopup.alert({
-         title: 'Jugador añadido',
-       });
+        //Pop up de confirmación
+        var alertPopup = $ionicPopup.alert({
+           title: 'Jugador añadido',
+         });
 
-      $state.go('tabs.players');
-      }, 6000);
+        $state.go('tabs.players');
+        }, 6000);
+      }
   };
 
   //Modal Posiciones
@@ -163,7 +169,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
                  console.log("The loading indicator is now hidden");
             });            
           }, function(err) {
-              alert('error subiendo foto con defer');
+              console.log('error subiendo foto con defer');
           });
            
   };
@@ -173,9 +179,8 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     Camara.takePicture().then(
           function(res) {
             $scope.photoUrl = res;
-            //alert('photourl con defer'+ $scope.photoUrl);
           }, function(err) {
-              alert('error cogiendo foto');
+              console.log('error cogiendo foto');
           });
     
   };
@@ -187,7 +192,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
             $scope.photoUrl = res;
             //alert('photourl con defer'+ $scope.photoUrl);
           }, function(err) {
-              alert('error cogiendo foto');
+              console.log('error cogiendo foto');
           });
 
   };

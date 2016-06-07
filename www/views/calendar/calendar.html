@@ -20,10 +20,10 @@
           </div>
 
           <div class="button-bar">
-              <button class="button button-dark" ng-click="openMonthModal()">
+              <button class="button button-balanced" ng-click="openMonthModal()">
                   {{mesSelected}}
               </button>
-              <button class="button button-dark" ng-click="openYearModal()">
+              <button class="button button-calm" ng-click="openYearModal()">
                   {{yearSelected}}
               </button>
           </div>
@@ -37,8 +37,9 @@
             {{event.result}}<br>
             <div ng-hide="event.place == 'Fuera'" style="text-align: center; color: #7a7a7a">{{event.teamGoals}} - {{event.rivalGoals}}</div>
             <div ng-hide="event.place == 'En casa'" style="text-align: center; color: #7a7a7a">{{event.rivalGoals}} - {{event.teamGoals}}</div>
+            <i class="icon " style="color: black" ng-class="event.place=='En casa' ? 'ion-home' : 'ion-plane'"></i>
             </b>
-            <i class="icon " style="color: black"ng-class="event.place=='En casa' ? 'ion-home' : 'ion-plane'"></i>
+            
             </span>
             <h2>{{event.dayWeek}}, {{event.dayNumber}} de {{event.dayMonth}}</h2>
       			<h2><b>{{ event.type}}</b> <span ng-show="event.type=='Partido'"> {{event.place}}</span></h2>

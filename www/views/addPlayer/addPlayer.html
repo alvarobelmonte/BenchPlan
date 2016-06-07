@@ -1,5 +1,5 @@
 <ion-view view-title="Añadir Jugador" hide-back-button="true">
-        <ion-content class="padding-top">
+        <ion-content class="" >
           <h1>Añadir jugador</h1>
           <form novalidate name="addPlayer" ng-submit="addPlayer.$valid && addP(player)">
           <div class="list">
@@ -15,10 +15,9 @@
 
             <!-- Edit this messages if you want -->
             <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
-              <div class="form-error" ng-message="required">Este campo es obligatorio</div>
-              <div class="form-error" ng-message="email">This field must be an email.</div>
-              <div class="form-error" ng-message="minlength">This field must be at least 3 characters.</div>
-              <div class="form-error" ng-message="maxlength">This field must be less than 11 characters.</div>
+              <div class="form-error" ng-message="required">Este campo es obligatorio</div>  
+              <div class="form-error" ng-message="minlength">Este campo debe tener al menos 3 caracteres</div>
+              <div class="form-error" ng-message="maxlength">Este campo debe tener al menos 3 caracteres</div>
             </div>
 
 
@@ -26,7 +25,7 @@
               <div class="input-label" ng-init = "player.position = 'Portero'">
                 Posición
               </div>
-              <button type="button" class="button button-dark" ng-click="openPositionModal()">
+              <button type="button" class="button button-balanced" ng-click="openPositionModal()">
                   {{positionSelected}}
               </button>
             </label>
@@ -35,7 +34,7 @@
               <div class="input-label">
                 Dorsal
               </div>
-              <button type="button" class="button button-dark" ng-click="openDorsalModal()">
+              <button type="button" class="button button-balanced" ng-click="openDorsalModal()">
                   {{dorsalSelected}}
               </button>
             </label>
@@ -49,7 +48,7 @@
                   Fecha de nacimiento
               </div>
               <ionic-datepicker input-obj="datepickerObjectModal">
-                <button type="button" class="button button-block button-dark">{{dateSelected}}</button>
+                <button type="button" class="button button-block button-balanced">{{dateSelected}}</button>
               </ionic-datepicker>
             </label>
 
@@ -59,21 +58,17 @@
               </div>
 
              
-                <button type="button" class="button button-block button-dark" ng-click="takePicture()">Hacer foto</button>
-     
-              <img ng-src="{{photoUrl}}" width="100px" height="100px"></img>
+                <button type="button" class="button button-block button-balanced" ng-click="takePicture()">Hacer foto</button>
+
               
             </label>
 
             <label  class="item" >
-              <div class="input-label">
-                  Galería Foto
-              </div>
-
 
                 <button type="button" class="button button-block button-dark" ng-click="getPicture()">Galería</button>
               
-              <img ng-src="{{photoUrl}}" width="100px" height="100px"></img>
+              <img ng-hide = "photoUrl == 'vacio'" ng-src="{{photoUrl}}" width="100px" height="100px"></img>
+
 
             </label>
 
@@ -82,17 +77,13 @@
                 Estado
             </div>
             <label class="item item-radio" ng-init ="player = {condition: 'Disponible'}">
-                <input type="radio" name="group1" ng-model="player.condition" value="Disponible">
-                <div class="item-content">
+                <ion-radio name="group1" ng-model="player.condition" value="Disponible">
                    Disponible
-                </div>
-                <i class="radio-icon ion-checkmark"></i>
+                </ion-radio>
             <label class="item item-radio">
-                <input type="radio" name="group1" ng-model="player.condition" value="Lesionado">
-                <div class="item-content">
+                <ion-radio name="group1" ng-model="player.condition" value="Lesionado">
                    Lesionado
-                </div>
-                <i class="radio-icon ion-checkmark"></i>
+                </ion-radio>
             </label>
             
             </label>
