@@ -4,11 +4,11 @@
 			<ion-item class="item-text-wrap" ng-repeat="event in events| filter: {$id: whichevent}">
 			
 			<div ng-show="event.type == 'Partido'">
-	            <h1>{{event.type}} vs {{event.rival}} | {{event.dayWeek}} {{event.dayNumber}}</h1></h1>
-	            <h2 style="text-align: center" ng-show="{{event.finished}}">
+	            <h1>{{event.type}}| {{event.dayWeek}} {{event.dayNumber}}</h1></h1>
+	            <h3  ng-show="{{event.finished}}">
 	            <div ng-hide="event.place == 'Fuera'">Tu equipo {{event.teamGoals}} - {{event.rivalGoals}} {{event.rival}}</div>
 	            <div ng-hide="event.place == 'En casa'">{{event.rival}} {{event.rivalGoals}} - {{event.teamGoals}} Tu equipo</div>
-	            </h2>
+	            </h3>
 	            <b>{{event.name}} </b><br>
 	            <b>Lugar</b>
 	            <h2>{{event.place}}</h2>
@@ -16,9 +16,7 @@
 	            <h2>{{event.date}}</h2>	
 	            <b>Hora <i class="icon ion-clock"></i></b>
 	            <h2>{{event.hourStart}}</h2>
-	            <b>Alineación</b>	
-	         	<h2>Estrategias creadas en Sección "Estrategias"</h2>
-	         	<b>Resultado</b><br>	         
+	 	         
 	         	<button class="button button-dark" ng-show="!event.finished" ng-click="finishMatch(event.$id)">
                   Terminar partido
               	</button>
@@ -64,7 +62,7 @@
 
               	 <div class="padding-top" ng-show="event.finished && !editing">
 			            <button class="button  button-balanced" ng-click="edit(event.$id)">
-		                  <i class="radio-icon ion-edit"> Editar</i>
+		                  <i class="radio-icon ion-edit"> Editar resultado</i>
 		              	</button>
 			     </div>	
 

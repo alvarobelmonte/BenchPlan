@@ -50,7 +50,8 @@ angular.module('App').controller('playersController', function (APIfactory, $sco
      var confirmPopup = $ionicPopup.confirm({
        title: 'Borrar jugador',
        template: '¿Estás seguro de que quieres borrar a ' + player.name + '?',
-       cancelText: 'Cancelar'
+       cancelText: 'Cancelar',
+       okType: 'button-calm'
      });
 
      confirmPopup.then(function(res) {

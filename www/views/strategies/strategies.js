@@ -19,7 +19,8 @@ angular.module('App').controller('strategiesController', function (APIfactory, $
      var confirmPopup = $ionicPopup.confirm({
        title: 'Borrar estrategia',
        template: '¿Estás seguro de que quieres borrar esta estrategia?',
-       cancelText: 'Cancelar'
+       cancelText: 'Cancelar',
+       okType: 'button-calm'
      });
 
      confirmPopup.then(function(res) {

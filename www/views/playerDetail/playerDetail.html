@@ -1,15 +1,13 @@
 <ion-view view-title="Detalle Jugador">
 	<ion-content has-subheader="false">
 		
-		<button ng-click="editar()" ng-class="editing == false ? 'button icon-left ion-edit button-block button-positive' : 'button icon-left ion-minus-circled button-block button-assertive'">
-              {{botonEdit}}
-        </button>
+
 
 		<ion-list class="list-inset" >
 			<ion-item class="item-text-wrap" >
 				<img style="width:150px; height:150px;" class="circular profile" src="{{player.photo}}">
 	            <div ng-switch on="editing">
-				<div ng-switch-when="false">
+				<div ng-switch-when="false" class="player-description">
 		            <h1>{{player.dorsal}} {{player.name}}</h1>
 		            <b>Posición</b>
 		            <h2>{{player.position}}</h2>
@@ -93,6 +91,8 @@
 
 					<input type="submit" class="button button-block button-balanced" value="Aceptar">
 
+				
+
 				</form>
 
 				</div>
@@ -100,10 +100,14 @@
 	         </ion-item>
 	          
 		
-			
+		<button ng-click="editar()" ng-class="editing == false ? 'button icon-left ion-edit button-block button-dark' : 'button icon-left ion-minus-circled button-block button-assertive'">
+              {{botonEdit}}
+        </button>
 
 			
 		</ion-list>
+
+
 
 
 		<script id="positionModal.html" type="text/ng-template">

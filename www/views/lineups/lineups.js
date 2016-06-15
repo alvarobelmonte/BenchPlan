@@ -20,7 +20,8 @@ angular.module('App').controller('lineupsController', function (APIfactory, $sco
      var confirmPopup = $ionicPopup.confirm({
        title: 'Borrar alineación',
        template: '¿Estás seguro de que quieres borrar esta alineación?',
-       cancelText: 'Cancelar'
+       cancelText: 'Cancelar',
+       okType: 'button-calm'
      });
 
      confirmPopup.then(function(res) {

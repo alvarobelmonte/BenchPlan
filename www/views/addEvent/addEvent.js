@@ -13,11 +13,13 @@ angular.module('App').controller('addEventController', function (APIfactory, $sc
         } else {
           var selectedTime = new Date(val * 1000);
           var minutes;
+          var hour;
 
-          if(selectedTime.getUTCMinutes() == 0)
-            minutes = '00';
+          if(selectedTime.getUTCMinutes() < 10)
+            minutes = '0'+ selectedTime.getUTCMinutes();
           else
             minutes = selectedTime.getUTCMinutes();
+
 
           if($scope.hourSelector == true){
             $scope.startHour = selectedTime.getUTCHours() + ':'+ minutes;

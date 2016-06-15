@@ -9120,6 +9120,12 @@ label.item.valid-lr {
 h1 {
   text-align: center; }
 
+.player-description {
+  text-align: center; }
+
+.item-divider {
+  text-align: center; }
+
 .alineaciones {
   background: url(../img/alineaciones.png) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -9201,13 +9207,13 @@ h1 {
   left: 5%; }
 
 .linea5p2 {
-  left: 20%; }
+  left: 23%; }
 
 .linea5p3 {
-  left: 39%; }
+  left: 41%; }
 
 .linea5p4 {
-  left: 58%; }
+  left: 60%; }
 
 .linea5p5 {
   left: 78%; }
