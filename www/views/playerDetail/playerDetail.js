@@ -109,6 +109,7 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
     //Recogemos datos del formulario
 
     $scope.name = player.name;
+    console.log('name '+$scope.name);
     $scope.position = $scope.positionSelected
     $scope.dorsal = $scope.dorsalSelected
     $scope.fecha = fecha;
@@ -126,7 +127,7 @@ angular.module('App').controller('playerDetailController', function (APIfactory,
     player.dorsal = $scope.dorsalSelected
     player.fecha = fecha;
 
-    APIfactory.updateJugador(player, id);
+    APIfactory.updatePlayer(player, id);
     //Resetear formulario
 
 

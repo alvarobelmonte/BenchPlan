@@ -282,7 +282,7 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
 
 
   $scope.getPlayers = function () {
-      $scope.players = APIfactory.getJugadores();
+      $scope.players = APIfactory.getPlayers();
       console.log($scope.players);
   }
 
@@ -300,21 +300,25 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
         $scope.numJugador = 'player' + (i+1);
         var model = $parse($scope.numJugador);
         if(players[i]!=''){
-          var nombre = APIfactory.getNombreJugador(players[i]);
+          var nombre = APIfactory.getPlayerName(players[i]);
           model.assign($scope, nombre);
           $scope.fotoJugador = 'player' + (i+1)+'foto';
           var model = $parse($scope.fotoJugador);
-          var foto = APIfactory.getFotoJugador(players[i]);
+          var foto = APIfactory.getPlayerPhoto(players[i]);
           model.assign($scope, foto);
         }
 
-        
+       console.log('players ' +players);
+       console.log('player1 ' +$scope.player1);  
       }
       $scope.update($scope.formacion);
       }
+
+      else
+      console.log('players ' +players);
     }
     else
-      console.log($scope.players);
+      console.log('players ' +players);
   }
 
   $scope.getLineup();
@@ -378,13 +382,13 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
         var model = $parse($scope.numJugador);
 
         // Assigns a value to it
-        model.assign($scope, APIfactory.getNombreJugador($scope.playerID));
+        model.assign($scope, APIfactory.getPlayerName($scope.playerID));
         
         $scope.fotoJugador = 'player' + $scope.num +'foto';
     
         // Get the model
         var model2 = $parse($scope.fotoJugador);
-        model2.assign($scope, APIfactory.getFotoJugador($scope.playerID));
+        model2.assign($scope, APIfactory.getPlayerPhoto($scope.playerID));
 
         // Apply it to the scope
         //$scope.$apply();
@@ -444,7 +448,7 @@ angular.module('App').controller('lineupDetailController', function (APIfactory,
 
   $scope.checkPlayerEmpty= function(jugador) {
       var vacio;
-      if(jugador=='')
+      if(jugador=='' || jugador==undefined)
         vacio = true;
       else
         vacio = false;

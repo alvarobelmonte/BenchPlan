@@ -85,7 +85,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
         player.photo = url;
         player.fecha = fecha;
 
-        APIfactory.pushJugador(player);
+        APIfactory.pushPlayer(player);
 
         //Pop up de confirmación
         var alertPopup = $ionicPopup.alert({
@@ -104,7 +104,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
         player.photo = url;
         player.fecha = fecha;
 
-        APIfactory.pushJugador(player);
+        APIfactory.pushPlayer(player);
 
         //Pop up de confirmación
         var alertPopup = $ionicPopup.alert({

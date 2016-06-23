@@ -13,7 +13,7 @@
 						<img ng-show="!checkPlayerEmpty(player1)" class="circular" src="{{player1foto}}">
 					</a>
 					
-					<br><b>{{player1}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player1)">{{player1}}</b></br>
 					</p>
 				</div>
 
@@ -25,7 +25,7 @@
 						<img ng-show="!checkPlayerEmpty(player2)" class="circular" src="{{player2foto}}">
 					</a>
 					
-					<br><b>{{player2}}</b></br>
+					<br><b ng-hide="player2==undefined">{{player2}}</b></br>
 					</p>
 				</div>
 				
@@ -37,7 +37,7 @@
 						<img ng-show="!checkPlayerEmpty(player3)" class="circular" src="{{player3foto}}">
 					</a>
 					
-					<br><b>{{player3}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player3)">{{player3}}</b></br>
 					</p>
 				</div>
 
@@ -48,7 +48,7 @@
 						<img ng-show="!checkPlayerEmpty(player4)" class="circular" src="{{player4foto}}">
 					</a>
 					
-					<br><b>{{player4}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player4)">{{player4}}</b></br>
 					</p>
 				</div>
 
@@ -59,7 +59,7 @@
 						<img ng-show="!checkPlayerEmpty(player5)" class="circular" src="{{player5foto}}">
 					</a>
 					
-					<br><b>{{player5}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player5)">{{player5}}</b></br>
 					</p>
 				</div>
 
@@ -70,7 +70,7 @@
 						<img ng-show="!checkPlayerEmpty(player6)" class="circular" src="{{player6foto}}">
 					</a>
 					
-					<br><b>{{player6}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player6)">{{player6}}</b></br>
 					</p>
 				</div>
 
@@ -81,7 +81,7 @@
 						<img ng-show="!checkPlayerEmpty(player7)" class="circular" src="{{player7foto}}">
 					</a>
 					
-					<br><b>{{player7}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player7)">{{player7}}</b></br>
 					</p>
 				</div>
 
@@ -92,7 +92,7 @@
 						<img ng-show="!checkPlayerEmpty(player8)" class="circular" src="{{player8foto}}">
 					</a>
 					
-					<br><b>{{player8}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player8)">{{player8}}</b></br>
 					</p>
 				</div>
 
@@ -103,7 +103,7 @@
 						<img ng-show="!checkPlayerEmpty(player9)" class="circular" src="{{player9foto}}">
 					</a>
 					
-					<br><b>{{player9}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player9)">{{player9}}</b></br>
 					</p>
 				</div>
 
@@ -114,7 +114,7 @@
 						<img ng-show="!checkPlayerEmpty(player10)" class="circular" src="{{player10foto}}">
 					</a>
 					
-					<br><b>{{player10}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player10)">{{player10}}</b></br>
 					</p>
 				</div>
 
@@ -125,7 +125,7 @@
 						<img ng-show="!checkPlayerEmpty(player11)" class="circular" src="{{player11foto}}">
 					</a>
 					
-					<br><b>{{player11}}</b></br>
+					<br><b ng-hide="checkPlayerEmpty(player11)">{{player11}}</b></br>
 					</p>
 				</div>
 			

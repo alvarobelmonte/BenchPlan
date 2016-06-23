@@ -10,7 +10,7 @@ angular.module('App').controller('calendarController', function (APIfactory, $io
   $scope.yearSelected = '2016';
 
   $scope.showE = function () {
-	    $scope.events = APIfactory.getEventos();
+	    $scope.events = APIfactory.getEvents();
 	    console.log($scope.events);
   };
 
@@ -29,7 +29,7 @@ angular.module('App').controller('calendarController', function (APIfactory, $io
     });
     confirmPopup.then(function(res) {
        if(res) 
-         APIfactory.deleteEvento(event);
+         APIfactory.deleteEvent(event);
      });
   };
     $scope.showConfirm();

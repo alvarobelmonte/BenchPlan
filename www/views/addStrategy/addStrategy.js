@@ -8,7 +8,7 @@ angular.module('App').controller('addStrategyController', function (APIfactory, 
   $scope.addEs = function (strategy) {
     console.log("Enviada peticion crear estrategia");
 
-    APIfactory.pushEstrategia(strategy);
+    APIfactory.pushStrategy(strategy);
 
     //Resetear formulario
 

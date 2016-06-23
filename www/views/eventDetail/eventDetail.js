@@ -4,7 +4,7 @@ angular.module('App').controller('eventDetailController', function (APIfactory, 
   $scope.whichevent = $state.params.aId;
 
   $scope.showE = function () {
-	    $scope.events = APIfactory.getEventos();
+	    $scope.events = APIfactory.getEvents();
 	    console.log($scope.events);
   };
 

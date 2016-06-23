@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngRoute', 'ionic-datepicker', 'ionic-timepicker'])
+angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngRoute', 'ionic-datepicker', 'ionic-timepicker', 'ngDragDrop'])
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
 $ionicConfigProvider.tabs.position('top');

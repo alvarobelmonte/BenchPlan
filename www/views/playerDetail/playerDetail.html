@@ -26,13 +26,13 @@
 	            <div ng-switch-when="true">
 				<form novalidate name="editPlayer" ng-submit="editPlayer.$valid && editP(player)">
 				
-				<label class="item item-input item-floating-label" ng-class="{ 'has-error' : editPlayer.txtName.$invalid && editPlayer.$submitted }">
-	              <span class="input-label">Nombre</span>
-	              <input name="txtName" type="text" ng-model="player.name" placeholder="Nombre"
-	              ng-minlength="3"
-	              ng-maxlength="11"
-	              required>
-	            </label>
+					<label class="item item-input item-floating-label" ng-class="{ 'has-error' : editPlayer.txtName.$invalid && editPlayer.$submitted }">
+		              <span class="input-label">Nombre</span>
+		              <input name="txtName" type="text" ng-model="name" placeholder="Nombre"
+		              ng-minlength="3"
+		              ng-maxlength="11"
+		              required>
+		            </label>
 
 
 		            <!-- Edit this messages if you want -->

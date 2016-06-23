@@ -1,50 +1,73 @@
-<ion-view view-title="Evento">
+<ion-view view-title="Detalle Evento">
 	<ion-content has-subheader="false">
 		<ion-list class="list-inset">
 			<ion-item class="item-text-wrap" ng-repeat="event in events| filter: {$id: whichevent}">
 			
 			<div ng-show="event.type == 'Partido'">
 	            <h1>{{event.type}}| {{event.dayWeek}} {{event.dayNumber}}</h1></h1>
-	            <h3  ng-show="{{event.finished}}">
-	            <div ng-hide="event.place == 'Fuera'">Tu equipo {{event.teamGoals}} - {{event.rivalGoals}} {{event.rival}}</div>
-	            <div ng-hide="event.place == 'En casa'">{{event.rival}} {{event.rivalGoals}} - {{event.teamGoals}} Tu equipo</div>
-	            </h3>
-	            <b>{{event.name}} </b><br>
-	            <b>Lugar</b>
-	            <h2>{{event.place}}</h2>
-	            <b>Día</b>
-	            <h2>{{event.date}}</h2>	
-	            <b>Hora <i class="icon ion-clock"></i></b>
-	            <h2>{{event.hourStart}}</h2>
-	 	         
-	         	<button class="button button-dark" ng-show="!event.finished" ng-click="finishMatch(event.$id)">
+
+	            <div class="item item-divider item-divider-calm">
+		            <div ng-hide="event.place == 'Fuera'">Tu equipo {{event.teamGoals}} - {{event.rivalGoals}} {{event.rival}}
+		            </div>
+		            <div ng-hide="event.place == 'En casa'">
+		            {{event.rival}} {{event.rivalGoals}} - {{event.teamGoals}} Tu equipo</div>
+		            </div>
+	            </div>
+	            <br>
+
+				<div class="player-description">
+		            <b>{{event.name}} </b><br>
+		            <b>Lugar</b>
+		            <h2>{{event.place}}</h2>
+		            <b>Día</b>
+		            <h2>{{event.date}}</h2>	
+		            <b>Hora <i class="icon ion-clock"></i></b>
+		            <h2>{{event.hourStart}}</h2>
+	 	        </div>
+	 	        <br>
+
+	         	<button class="button button-dark button-block" ng-show="!event.finished" ng-click="finishMatch(event.$id)">
                   Terminar partido
               	</button>
-              	<div>
+              	
 
               	</div>
+
+
+
               	 <form novalidate  ng-show="event.finished && editing" ng-submit="">
 
-	              	 <div ng-hide="event.place == 'Fuera'" class="button-bar">
-		              Tu equipo 
-		              <button class="button button-dark" ng-click="openGoalsModal(1)">
-		                  {{teamGoals}}
-		              </button>
-		              - <button class="button button-dark" ng-click="openGoalsModal(2)">
-		                  {{rivalGoals}}
-		              </button>
-		                  {{event.rival}} 
+	              	 <div class="row" ng-hide="event.place == 'Fuera'" class="button-bar">
+		              <div class="col col-33" style="text-align:center"><b>Tu equipo</b> </div>
+		              <div class="col col-11">
+			              <button class="button button-small button-dark" ng-click="openGoalsModal(1)">
+			                  {{teamGoals}}
+			              </button>
+		              </div>
+
+		              <div class="col col-11">- </div>
+		              <div class="col col-11">
+			              <button class="button button-small button-dark" ng-click="openGoalsModal(2)">
+			                  {{rivalGoals}}
+			              </button>
+		              </div>
+		              <div class="col col-33" style="text-align:center"><b>{{event.rival}}</b> </div>
 		          	 </div>
 
-		          	 <div ng-hide="event.place == 'En casa'" class="button-bar">
-		               {{event.rival}} 
-		              <button class="button button-dark" ng-click="openGoalsModal(2)">
-		                  {{rivalGoals}}
-		              </button>
-		              - <button class="button button-dark" ng-click="openGoalsModal(1)">
-		                  {{teamGoals}}
-		              </button>
-		                Tu equipo
+		          	 <div class="row" ng-hide="event.place == 'En casa'" class="button-bar">
+		               <div class="col col-33" style="text-align:center"><b>{{event.rival}} </b></div>
+		               <div class="col col-11">
+			              <button class="button button-small button-dark" ng-click="openGoalsModal(2)">
+			                  {{rivalGoals}}
+			              </button>
+		               </div>
+		               <div class="col col-11">- </div>
+		               <div class="col col-11">
+			              <button class="button button-small button-dark" ng-click="openGoalsModal(1)">
+			                  {{teamGoals}}
+			              </button>
+		               </div>
+		               <div class="col col-33" style="text-align:center"><b>Tu equipo</b></div>
 		          	 </div>
 
 		          	 <div class="padding-top" ng-show="editing">
@@ -61,7 +84,7 @@
               
 
               	 <div class="padding-top" ng-show="event.finished && !editing">
-			            <button class="button  button-balanced" ng-click="edit(event.$id)">
+			            <button class="button  button-dark button-block" ng-click="edit(event.$id)">
 		                  <i class="radio-icon ion-edit"> Editar resultado</i>
 		              	</button>
 			     </div>	

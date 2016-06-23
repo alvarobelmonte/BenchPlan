@@ -22,6 +22,8 @@ $calm:                       #3750AD !default;*/
 $dark:                            #070D06 !default;
 $balanced:                        #4d8b3f !default;
 $calm:                            #5AA849 !default;
+$positive:                        #1A2A96 !default;
+$royal:                          rgb(255, 51, 0) !default;
 
 
 
@@ -116,8 +118,7 @@ h1{
    line-height: 1%;
 }
 
-.l442{
-  
+.l442{ 
   width:100%;
 }
 
@@ -335,3 +336,67 @@ h1{
 
 
 
+.strategy-bar i{
+  font-size: 200%;
+}
+
+.fila1 i{
+  font-size: 200%;
+}
+
+.fila2 i{
+  font-size: 200%;
+}
+
+.balon{
+  width: 15px;
+  height: auto;
+}
+
+
+.ball{
+  position: absolute;
+  left: 47%;
+  top: 50%;
+}
+.fila1{
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  width: 500px;
+}
+.fila2{
+  position: absolute;
+  left: 70%;
+  top: 15%;
+  width: 500px;
+}
+
+
+
+.footer-bar-custom {
+    
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    z-index: 5
+}
+
+    .footer-bar-custom .item-left,
+    .footer-bar-custom .item-center,
+    .footer-bar-custom .item-right {
+        position: absolute;
+        
+    }
+
+    .footer-bar-custom .item-left { left: 10px }
+
+    .footer-bar-custom .item-center {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%)
+    }
+
+    .footer-bar-custom .item-right { right: 10px }

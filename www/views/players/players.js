@@ -38,7 +38,7 @@ angular.module('App').controller('playersController', function (APIfactory, $sco
   }
 
   $scope.showP = function () {
-	    $scope.players = APIfactory.getJugadores();
+	    $scope.players = APIfactory.getPlayers();
 	    console.log($scope.players);
   }
 
@@ -56,7 +56,7 @@ angular.module('App').controller('playersController', function (APIfactory, $sco
 
      confirmPopup.then(function(res) {
        if(res) {
-         APIfactory.deleteJugador(player);
+         APIfactory.deletePlayer(player);
        } else {
 
        }

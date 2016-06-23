@@ -8,7 +8,7 @@ angular.module('App').controller('addLineupController', function (APIfactory, $s
   $scope.addAl = function (lineup) {
     console.log("Enviada peticion crear alineacion");
 
-    APIfactory.pushAlineacion(lineup);
+    APIfactory.pushLineup(lineup);
 
     //Resetear formulario
 

@@ -1,128 +1,66 @@
 <ion-view view-title="Detalle Estrategia">
-	<ion-content has-subheader="false" class="estrategias">
-<!-- 	<h2 class="title">Alineación nombre</h2>
-		<ion-list class="list-inset">
-			<ion-item class="item-text-wrap" ng-repeat="player in players | filter: {name: whichplayer}">
 
-	            <h1>{{player.name}}</h1>
-	            <b>Posición</b>
-	            <h2>{{player.position}}</h2>
+	<ion-content has-subheader="false" class="estrategias alineaciones" scroll="false">
+
+		<canvas id="signatureCanvas" width="500px" height="500px">		
+		</canvas>
+
+		<div ng-style="{height: iframeHeight + 'px'}" >
 		
-			</ion-item>
-			<a href="#/tabs/plantilla" class="button button-clear button-positive">Volver a Plantilla</a>
-		</ion-list> -->
-		<div class="button-bar bar-royal">
-		  <a class="button">Titulares</a>
-		  <a class="button">Banquillo</a>
-		  <button class="button button-stable" ng-click="showLocationsModal()">
-          Formacion
-          </button>
-		  <select ng-model="formacion.valor" ng-change="update(formacion)" ng-options="f for f in formaciones"></select>
+			<div class="fila1">
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body positive"></i></span>
+			</div>
+
+			<div class="fila2">
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+		        <span data-drag="true" jqyoui-draggable><i class="icon ion-ios-body energized"></i></span>
+			</div>
+
+			<div class="ball">
+				<span data-drag="true" jqyoui-draggable><img src="img/balon.png" class="balon"></span>
+			</div>
+
 		</div>
-		
-		
-
-		<div class="l442">
-				<div class="portero" ><a ng-class="pformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p1pos, 1)"> {{player1}}</a></div>
-				
-				<div class="ld4"><a ng-class="dformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p2pos, 2)"> <br>{{player2}}</br></a></div>
-				<div class="dcd4"><a ng-class="dformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p3pos, 3)"><br>{{player3}}</br></a></div>
-				<div class="dci4"><a ng-class="dformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p4pos, 4)"><br>{{player4}}</br></a></div>
-				<div class="li4"><a ng-class="dmformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p5pos, 5)"><br>{{player5}}</br></a></div>
-
-				<div class="ed4"><a ng-class="dm2formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p6pos, 6)"><br>{{player6}}</br></a></div>
-				<div class="mcd4"><a ng-class="mformado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p7pos, 7)"><br>{{player7}}</br></a></div>
-				<div class="mci4"><a ng-class="m2formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p8pos, 8)"><br>{{player8}}</br></a></div>
-				<div class="ei4"><a ng-class="md1formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p9pos, 9)"><br>{{player9}}</br></a></div>
-
-				<div class="ddm2"><a ng-class="md2formado" class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p10pos, 10)"><br>{{player10}}</br></a></div>
-				<div class="dim2"><a ng-class="dlformado"class="button button-icon icon ion-plus-circled stable" ng-click="openModal(p11pos, 11)"><br>{{player11}}</br></a></div>
-			
-		</div>
-
-
-	<script id="lineupModal.html" type="text/ng-template">
-	  <ion-modal-view ng-switch on ="jugador">
-	  <div ng-switch-when="portero">
-		<div class="modal">
-		    <ion-header-bar>
-		      <h1 class="title">Elegir portero</h1>
-		    </ion-header-bar>
-		    <ion-content>
-		      <ion-list>
-			      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-		            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
-					      <h2><b>{{ player.name }}</b></h2>
-					      <h3 class="player-box po">PO</h3>
-		            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-		          </ion-item>
-	          </ion-list>
-		    </ion-content>
-		  </div>
-		</div>
-
-
-		  <div ng-switch-when="defensa">
-			<div class="modal">
-			    <ion-header-bar>
-			      <h1 class="title">Elegir defensa</h1>
-			    </ion-header-bar>
-			    <ion-content>
-			      <ion-list>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
-						      <h2><b>{{ player.name }}</b></h2>
-						      <h3 class="player-box df">DF</h3>
-			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-			          </ion-item>
-		          </ion-list>
-			    </ion-content>
-		  </div>
-		</div>
-
-
-
-
-		<div ng-switch-when="medio">
-			<div class="modal">
-			    <ion-header-bar>
-			      <h1 class="title">Elegir centrocampista</h1>
-			    </ion-header-bar>
-			    <ion-content>
-			      <ion-list>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
-						      <h2><b>{{ player.name }}</b></h2>
-						      <h3 class="player-box mc">MC</h3>
-			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-			          </ion-item>
-		          </ion-list>
-			    </ion-content>
-		  </div>
-		</div>
-
-		<div ng-switch-when="delantero">
-			<div class="modal">
-			    <ion-header-bar>
-			      <h1 class="title">Elegir centrocampista</h1>
-			    </ion-header-bar>
-			    <ion-content>
-			      <ion-list>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png">
-						      <h2><b>{{ player.name }}</b></h2>
-						      <h3 class="player-box dl">DL</h3>
-			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-			          </ion-item>
-		          </ion-list>
-			    </ion-content>
-		  </div>
-		</div>
-
-	  </ion-modal-view>
-
-	</script>
-
 
 	</ion-content>
+
+
+
+	<ion-footer-bar class="bar-dark strategy-bar footer-bar-custom">
+
+        <span data-drag="true" jqyoui-draggable><i class="icon ion-flag royal"></i></span>
+        <span data-drag="true" jqyoui-draggable><i class="icon ion-flag royal"></i></span>
+        <span data-drag="true" jqyoui-draggable><i class="icon ion-flag royal"></i></span>
+        <span data-drag="true" jqyoui-draggable><i class="icon ion-flag royal"></i></span>
+        <span data-drag="true" jqyoui-draggable><i class="icon ion-flag royal"></i></span>
+          
+        <button class="button button-assertive icon ion-trash-b item-center" ng-click="clearCanvas()"> 
+        Borrar
+        </button>
+
+        <button class="button button-balanced icon ion-android-folder-open item-right" ng-click="saveStrategy()"> 
+        Guardar
+        </button>
+
+    </ion-footer-bar>
+
 </ion-view>

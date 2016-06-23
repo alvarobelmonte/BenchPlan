@@ -105,7 +105,7 @@ angular.module('App').controller('addEventController', function (APIfactory, $sc
     event.startHour = $scope.startHour;
     event.endHour = $scope.endHour;
 
-    APIfactory.pushEvento(event);
+    APIfactory.pushEvent(event);
 
     //Resetear formulario
 

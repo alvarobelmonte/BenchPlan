@@ -8,9 +8,9 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
     var interfaz = {};
 
     //JUGADORES
-    interfaz.getJugadores = function(){
-        var jugadores = $firebaseArray(playersRef);
-        return jugadores;
+    interfaz.getPlayers = function(){
+        var players = $firebaseArray(playersRef);
+        return players;
     };
 
 
@@ -26,7 +26,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         return player;
     };
 
-    interfaz.getNombreJugador = function(idJugador){
+    interfaz.getPlayerName = function(idJugador){
         var nameRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador).child("name");
         var playerName;
         nameRef.on("value", function(snapshot) {
@@ -37,7 +37,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         return playerName;
     };
 
-    interfaz.getFotoJugador = function(idJugador){
+    interfaz.getPlayerPhoto = function(idJugador){
         var nameRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador).child("photo");
         var playerPhoto;
         nameRef.on("value", function(snapshot) {
@@ -48,7 +48,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         return playerPhoto;
     };
 
-    interfaz.pushJugador = function(jugador){
+    interfaz.pushPlayer = function(jugador){
         var userRef = ref.child('profile').child($localStorage.userkey).child("player");
         userRef.push({
             name: jugador.name,
@@ -61,7 +61,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         });
     };
 
-    interfaz.updateJugador = function(jugador, idJugador){
+    interfaz.updatePlayer = function(jugador, idJugador){
         var playerRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador);
         playerRef.update({
             name: jugador.name,
@@ -72,25 +72,16 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         });
     };
 
-    interfaz.updateJugador = function(jugador, idJugador){
-        var playerRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador);
-        playerRef.update({
-            name: jugador.name,
-            position: jugador.position,
-            dorsal: jugador.dorsal,
-            date: $filter('date')(jugador.fecha, "dd-MM-yyyy"),
-            condition: jugador.condition
-        });
-    };
 
-    interfaz.updateCondicion = function(jugador, idJugador){
+
+    interfaz.updateCondition = function(jugador, idJugador){
         var playerRef = ref.child('profile').child($localStorage.userkey).child("player").child(idJugador);
         playerRef.update({
             condition: jugador.condition
         });
     };
 
-    interfaz.deleteJugador = function(jugador){
+    interfaz.deletePlayer = function(jugador){
         var ID = jugador.$id;
         var playerRef = ref.child('profile').child($localStorage.userkey).child("player").child(ID);
         
@@ -114,11 +105,13 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         return lineup;
     };
 
-    interfaz.pushAlineacion = function(alineacion){
+    interfaz.pushLineup= function(alineacion){
         var userRef = ref.child('profile').child($localStorage.userkey).child("lineups");
+        var players = ['','','','','','','','','','',''];
         userRef.push({
             name: alineacion.name,
-            description: alineacion.description
+            description: alineacion.description,
+            players: players
         });
     };
     interfaz.updateLineup = function(idLineup, formation, players){
@@ -139,7 +132,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         }); 
     };
     //ESTRATEGIAS
-    interfaz.pushEstrategia = function(estrategia){
+    interfaz.pushStrategy = function(estrategia){
         var userRef = ref.child('profile').child($localStorage.userkey).child("strategies");
         userRef.push({
             name: estrategia.name,
@@ -158,7 +151,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
     };
 
     //EVENTOS
-    interfaz.getEventos = function(){
+    interfaz.getEvents = function(){
         var eventos = $firebaseArray(eventsRef);
         return eventos;
     };
@@ -222,7 +215,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
 
 
 
-    interfaz.pushEvento = function(evento){
+    interfaz.pushEvent = function(evento){
         var userRef = ref.child('profile').child($localStorage.userkey).child("event");
         var diaSemana = $filter('date')(evento.day, "EEEE");
         diaSemana = translatedayWeek(diaSemana);
@@ -271,7 +264,7 @@ angular.module('App').factory("APIfactory", function($cordovaOauth, $firebaseObj
         }
     };
     
-    interfaz.deleteEvento = function(evento){
+    interfaz.deleteEvent = function(evento){
         var ID = evento.$id;
         var eventRef = ref.child('profile').child($localStorage.userkey).child("event").child(ID);
         
