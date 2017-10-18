@@ -24,5 +24,10 @@
   ],
   "cordovaPlatforms": [
     "android"
-  ]
+  ],
+  "cordova": {
+    "platforms": [
+      "android"
+    ]
+  }
 }
