@@ -1,13 +1,13 @@
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+@import "colors";
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
 @import "base";
-@import "colors";
+
 @import "players";
 @import "lineups";
 @import "calendar";
-
-

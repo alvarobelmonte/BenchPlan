@@ -1,106 +1,106 @@
 <ion-view view-title="Players" hide-back-button="true">
- 
-<ion-content  class="players-container">
-        
 
-          <!-- <ion-item href="#/tabs/players/addPlayer">
-            <button class="button icon-left ion-plus-circled button-block button-balanced">
-              Añadir Jugador
-            </button>
-          </ion-item>
+  <ion-content class="players-container">
 
-          <button class="button icon-left ion-close-circled button-block button-assertive" ng-click="data.showDelete = !data.showDelete;">
-              Borrar Jugador
-          </button>
- -->
+    <div class="bar-dark bar-subheader">
+      <div class="button-bar ">
 
-        <div  class="bar-dark bar-subheader">
-          <div class="button-bar ">
-         
-            <button class="button icon-left ion-plus-circled  button-balanced" onclick="window.location.href='#/tabs/players/addPlayer'">
-              Add
-            </button> 
-            <button class="button button icon-left ion-close-circled button-assertive" ng-click="data.showDelete = !data.showDelete;">
-              Delete
-            </button>
-       
-          </div>
-        </div>  
+        <button class="button icon-left ion-plus-circled  button-balanced" onclick="window.location.href='#/tabs/players/addPlayer'">
+          Add
+        </button>
+        <button class="button button icon-left ion-close-circled button-assertive" ng-click="data.showDelete = !data.showDelete;">
+          Delete
+        </button>
 
-          <div class="item item-divider">
-            Players
-          </div>
+      </div>
+    </div>
 
-          
-          <ion-list show-delete="data.showDelete" >
+    <div class="item item-divider">
+      Players
+    </div>
 
-          <div class="item item-divider">
-            Goalkeepers
-          </div>
-          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}" href="#/tabs/players/{{player.$id}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-            <img style="width:150px; height:150px;" src="{{player.photo}}">
-			      <h2><b>{{ player.name }}</b></h2>
-			      <h3 class="player-box po">PO</h3>
-            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-            
-            <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 
-            <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="checkCondition(player)">
-            </button>
-            <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
-              <i class="icon ion-medkit"></i>
-            </ion-option-button>
-          </ion-item>
+    <ion-list show-delete="data.showDelete">
 
-          <div class="item item-divider item-divider-calm" style="text-align: center; background-color: #444444; color: white;">Defensas</div>
-          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}" href="#/tabs/players/{{player.$id}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-            <img style="width:150px; height:150px;" src="{{player.photo}}">
-            <h2><b>{{ player.name }}</b></h2>
-            <h3 class="player-box df">DF</h3>
-            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
+      <div class="item item-divider item-divider-dark">
+        Goalkeepers
+      </div>
+      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}" href="#/tabs/players/{{player.$id}}"
+        class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+        <img style="" src="{{player.photo}}">
+        <h2>
+          <b>{{ player.name }}</b>
+        </h2>
+        <h3 class="player-box po">PO</h3>
+        <h3 class="dorsal-box">{{ player.dorsal }}</h3>
 
-            <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
+        <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 
-            <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="checkCondition(player)">
-            </button>
-            <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
-              <i class="icon ion-medkit"></i>
-            </ion-option-button>
-          </ion-item>
+        <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="checkCondition(player)">
+        </button>
+        <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
+          <i class="icon ion-medkit"></i>
+        </ion-option-button>
+      </ion-item>
 
-          <div class="item item-divider item-divider-calm" style="text-align: center; background-color: #444444; color: white;">Centrocampistas</div>
-          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}" href="#/tabs/players/{{player.$id}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-            <img style="width:150px; height:150px;" src="{{player.photo}}">
-            <h2><b>{{ player.name }}</b></h2>
-            <h3 class="player-box mc">MC</h3>
-            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-            
-            <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
+      <div class="item item-divider item-divider-dark">Defensas</div>
+      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}" href="#/tabs/players/{{player.$id}}"
+        class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+        <img style="width:150px; height:150px;" src="{{player.photo}}">
+        <h2>
+          <b>{{ player.name }}</b>
+        </h2>
+        <h3 class="player-box df">DF</h3>
+        <h3 class="dorsal-box">{{ player.dorsal }}</h3>
 
-            <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="checkCondition(player)">
-            </button>
-            <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
-              <i class="icon ion-medkit"></i>
-            </ion-option-button>
-          </ion-item>
+        <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 
-          <div class="item item-divider item-divider-calm" style="text-align: center; background-color: #444444; color: white;">Delanteros</div>
-          <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}" href="#/tabs/players/{{player.$id}}" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-            <img style="width:150px; height:150px;" src="{{player.photo}}">
-            <h2><b>{{ player.name }}</b></h2>
-            <h3 class="player-box dl">DL</h3>
-            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-            
-            <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
+        <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="checkCondition(player)">
+        </button>
+        <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
+          <i class="icon ion-medkit"></i>
+        </ion-option-button>
+      </ion-item>
 
-            <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="checkCondition(player)">
-            </button>
-            <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
-              <i class="icon ion-medkit"></i>
-            </ion-option-button>
-          </ion-item>
-          
-          
-        </ion-list>
-      </ion-content>
+      <div class="item item-divider item-divider-dark">Centrocampistas</div>
+      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}" href="#/tabs/players/{{player.$id}}"
+        class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+        <img style="width:150px; height:150px;" src="{{player.photo}}">
+        <h2>
+          <b>{{ player.name }}</b>
+        </h2>
+        <h3 class="player-box mc">MC</h3>
+        <h3 class="dorsal-box">{{ player.dorsal }}</h3>
+
+        <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
+
+        <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="checkCondition(player)">
+        </button>
+        <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
+          <i class="icon ion-medkit"></i>
+        </ion-option-button>
+      </ion-item>
+
+      <div class="item item-divider item-divider-dark">Delanteros</div>
+      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}" href="#/tabs/players/{{player.$id}}"
+        class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+        <img style="width:150px; height:150px;" src="{{player.photo}}">
+        <h2>
+          <b>{{ player.name }}</b>
+        </h2>
+        <h3 class="player-box dl">DL</h3>
+        <h3 class="dorsal-box">{{ player.dorsal }}</h3>
+
+        <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
+
+        <button class="button button-clear icon ion-medkit button-assertive" ng-click="toggleInjured(player)" ng-show="checkCondition(player)">
+        </button>
+        <ion-option-button class="button-dark" ng-click="toggleInjured(player)">
+          <i class="icon ion-medkit"></i>
+        </ion-option-button>
+      </ion-item>
+
+
+    </ion-list>
+  </ion-content>
 </ion-view>
