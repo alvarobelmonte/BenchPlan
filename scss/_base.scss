@@ -1,0 +1,139 @@
+.larger {
+  font-size: 120px;
+}
+
+/** Error Messages **/
+/** Styling for the username field **/
+label.item.has-error {
+  border-bottom: 2px solid red;
+}
+
+/** Styling for the password field when an error exists**/
+label.item.has-error-lr {
+  border-bottom: 2px solid red;
+}
+
+/** Styling for the password field when an error has been resolved**/
+label.item.valid-lr {
+  border-left: 2px solid green;
+  border-right: 2px solid green;
+}
+
+/** Styling for the error text and container **/
+.form-errors {
+  margin: 5px 0;
+}
+.form-error {
+  padding: 2px 0 2px 16px;
+  color: red;
+}
+
+h1 {
+  text-align: center;
+}
+
+
+/*Players*/
+.player-box {
+  width: 25px;
+  height: auto;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.dorsal-box {
+  width: 20px;
+  height: 20px;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: $grey-light;
+}
+
+.alineaciones div div {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+}
+
+.circular {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border: 3px black;
+}
+
+.profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.strategy-bar i {
+  font-size: 200%;
+}
+
+.fila1 i {
+  font-size: 200%;
+}
+
+.fila2 i {
+  font-size: 200%;
+}
+
+.balon {
+  width: 15px;
+  height: auto;
+}
+
+.ball {
+  position: absolute;
+  left: 47%;
+  top: 50%;
+}
+.fila1 {
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  width: 500px;
+}
+.fila2 {
+  position: absolute;
+  left: 70%;
+  top: 15%;
+  width: 500px;
+}
+
+.footer-bar-custom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  z-index: 5;
+}
+
+.footer-bar-custom .item-left,
+.footer-bar-custom .item-center,
+.footer-bar-custom .item-right {
+  position: absolute;
+}
+
+.footer-bar-custom .item-left {
+  left: 10px;
+}
+
+.footer-bar-custom .item-center {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.footer-bar-custom .item-right {
+  right: 10px;
+}

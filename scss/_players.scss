@@ -1,0 +1,32 @@
+.po {
+  background-color: $color-goalkeeper;
+}
+
+.df {
+  background-color: $color-defense;
+}
+
+.mc {
+  background-color: $color-midfielder;
+}
+
+.dl {
+  background-color: $color-striker;
+}
+
+.item-divider {
+  text-align: center;
+  background-color: #444444;
+  color: white;
+}
+
+.disponible {
+  color: green;
+}
+.lesionado {
+  color: red;
+}
+
+.player-description {
+  text-align: center;
+}

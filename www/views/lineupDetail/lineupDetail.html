@@ -1,266 +1,291 @@
 <ion-view view-title="Detalle Alineación">
-	<ion-content has-subheader="false" class="alineaciones" scroll="false">
+  <ion-content has-subheader="false" class="alineaciones" scroll="false">
 
-		
-		
+    <div class="alineacion l442" ng-style="{height: iframeHeight + 'px'}" scroll="false">
 
-		<div class="alineacion l442" ng-style="{height: iframeHeight + 'px'}" scroll="false">
-				
-				<div class="portero">
-					<p>
-					<a  ng-class="pformado" class="button button-icon" ng-click="openModal(p1pos, 1)">
-						<i ng-show="checkPlayerEmpty(player1)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player1)" class="circular" src="{{player1foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player1)">{{player1}}</b></br>
-					</p>
-				</div>
+      <div class="portero">
+        <p>
+          <a ng-class="pformado" class="button button-icon" ng-click="openModal(p1pos, 1)">
+            <i ng-show="checkPlayerEmpty(player1)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player1)" class="circular" src="{{player1foto}}">
+          </a>
 
+          <br>
+          <b ng-hide="checkPlayerEmpty(player1)">{{player1}}</b>
+          </br>
+        </p>
+      </div>
 
-				<div ng-class="p2class">
-					<p>
-					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p2pos, 2)">
-						<i ng-show="checkPlayerEmpty(player2)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player2)" class="circular" src="{{player2foto}}">
-					</a>
-					
-					<br><b ng-hide="player2==undefined">{{player2}}</b></br>
-					</p>
-				</div>
-				
-				
-				<div ng-class="p3class">
-					<p>
-					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p3pos, 3)">
-						<i ng-show="checkPlayerEmpty(player3)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player3)" class="circular" src="{{player3foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player3)">{{player3}}</b></br>
-					</p>
-				</div>
+      <div ng-class="p2class">
+        <p>
+          <a ng-class="dformado" class="button button-icon" ng-click="openModal(p2pos, 2)">
+            <i ng-show="checkPlayerEmpty(player2)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player2)" class="circular" src="{{player2foto}}">
+          </a>
 
-				<div ng-class="p4class">
-					<p>
-					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p4pos, 4)">
-						<i ng-show="checkPlayerEmpty(player4)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player4)" class="circular" src="{{player4foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player4)">{{player4}}</b></br>
-					</p>
-				</div>
+          <br>
+          <b ng-hide="player2==undefined">{{player2}}</b>
+          </br>
+        </p>
+      </div>
 
-				<div ng-class="p5class">
-					<p>
-					<a  ng-class="dformado" class="button button-icon" ng-click="openModal(p5pos, 5)">
-						<i ng-show="checkPlayerEmpty(player5)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player5)" class="circular" src="{{player5foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player5)">{{player5}}</b></br>
-					</p>
-				</div>
+      <div ng-class="p3class">
+        <p>
+          <a ng-class="dformado" class="button button-icon" ng-click="openModal(p3pos, 3)">
+            <i ng-show="checkPlayerEmpty(player3)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player3)" class="circular" src="{{player3foto}}">
+          </a>
 
-				<div ng-class="p6class">
-					<p>
-					<a  ng-class="dm2formado" class="button button-icon" ng-click="openModal(p6pos, 6)">
-						<i ng-show="checkPlayerEmpty(player6)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player6)" class="circular" src="{{player6foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player6)">{{player6}}</b></br>
-					</p>
-				</div>
+          <br>
+          <b ng-hide="checkPlayerEmpty(player3)">{{player3}}</b>
+          </br>
+        </p>
+      </div>
 
-				<div ng-class="p7class">
-					<p>
-					<a  ng-class="mformado" class="button button-icon" ng-click="openModal(p7pos, 7)">
-						<i ng-show="checkPlayerEmpty(player7)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player7)" class="circular" src="{{player7foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player7)">{{player7}}</b></br>
-					</p>
-				</div>
+      <div ng-class="p4class">
+        <p>
+          <a ng-class="dformado" class="button button-icon" ng-click="openModal(p4pos, 4)">
+            <i ng-show="checkPlayerEmpty(player4)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player4)" class="circular" src="{{player4foto}}">
+          </a>
 
-				<div ng-class="p8class">
-					<p>
-					<a  ng-class="m2formado" class="button button-icon" ng-click="openModal(p8pos, 8)">
-						<i ng-show="checkPlayerEmpty(player8)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player8)" class="circular" src="{{player8foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player8)">{{player8}}</b></br>
-					</p>
-				</div>
+          <br>
+          <b ng-hide="checkPlayerEmpty(player4)">{{player4}}</b>
+          </br>
+        </p>
+      </div>
 
-				<div ng-class="p9class">
-					<p>
-					<a  ng-class="md1formado" class="button button-icon" ng-click="openModal(p9pos, 9)">
-						<i ng-show="checkPlayerEmpty(player9)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player9)" class="circular" src="{{player9foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player9)">{{player9}}</b></br>
-					</p>
-				</div>
+      <div ng-class="p5class">
+        <p>
+          <a ng-class="dformado" class="button button-icon" ng-click="openModal(p5pos, 5)">
+            <i ng-show="checkPlayerEmpty(player5)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player5)" class="circular" src="{{player5foto}}">
+          </a>
 
-				<div ng-class="p10class">
-					<p>
-					<a  ng-class="md2formado" class="button button-icon" ng-click="openModal(p10pos, 10)">
-						<i ng-show="checkPlayerEmpty(player10)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player10)" class="circular" src="{{player10foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player10)">{{player10}}</b></br>
-					</p>
-				</div>
+          <br>
+          <b ng-hide="checkPlayerEmpty(player5)">{{player5}}</b>
+          </br>
+        </p>
+      </div>
 
-				<div ng-class="p11class">
-					<p>
-					<a  ng-class="dlformado" class="button button-icon" ng-click="openModal(p11pos, 11)">
-						<i ng-show="checkPlayerEmpty(player11)" class="icon ion-plus-circled stable"></i>
-						<img ng-show="!checkPlayerEmpty(player11)" class="circular" src="{{player11foto}}">
-					</a>
-					
-					<br><b ng-hide="checkPlayerEmpty(player11)">{{player11}}</b></br>
-					</p>
-				</div>
-			
-		</div>
+      <div ng-class="p6class">
+        <p>
+          <a ng-class="dm2formado" class="button button-icon" ng-click="openModal(p6pos, 6)">
+            <i ng-show="checkPlayerEmpty(player6)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player6)" class="circular" src="{{player6foto}}">
+          </a>
 
+          <br>
+          <b ng-hide="checkPlayerEmpty(player6)">{{player6}}</b>
+          </br>
+        </p>
+      </div>
 
-	<script id="lineupModal.html" type="text/ng-template">
-	  <ion-modal-view ng-switch on ="jugador">
-	  <div ng-switch-when="portero">
-		<div class="modal">
-		    <ion-header-bar>
-		      <h1 class="title">Elegir portero</h1>
-		    </ion-header-bar>
-		    <ion-content>
-		      <ion-list>
-		          <ion-item>
-			      		<button ng-click="removePlayer(num)" class="button button-assertive">
-			      			Quitar jugador
-						</button>
-				  </ion-item>
-			      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'} | filter:filtroComprobarAlineado"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-		            <img style="width:150px; height:150px;" src="{{ player.photo }}">
-					      <h2><b>{{ player.name }}</b></h2>
-					      <h3 class="player-box po">PO</h3>
-		            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-		          </ion-item>
-	          </ion-list>
-		    </ion-content>
-		  </div>
-		</div>
+      <div ng-class="p7class">
+        <p>
+          <a ng-class="mformado" class="button button-icon" ng-click="openModal(p7pos, 7)">
+            <i ng-show="checkPlayerEmpty(player7)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player7)" class="circular" src="{{player7foto}}">
+          </a>
 
+          <br>
+          <b ng-hide="checkPlayerEmpty(player7)">{{player7}}</b>
+          </br>
+        </p>
+      </div>
 
-		<div ng-switch-when="defensa">
-			<div class="modal">
-			    <ion-header-bar>
-			      <h1 class="title">Elegir defensa</h1>
-			    </ion-header-bar>
-			    <ion-content>
-			      <ion-list>
-			      	  <ion-item>
-			      		<button ng-click="removePlayer(num)" class="button button-assertive">
-			      			Quitar jugador
-						</button>
-					  </ion-item>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'} | filter:filtroComprobarAlineado"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="{{ player.photo }}">
-						      <h2><b>{{ player.name }}</b></h2>
-						      <h3 class="player-box df">DF</h3>
-			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-			          </ion-item>
-		          </ion-list>
-			    </ion-content>
-		  </div>
-		</div>
+      <div ng-class="p8class">
+        <p>
+          <a ng-class="m2formado" class="button button-icon" ng-click="openModal(p8pos, 8)">
+            <i ng-show="checkPlayerEmpty(player8)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player8)" class="circular" src="{{player8foto}}">
+          </a>
+
+          <br>
+          <b ng-hide="checkPlayerEmpty(player8)">{{player8}}</b>
+          </br>
+        </p>
+      </div>
+
+      <div ng-class="p9class">
+        <p>
+          <a ng-class="md1formado" class="button button-icon" ng-click="openModal(p9pos, 9)">
+            <i ng-show="checkPlayerEmpty(player9)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player9)" class="circular" src="{{player9foto}}">
+          </a>
+
+          <br>
+          <b ng-hide="checkPlayerEmpty(player9)">{{player9}}</b>
+          </br>
+        </p>
+      </div>
+
+      <div ng-class="p10class">
+        <p>
+          <a ng-class="md2formado" class="button button-icon" ng-click="openModal(p10pos, 10)">
+            <i ng-show="checkPlayerEmpty(player10)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player10)" class="circular" src="{{player10foto}}">
+          </a>
+
+          <br>
+          <b ng-hide="checkPlayerEmpty(player10)">{{player10}}</b>
+          </br>
+        </p>
+      </div>
+
+      <div ng-class="p11class">
+        <p>
+          <a ng-class="dlformado" class="button button-icon" ng-click="openModal(p11pos, 11)">
+            <i ng-show="checkPlayerEmpty(player11)" class="icon ion-plus-circled stable"></i>
+            <img ng-show="!checkPlayerEmpty(player11)" class="circular" src="{{player11foto}}">
+          </a>
+
+          <br>
+          <b ng-hide="checkPlayerEmpty(player11)">{{player11}}</b>
+          </br>
+        </p>
+      </div>
+
+    </div>
+
+    <script id="lineupModal.html" type="text/ng-template">
+      <ion-modal-view ng-switch on="jugador">
+        <div ng-switch-when="portero">
+          <div class="modal">
+            <ion-header-bar>
+              <h1 class="title">Elegir portero</h1>
+            </ion-header-bar>
+            <ion-content>
+              <ion-list>
+                <ion-item>
+                  <button ng-click="removePlayer(num)" class="button button-assertive">
+                    Quitar jugador
+                  </button>
+                </ion-item>
+                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'} | filter:filtroComprobarAlineado"
+                  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+                  <img style="width:150px; height:150px;" src="{{ player.photo }}">
+                  <h2>
+                    <b>{{ player.name }}</b>
+                  </h2>
+                  <h3 class="player-box po">PO</h3>
+                  <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </div>
+        </div>
 
 
+        <div ng-switch-when="defensa">
+          <div class="modal">
+            <ion-header-bar>
+              <h1 class="title">Elegir defensa</h1>
+            </ion-header-bar>
+            <ion-content>
+              <ion-list>
+                <ion-item>
+                  <button ng-click="removePlayer(num)" class="button button-assertive">
+                    Quitar jugador
+                  </button>
+                </ion-item>
+                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'} | filter:filtroComprobarAlineado"
+                  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+                  <img style="width:150px; height:150px;" src="{{ player.photo }}">
+                  <h2>
+                    <b>{{ player.name }}</b>
+                  </h2>
+                  <h3 class="player-box df">DF</h3>
+                  <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </div>
+        </div>
 
+        <div ng-switch-when="medio">
+          <div class="modal">
+            <ion-header-bar>
+              <h1 class="title">Elegir centrocampista</h1>
+            </ion-header-bar>
+            <ion-content>
+              <ion-list>
+                <ion-item>
+                  <button ng-click="removePlayer(num)" class="button button-assertive">
+                    Quitar jugador
+                  </button>
+                </ion-item>
+                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'} | filter:filtroComprobarAlineado"
+                  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+                  <img style="width:150px; height:150px;" src="{{ player.photo }}">
+                  <h2>
+                    <b>{{ player.name }}</b>
+                  </h2>
+                  <h3 class="player-box mc">MC</h3>
+                  <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </div>
+        </div>
 
-		<div ng-switch-when="medio">
-			<div class="modal">
-			    <ion-header-bar>
-			      <h1 class="title">Elegir centrocampista</h1>
-			    </ion-header-bar>
-			    <ion-content>
-			      <ion-list>
-			      	  <ion-item>
-			      		<button ng-click="removePlayer(num)" class="button button-assertive">
-			      			Quitar jugador
-						</button>
-					  </ion-item>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'} | filter:filtroComprobarAlineado"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="{{ player.photo }}">
-						      <h2><b>{{ player.name }}</b></h2>
-						      <h3 class="player-box mc">MC</h3>
-			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-			          </ion-item>
-		          </ion-list>
-			    </ion-content>
-		  </div>
-		</div>
+        <div ng-switch-when="delantero">
+          <div class="modal">
+            <ion-header-bar>
+              <h1 class="title">Elegir delantero</h1>
+            </ion-header-bar>
+            <ion-content>
+              <ion-list>
+                <ion-item>
+                  <button ng-click="removePlayer(num)" class="button button-assertive">
+                    Quitar jugador
+                  </button>
+                </ion-item>
+                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'} | filter: filtroComprobarAlineado"
+                  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
+                  <img style="width:150px; height:150px;" src="{{ player.photo }}">
+                  <h2>
+                    <b>{{ player.name }}</b>
+                  </h2>
+                  <h3 class="player-box dl">DL</h3>
+                  <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
+                </ion-item>
+              </ion-list>
+            </ion-content>
+          </div>
+        </div>
 
-		<div ng-switch-when="delantero">
-			<div class="modal">
-			    <ion-header-bar>
-			      <h1 class="title">Elegir delantero</h1>
-			    </ion-header-bar>
-			    <ion-content>
-			      <ion-list>
-			      	  <ion-item>
-			      		<button ng-click="removePlayer(num)" class="button button-assertive">
-			      			Quitar jugador
-						</button>
-					  </ion-item>
-				      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'} | filter: filtroComprobarAlineado"  ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-			            <img style="width:150px; height:150px;" src="{{ player.photo }}">
-						      <h2><b>{{ player.name }}</b></h2>
-						      <h3 class="player-box dl">DL</h3>
-			            <h3 class="dorsal-box po">{{ player.dorsal }}</h3>
-			          </ion-item>
-		          </ion-list>
-			    </ion-content>
-		  </div>
-		</div>
+      </ion-modal-view>
 
-	  </ion-modal-view>
+    </script>
 
-	</script>
+    <script id="lineupModal2.html" type="text/ng-template">
+      <ion-modal-view>
 
-	<script id="lineupModal2.html" type="text/ng-template">
-	  <ion-modal-view>
+        <ion-header-bar>
+          <h1 class="title">Elegir formación</h1>
+        </ion-header-bar>
+        <ion-content>
+          <ion-list>
+            <ion-item ng-repeat="f in formaciones" ng-click="setFormation(f)">
+              {{f}}
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-modal-view>
 
-	  		<ion-header-bar>
-		      <h1 class="title">Elegir formación</h1>
-		    </ion-header-bar>
-			<ion-content>
-			    <ion-list>
-					<ion-item ng-repeat="f in formaciones" ng-click="setFormation(f)">
-						{{f}}
-					</ion-item>
-			    </ion-list>
-		    </ion-content>
-	  </ion-modal-view>
+    </script>
 
-	</script>
+  </ion-content>
 
-	</ion-content>
-
-	<ion-footer-bar class="bar-dark">
-	<div class="button-bar fixed-outside">
-		  <button class="button button-calm" ng-click="openModalFormacion()">
-          {{formacion}}
-          </button>
-          <button class="button button-balanced icon ion-android-folder-open" ng-click="saveLineup()"> Guardar</button>
-		  <!-- <select ng-model="formacion.valor" ng-change="update(formacion)" ng-options="f for f in formaciones"></select> -->
-	</div>
-	</ion-footer-bar>
+  <ion-footer-bar class="bar-dark">
+    <div class="button-bar fixed-outside">
+      <button class="button button-calm" ng-click="openModalFormacion()">
+        {{formacion}}
+      </button>
+      <button class="button button-balanced icon ion-android-folder-open" ng-click="saveLineup()"> Guardar</button>
+      <!-- <select ng-model="formacion.valor" ng-change="update(formacion)" ng-options="f for f in formaciones"></select> -->
+    </div>
+  </ion-footer-bar>
 
 </ion-view>

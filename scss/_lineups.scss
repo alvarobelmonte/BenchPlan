@@ -1,0 +1,156 @@
+.alineaciones {
+  background: url(../img/alineaciones.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.alineacion-icon {
+  width: 30px;
+  height: auto;
+}
+
+.alineacion b {
+  background-color: $dark;
+  color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 25%;
+}
+.alineacion p {
+  line-height: 1%;
+}
+
+.l442 {
+  width: 100%;
+}
+
+.l442 div {
+  width: 100px;
+  height: auto;
+  line-height: 90%;
+}
+.portero {
+  position: absolute;
+  top: 1%;
+  left: 39%;
+}
+
+.def {
+  position: absolute;
+  top: 20%;
+}
+/*4-4-2*/
+.linea4p1 {
+  left: 10%;
+}
+.linea4p2 {
+  left: 30%;
+}
+.linea4p3 {
+  left: 55%;
+}
+.linea4p4 {
+  left: 75%;
+}
+
+.linea1p1 {
+  left: 39%;
+}
+
+.linea2p1 {
+  left: 30%;
+}
+.linea2p2 {
+  left: 55%;
+}
+
+/*3-4-3*/
+.linea3p1 {
+  left: 20%;
+}
+.linea3p2 {
+  left: 42%;
+}
+.linea3p3 {
+  left: 65%;
+}
+
+.linea5p1 {
+  left: 5%;
+}
+.linea5p2 {
+  left: 23%;
+}
+.linea5p3 {
+  left: 41%;
+}
+.linea5p4 {
+  left: 60%;
+}
+.linea5p5 {
+  left: 78%;
+}
+
+.mc1 {
+  position: absolute;
+  top: 40%;
+}
+
+.mc2 {
+  position: absolute;
+  top: 60%;
+}
+
+.del {
+  position: absolute;
+  top: 80%;
+}
+
+.dl2p1 {
+  left: 30%;
+}
+
+.dl2p2 {
+  left: 55%;
+}
+
+.dl1p1 {
+  left: 39%;
+}
+
+.ed4 {
+  position: absolute;
+  top: 45%;
+  left: 10%;
+}
+
+.mcd4 {
+  position: absolute;
+  top: 45%;
+  left: 30%;
+}
+
+.mci4 {
+  position: absolute;
+  top: 45%;
+  left: 55%;
+}
+
+.ei4 {
+  position: absolute;
+  top: 45%;
+  left: 75%;
+}
+
+.ddm2 {
+  position: absolute;
+  top: 60%;
+  left: 30%;
+}
+
+.dim2 {
+  position: absolute;
+  top: 80%;
+  left: 55%;
+}
