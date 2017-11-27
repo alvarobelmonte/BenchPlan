@@ -1,26 +1,40 @@
-.alineaciones {
+/* LINEUPS */
+.lineup-background {
   background: url(../img/alineaciones.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-.alineacion-icon {
-  width: 30px;
-  height: auto;
+
+.lineup-background div div {
+  text-align: center; //Center players
 }
 
-.alineacion b {
+/* LINEUP DETAIL */
+.lineup-detail p {
+  line-height: 1%;
+}
+
+/* Player name box */
+.lineup-detail b {
   background-color: $dark;
   color: white;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-radius: 2rem;
 }
-.alineacion p {
-  line-height: 1%;
+
+.player-img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  border: 0.3rem solid $dark;
 }
 
+/************************/
 .l442 {
   width: 100%;
 }

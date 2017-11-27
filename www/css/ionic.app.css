@@ -9095,52 +9095,33 @@ a.button {
 html {
   font-size: 62.5%; }
 
+h1 {
+  text-align: center; }
+
 .larger {
-  font-size: 120px; }
+  font-size: 12rem; }
 
 /** Error Messages **/
 /** Styling for the username field **/
 label.item.has-error {
-  border-bottom: 2px solid red; }
+  border-bottom: 0.2rem solid #cf0a2c; }
 
 /** Styling for the password field when an error exists**/
 label.item.has-error-lr {
-  border-bottom: 2px solid red; }
+  border-bottom: 0.2rem solid #cf0a2c; }
 
 /** Styling for the password field when an error has been resolved**/
 label.item.valid-lr {
-  border-left: 2px solid green;
-  border-right: 2px solid green; }
+  border-left: 0.2rem solid #027037;
+  border-right: 0.2rem solid #027037; }
 
 /** Styling for the error text and container **/
 .form-errors {
-  margin: 5px 0; }
+  margin: 0.5rem 0; }
 
 .form-error {
-  padding: 2px 0 2px 16px;
-  color: red; }
-
-h1 {
-  text-align: center; }
-
-/*Players*/
-.alineaciones div div {
-  width: 80px;
-  height: 80px;
-  text-align: center; }
-
-.circular {
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border: 3px black; }
-
-.profile {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
+  padding: 0.2rem 0 2px 16px;
+  color: #cf0a2c; }
 
 .strategy-bar i {
   font-size: 200%; }
@@ -9230,6 +9211,11 @@ h1 {
   background-color: #636363; }
 
 /* PLAYER DETAIL */
+.profile {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 .player-description {
   text-align: center; }
 
@@ -9239,27 +9225,38 @@ h1 {
 .injured {
   color: #cf0a2c; }
 
-.alineaciones {
+/* LINEUPS */
+.lineup-background {
   background: url(../img/alineaciones.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
 
-.alineacion-icon {
-  width: 30px;
-  height: auto; }
+.lineup-background div div {
+  text-align: center; }
 
-.alineacion b {
+/* LINEUP DETAIL */
+.lineup-detail p {
+  line-height: 1%; }
+
+/* Player name box */
+.lineup-detail b {
   background-color: #0E2431;
   color: white;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-radius: 2rem; }
 
-.alineacion p {
-  line-height: 1%; }
+.player-img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  border: 0.3rem solid #0E2431; }
 
+/************************/
 .l442 {
   width: 100%; }
 

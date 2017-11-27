@@ -1,41 +1,34 @@
-<ion-view view-title="Alineaciones" hide-back-button="true">
-        
-<ion-content  class="">
-        
+<ion-view view-title="Lineups" hide-back-button="true">
 
- 
+  <ion-content class="">
 
-        <div  class="bar-dark bar-subheader">
-          <div class="button-bar ">
-         
-            <button class="button icon-left ion-plus-circled  button-balanced" onclick="window.location.href='#/tabs/lineups/addLineup'">
-              Añadir 
-            </button> 
-            <button class="button button icon-left ion-close-circled button-assertive" ng-click="data.showDelete = !data.showDelete;">
-              Borrar 
-            </button>
-       
-          </div>
-        </div>  
+    <div class="bar-dark bar-subheader">
+      <div class="button-bar ">
 
+        <button class="button icon-left ion-plus-circled  button-balanced" onclick="window.location.href='#/tabs/lineups/addLineup'">
+          Add
+        </button>
+        <button class="button button icon-left ion-close-circled button-assertive" ng-click="data.showDelete = !data.showDelete;">
+          Delete
+        </button>
 
-          <div class="item item-divider item-divider-calm">
-            Alineaciones
-          </div>
+      </div>
+    </div>
 
+    <div class="item item-divider item-divider-calm">
+      Lineups
+    </div>
 
+    <ion-list show-delete="data.showDelete">
+      <ion-item ng-repeat="lineup in lineups" href="#/tabs/lineups/{{lineup.$id}}" class="item-icon-left">
+        <i class="icon ion-ios-keypad"></i>
+        <h2>{{lineup.name}}</h2>
+        <h3>{{lineup.description}}</h3>
 
-          <ion-list show-delete="data.showDelete">
-            <ion-item ng-repeat="lineup in lineups" href="#/tabs/lineups/{{lineup.$id}}" class="item-icon-left">
-              <i class="icon ion-ios-keypad"></i>
-        			<h2>{{lineup.name}}</h2>
-        			<h3>{{lineup.description}}</h3>
+        <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(lineup)"></ion-delete-button>
 
-              <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(lineup)"></ion-delete-button>
+      </ion-item>
 
-            </ion-item>
-          
-          
-          </ion-list>
-      </ion-content>
+    </ion-list>
+  </ion-content>
 </ion-view>

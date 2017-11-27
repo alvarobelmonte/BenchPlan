@@ -2,65 +2,40 @@ html{
   font-size: 62.5%; // 1rem = 10px
 }
 
+h1 {
+  text-align: center;
+}
 
 .larger {
-  font-size: 120px;
+  font-size: 12rem;
 }
 
 /** Error Messages **/
 /** Styling for the username field **/
 label.item.has-error {
-  border-bottom: 2px solid red;
+  border-bottom: 0.2rem solid $assertive;
 }
 
 /** Styling for the password field when an error exists**/
 label.item.has-error-lr {
-  border-bottom: 2px solid red;
+  border-bottom: 0.2rem solid $assertive;
 }
 
 /** Styling for the password field when an error has been resolved**/
 label.item.valid-lr {
-  border-left: 2px solid green;
-  border-right: 2px solid green;
+  border-left: 0.2rem solid $balanced;
+  border-right: 0.2rem solid $balanced;
 }
 
 /** Styling for the error text and container **/
 .form-errors {
-  margin: 5px 0;
+  margin: 0.5rem 0;
 }
 .form-error {
-  padding: 2px 0 2px 16px;
-  color: red;
+  padding: 0.2rem 0 2px 16px;
+  color: $assertive;
 }
 
-h1 {
-  text-align: center;
-}
-
-
-/*Players*/
-
-
-.alineaciones div div {
-  width: 80px;
-  height: 80px;
-  text-align: center;
-}
-
-.circular {
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border: 3px black;
-}
-
-.profile {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .strategy-bar i {
   font-size: 200%;
