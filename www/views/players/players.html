@@ -22,7 +22,7 @@
 
     <ion-list show-delete="data.showDelete">
 
-      <div class="item item-divider item-divider-dark">
+      <div class="item item-divider item-divider--dark">
         Goalkeepers
       </div>
       <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}" href="#/tabs/players/{{player.$id}}"
@@ -31,8 +31,8 @@
         <h2>
           <b>{{ player.name }}</b>
         </h2>
-        <h3 class="player-box po">PO</h3>
-        <h3 class="dorsal-box">{{ player.dorsal }}</h3>
+        <h3 class="player-box gk">GK</h3>
+        <h3 class="number-box">{{ player.dorsal }}</h3>
 
         <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 
@@ -43,7 +43,7 @@
         </ion-option-button>
       </ion-item>
 
-      <div class="item item-divider item-divider-dark">Defensas</div>
+      <div class="item item-divider item-divider--dark">Defenders</div>
       <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
         <img style="width:150px; height:150px;" src="{{player.photo}}">
@@ -51,7 +51,7 @@
           <b>{{ player.name }}</b>
         </h2>
         <h3 class="player-box df">DF</h3>
-        <h3 class="dorsal-box">{{ player.dorsal }}</h3>
+        <h3 class="number-box">{{ player.dorsal }}</h3>
 
         <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 
@@ -62,15 +62,15 @@
         </ion-option-button>
       </ion-item>
 
-      <div class="item item-divider item-divider-dark">Centrocampistas</div>
+      <div class="item item-divider item-divider--dark">Midfielders</div>
       <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
         <img style="width:150px; height:150px;" src="{{player.photo}}">
         <h2>
           <b>{{ player.name }}</b>
         </h2>
-        <h3 class="player-box mc">MC</h3>
-        <h3 class="dorsal-box">{{ player.dorsal }}</h3>
+        <h3 class="player-box mf">MF</h3>
+        <h3 class="number-box">{{ player.dorsal }}</h3>
 
         <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 
@@ -81,15 +81,15 @@
         </ion-option-button>
       </ion-item>
 
-      <div class="item item-divider item-divider-dark">Delanteros</div>
+      <div class="item item-divider item-divider--dark">Forwards</div>
       <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
         <img style="width:150px; height:150px;" src="{{player.photo}}">
         <h2>
           <b>{{ player.name }}</b>
         </h2>
-        <h3 class="player-box dl">DL</h3>
-        <h3 class="dorsal-box">{{ player.dorsal }}</h3>
+        <h3 class="player-box fw">F</h3>
+        <h3 class="number-box">{{ player.dorsal }}</h3>
 
         <ion-delete-button class="ion-close-circled" ng-click="onItemDelete(player)"></ion-delete-button>
 

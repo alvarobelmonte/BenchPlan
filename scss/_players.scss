@@ -1,23 +1,22 @@
-.dorsal-box {
-  width: 20px;
-  height: 20px;
-  color: white;
+/* PLAYERS */
+.item-divider {
   text-align: center;
-  line-height: 20px;
-  box-sizing: border-box;
-  border-radius: 50%;
-  background-color: $grey-light;
+
+  &--dark {
+    background-color: $dark;
+    color: white;
+  }
 }
 
+//Abbreviation of the players position
 .player-box {
-  width: 1.7rem;
-  height: auto;
+  width: 2.5rem;
   color: white;
   text-align: center;
-  box-sizing: border-box;
 }
 
-.po {
+//Position colors
+.gk {
   background-color: $color-goalkeeper;
 }
 
@@ -25,30 +24,33 @@
   background-color: $color-defense;
 }
 
-.mc {
+.mf {
   background-color: $color-midfielder;
 }
 
-.dl {
+.fw {
   background-color: $color-striker;
 }
 
-.item-divider {
-  text-align: center;
-}
-
-.item-divider-dark {
-  background-color: $dark;
+//Circle with the dorsal number
+.number-box {
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
   color: white;
+  text-align: center;
+  border-radius: 50%;
+  background-color: $grey-light;
 }
 
-.disponible {
-  color: $balanced;
-}
-.lesionado {
-  color: red;
-}
-
+/* PLAYER DETAIL */
 .player-description {
   text-align: center;
+}
+
+.available {
+  color: $balanced;
+}
+.injured {
+  color: $assertive;
 }
