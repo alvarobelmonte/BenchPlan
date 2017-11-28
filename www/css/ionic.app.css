@@ -9380,3 +9380,22 @@ label.item.valid-lr {
 
 .empate {
   color: orange; }
+
+.login-logo {
+  width: 15rem;
+  height: 15rem; }
+
+.login-content {
+  padding-top: 3rem;
+  background-image: linear-gradient(to right bottom, rgba(43, 46, 74, 0.8), rgba(232, 69, 69, 0.8)), url(../img/login2.jpg);
+  background-size: cover;
+  background-position: top;
+  height: 100%; }
+  .login-content label {
+    border-color: transparent; }
+  .login-content input {
+    background-color: transparent;
+    color: white;
+    border-bottom: 0.1rem solid white; }
+    .login-content input:focus {
+      background-color: transparent; }

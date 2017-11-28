@@ -1,13 +1,14 @@
-<ion-view view-title="BenchPlan" hide-back-button="true">
-        <ion-content class="padding-top">
+<ion-view hide-back-button="true" hide-nav-bar="true">
+        <ion-content class="" scroll="false">
+          <section class="login-content">
           <div class="list text-center padding">
-            <img style="width:150px; height:150px;" class="circular profile" src="img/icon.png">
+            <img class="login-logo" src="img/icon.png">
           </div>
           <form novalidate name="loginForm" ng-submit="loginForm.$valid && signIn(user)">
           <div class="list">
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : loginForm.txtemail.$invalid && loginForm.$submitted }">
-              <span class="input-label">Email</span>
-              <input name="txtemail" type="email" ng-model="user.email" placeholder="Email"
+              <span class="input-label light">Email</span>
+              <input class="login-input" name="txtemail" type="email" ng-model="user.email" placeholder="Email"
               ng-minlength="5"
               ng-maxlength="30"
               required>
@@ -20,8 +21,8 @@
               <div class="form-error" ng-message="maxlength">This field is must be less than 30 characters.</div>
             </div>
             <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : loginForm.txtPassword.$invalid && loginForm.$submitted }">
-              <span class="input-label">Contraseña</span>
-              <input name="txtPassword" type="password" ng-model="user.password" placeholder="Contraseña"
+              <span class="input-label light">Password</span>
+              <input name="txtPassword" type="password" ng-model="user.password" placeholder="Password"
               ng-minlength="5"
               ng-maxlength="30"
               required>
@@ -34,11 +35,13 @@
             </div>
           </div>
           <div class="padding-top">
-            <input type="submit" class="button button-block button-balanced" value="Iniciar sesión">
+            <input type="submit" class="button button-block button-dark" value="Login">
             <p class="text-center padding-top">
-                <a href="#/forgot" class="button button-clear button-calm">¿Olvidaste tu contraseña?</a>
-                <a href="#/register" class="button button-clear button-balanced">Regístrate</a>
+                <a href="#/forgot" class="button button-clear button-light">¿Olvidaste tu contraseña?</a>
+                <a href="#/register" class="button button-clear button-light"><b>Regístrate</b></a>
           </div>
         </form>
+      </section>
         </ion-content>
+      
 </ion-view>

@@ -1,0 +1,31 @@
+.login-logo {
+  width: 15rem;
+  height: 15rem;
+}
+
+.login-content {
+  padding-top: 3rem;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-goalkeeper, 0.8),
+      rgba($color-defense, 0.8)
+    ),
+    url(../img/login2.jpg);
+  background-size: cover;
+  background-position: top;
+  height: 100%;
+
+  label {
+    border-color: transparent;
+  }
+
+
+  input {
+    background-color: transparent;
+    color: white;
+    border-bottom: 0.1rem solid white;
+    &:focus {
+        background-color: transparent;
+    }
+}
+}
