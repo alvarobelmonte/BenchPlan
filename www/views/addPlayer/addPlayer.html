@@ -1,138 +1,112 @@
-<ion-view view-title="Añadir Jugador" hide-back-button="true">
-        <ion-content class="" >
-          <h1>Añadir jugador</h1>
-          <form novalidate name="addPlayer" ng-submit="addPlayer.$valid && addP(player)">
-          <div class="list">
+<ion-view view-title="Add Player" hide-back-button="true">
+  <ion-content class="">
+    <h1>Add Player</h1>
+    <form novalidate name="addPlayer" ng-submit="addPlayer.$valid && addP(player)">
+      <div class="list">
 
-            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addPlayer.txtName.$invalid && addPlayer.$submitted }">
-              <span class="input-label">Nombre</span>
-              <input name="txtName" type="text" ng-model="player.name" placeholder="Nombre"
-              ng-minlength="3"
-              ng-maxlength="11"
-              required>
-            </label>
+        <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addPlayer.txtName.$invalid && addPlayer.$submitted }">
+          <span class="input-label">Name</span>
+          <input name="txtName" type="text" ng-model="player.name" placeholder="Name" ng-minlength="3" ng-maxlength="11" required>
+        </label>
 
+        <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
+          <div class="form-error" ng-message="required">This field is required</div>
+          <div class="form-error" ng-message="minlength">Minimum length required is 3</div>
+          <div class="form-error" ng-message="maxlength">Maximum length is 11</div>
+        </div>
 
-            <!-- Edit this messages if you want -->
-            <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
-              <div class="form-error" ng-message="required">Este campo es obligatorio</div>  
-              <div class="form-error" ng-message="minlength">Este campo debe tener al menos 3 caracteres</div>
-              <div class="form-error" ng-message="maxlength">Este campo debe tener al menos 3 caracteres</div>
-            </div>
-
-
-            <label  class="item item-input" >
-              <div class="input-label" ng-init = "player.position = 'Portero'">
-                Posición
-              </div>
-              <button type="button" class="button button-balanced" ng-click="openPositionModal()">
-                  {{positionSelected}}
-              </button>
-            </label>
-
-            <label  class="item item-input" >
-              <div class="input-label">
-                Dorsal
-              </div>
-              <button type="button" class="button button-balanced" ng-click="openDorsalModal()">
-                  {{dorsalSelected}}
-              </button>
-            </label>
-
-            <!-- <label class="item-input">
-                  <span class="input-label">Fecha de nacimiento</span>
-                  <input type="date" name="fecha" ng-model="player.fecha">
-            </label>  -->
-            <label  class="item" >
-              <div class="input-label">
-                  Fecha de nacimiento
-              </div>
-              <ionic-datepicker input-obj="datepickerObjectModal">
-                <button type="button" class="button button-block button-balanced">{{dateSelected}}</button>
-              </ionic-datepicker>
-            </label>
-
-            <label  class="item" >
-              <div class="input-label">
-                  Foto
-              </div>
-
-             
-                <button type="button" class="button button-block button-balanced" ng-click="takePicture()">Hacer foto</button>
-
-              
-            </label>
-
-            <label  class="item" >
-
-                <button type="button" class="button button-block button-dark" ng-click="getPicture()">Galería</button>
-              
-              <img ng-hide = "photoUrl == 'vacio'" ng-src="{{photoUrl}}" width="100px" height="100px"></img>
-
-
-            </label>
-
-
-            <div class="input-label">
-                Estado
-            </div>
-            <label class="item item-radio" ng-init ="player = {condition: 'Disponible'}">
-                <ion-radio name="group1" ng-model="player.condition" value="Disponible">
-                   Disponible
-                </ion-radio>
-            <label class="item item-radio">
-                <ion-radio name="group1" ng-model="player.condition" value="Lesionado">
-                   Lesionado
-                </ion-radio>
-            </label>
-            
-            </label>
-
-            
-
+        <label class="item item-input">
+          <div class="input-label" ng-init="player.position = 'Portero'">
+            Position
           </div>
+          <button type="button" class="button button-balanced" ng-click="openPositionModal()">
+            {{positionSelected}}
+          </button>
+        </label>
 
-
-          <div class="padding-top">
-            <input type="submit" class="button button-block button-balanced" ng-disabled="addPlayer.$invalid" value="Añadir">
-            <p class="text-center padding-top">
-                <a href="#/tabs/players" class="button button-clear button-positive">Volver</a>
-            </p>
+        <label class="item item-input">
+          <div class="input-label">
+            Number
           </div>
+          <button type="button" class="button button-balanced" ng-click="openDorsalModal()">
+            {{dorsalSelected}}
+          </button>
+        </label>
 
-        </form>
+        <label class="item">
+          <div class="input-label">
+            Date of birth
+          </div>
+          <ionic-datepicker input-obj="datepickerObjectModal">
+            <button type="button" class="button button-block button-balanced">{{dateSelected}}</button>
+          </ionic-datepicker>
+        </label>
 
-        <script id="positionModal.html" type="text/ng-template">
-          <ion-modal-view>
+        <label class="item">
+          <div class="input-label">
+            Photo
+          </div>
+          <button type="button" class="button button-block button-balanced" ng-click="takePicture()">Take picture</button>
+        </label>
 
-              <ion-header-bar>
-                <h1 class="title">Posición</h1>
-              </ion-header-bar>
-            <ion-content>
-                <ion-list>
-                <ion-item ng-repeat="p in positions" ng-click="assignPosition(p)">
-                  {{p}}
-                </ion-item>
-                </ion-list>
-              </ion-content>
-          </ion-modal-view>
-        </script>
+        <label class="item">
+          <button type="button" class="button button-block button-dark" ng-click="getPicture()">Gallery</button>
+          <img ng-hide="photoUrl == 'vacio'" ng-src="{{photoUrl}}" width="100px" height="100px"></img>
+        </label>
 
-        <script id="dorsalModal.html" type="text/ng-template">
-          <ion-modal-view>
+        <div class="input-label">
+          Condition
+        </div>
+        <label class="item item-radio" ng-init="player = {condition: 'Disponible'}">
+          <ion-radio name="group1" ng-model="player.condition" value="Disponible">
+            Available
+          </ion-radio>
+          <label class="item item-radio">
+            <ion-radio name="group1" ng-model="player.condition" value="Lesionado">
+              Injured
+            </ion-radio>
+          </label>
+        </label>
 
-              <ion-header-bar>
-                <h1 class="title">Dorsal</h1>
-              </ion-header-bar>
-            <ion-content>
-                <ion-list>
-                <ion-item ng-repeat="d in dorsals" ng-click="assignDorsal(d)">
-                  {{d}}
-                </ion-item>
-                </ion-list>
-              </ion-content>
-          </ion-modal-view>
-        </script>
+      </div>
 
+      <div class="padding-top">
+        <input type="submit" class="button button-block button-balanced" ng-disabled="addPlayer.$invalid" value="Add">
+        <p class="text-center padding-top">
+          <a href="#/tabs/players" class="button button-clear button-positive">Back</a>
+        </p>
+      </div>
+
+    </form>
+
+    <script id="positionModal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar>
+          <h1 class="title">Position</h1>
+        </ion-header-bar>
+        <ion-content>
+          <ion-list>
+            <ion-item ng-repeat="p in positions" ng-click="assignPosition(p)">
+              {{p}}
+            </ion-item>
+          </ion-list>
         </ion-content>
+      </ion-modal-view>
+    </script>
+
+    <script id="dorsalModal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar>
+          <h1 class="title">Number</h1>
+        </ion-header-bar>
+        <ion-content>
+          <ion-list>
+            <ion-item ng-repeat="d in dorsals" ng-click="assignDorsal(d)">
+              {{d}}
+            </ion-item>
+          </ion-list>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+  </ion-content>
 </ion-view>
