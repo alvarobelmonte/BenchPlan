@@ -1,166 +1,152 @@
 <ion-view view-title="Añadir Evento" hide-back-button="true">
-        <ion-content class="padding-top">
-          <h1>Añadir evento</h1>
-          
-          <div class="list">
-            <label  class="item item-input" style="background-color: #444444;">
-              <div class="input-label" style="color: white;">
-                <b>Tipo</b>
-              </div>
-            </label>
-            <label class="item item-radio" ng-init ="">
-                <ion-radio name="group1" ng-model="event.type" value="Partido">
-                   Partido
-                </ion-radio>
-            </label>
+  <ion-content class="padding-top">
+    <h1>Añadir evento</h1>
+
+    <div class="list">
+      <label class="item item-input item-divider--dark" >
+        <div class="input-label" style="color: white;">
+          <b>Tipo</b>
+        </div>
+      </label>
+      <label class="item item-radio" ng-init="">
+        <ion-radio name="group1" ng-model="event.type" value="Partido">
+          Partido
+        </ion-radio>
+      </label>
+      <label class="item item-radio">
+        <ion-radio name="group1" ng-model="event.type" value="Entrenamiento">
+          Entrenamiento
+        </ion-radio>
+      </label>
+
+
+      <!-- PARTIDO -->
+      <form novalidate name="addEventMatch" ng-submit="addEventMatch.$valid && addE(event)" ng-show="event.type == 'Partido'">
+        <div class=" list partido">
+          <label>
+            <h1>Partido</h1>
+          </label>
+
+          <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEventMatch.txtName.$invalid && addEventMatch.$submitted }">
+            <span class="input-label">Nombre</span>
+            <input name="txtName" type="text" ng-model="event.name" placeholder="Nombre" ng-minlength="5" ng-maxlength="50" required>
+          </label>
+
+
+          <!-- Edit this messages if you want -->
+          <div class="form-errors" ng-messages="addEventMatch.txtName.$error" ng-if="addEventMatch.$submitted">
+            <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+            <div class="form-error" ng-message="minlength">Este campo debe tener al menos 3 caracteres</div>
+            <div class="form-error" ng-message="maxlength">Este campo debe tener al menos 3 caracteres</div>
+          </div>
+
+          <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEventMatch.txtRival.$invalid && addEventMatch.$submitted }">
+            <span class="input-label">Rival</span>
+            <input name="txtRival" type="text" ng-model="event.rival" placeholder="Rival" ng-minlength="5" ng-maxlength="20" required>
+          </label>
+
+
+
+
+          <label class="item">
+            <div class="input-label">
+              Día
+            </div>
+            <ionic-datepicker input-obj="datepickerObjectModal">
+              <button type="button" class="button button-block button-positive">{{dateSelected}}</button>
+            </ionic-datepicker>
+          </label>
+
+          <label class="item-input">
+            <span class="input-label">Hora Inicio</span>
+            <button type="button" class="button button-positive" ng-click="openTimePicker(true)">
+              {{startHour}}
+            </button>
+          </label>
+
+          <div class="input-label">
+            Lugar
+          </div>
+          <label class="item item-radio" ng-init="event = {place: 'En casa'}">
+            <input type="radio" name="group1" ng-model="event.place" value="En casa">
+            <div class="item-content">
+              En casa
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
             <label class="item item-radio">
-                <ion-radio name="group1" ng-model="event.type" value="Entrenamiento">
-                Entrenamiento
-                </ion-radio>
+              <input type="radio" name="group1" ng-model="event.place" value="Fuera">
+              <div class="item-content">
+                Fuera
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
             </label>
-            
+
+        </div>
+
+        <div class="padding-top">
+          <input type="submit" class="button button-block button-positive" ng-disabled="addEventMatch.$invalid" value="Añadir Partido">
+          <p class="text-center padding-top">
+            <a href="#/tabs/calendar" class="button button-clear button-positive">Volver</a>
+        </div>
+      </form>
+
+      <!-- ENTRENAMIENTO -->
+      <form novalidate name="addEvent" ng-submit="addEvent.$valid && addE(event)" ng-show="event.type == 'Entrenamiento'">
+        <div class="list entrenamiento">
+          <label>
+            <h1>Entrenamiento</h1>
+          </label>
+
+          <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEvent.txtName.$invalid && addEvent.$submitted }">
+            <span class="input-label">Nombre</span>
+            <input name="txtName" type="text" ng-model="event.name" placeholder="Nombre" ng-minlength="5" ng-maxlength="30" required>
+          </label>
 
 
-          <!-- PARTIDO -->
-          <form novalidate name="addEventMatch" ng-submit="addEventMatch.$valid && addE(event)" ng-show="event.type == 'Partido'">
-            <div class=" list partido" >
-                <label>
-                  <h1>Partido</h1>
-                </label>
+          <!-- Edit this messages if you want -->
+          <div class="form-errors" ng-messages="addEvent.txtName.$error" ng-if="addEvent.$submitted">
+            <div class="form-error" ng-message="required">Este campo es obligatorio</div>
+            <div class="form-error" ng-message="minlength">Este campo debe tener al menos 3 caracteres</div>
+            <div class="form-error" ng-message="maxlength">Este campo debe tener al menos 3 caracteres</div>
+          </div>
 
-              <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEventMatch.txtName.$invalid && addEventMatch.$submitted }">
-                <span class="input-label">Nombre</span>
-                <input name="txtName" type="text" ng-model="event.name" placeholder="Nombre"
-                ng-minlength="5"
-                ng-maxlength="50"
-                required>
-              </label>
+          <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEvent.txtPlaceTraining.$invalid && addEvent.$submitted }">
+            <span class="input-label">Lugar</span>
+            <input name="txtPlaceTraining" type="text" ng-model="event.placeTraining" placeholder="Lugar" ng-minlength="5" ng-maxlength="20"
+              required>
+          </label>
 
-
-              <!-- Edit this messages if you want -->
-              <div class="form-errors" ng-messages="addEventMatch.txtName.$error" ng-if="addEventMatch.$submitted">
-              <div class="form-error" ng-message="required">Este campo es obligatorio</div>    
-              <div class="form-error" ng-message="minlength">Este campo debe tener al menos 3 caracteres</div>
-              <div class="form-error" ng-message="maxlength">Este campo debe tener al menos 3 caracteres</div>
-              </div>
-
-                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEventMatch.txtRival.$invalid && addEventMatch.$submitted }">
-                  <span class="input-label">Rival</span>
-                  <input name="txtRival" type="text" ng-model="event.rival" placeholder="Rival"
-                  ng-minlength="5"
-                  ng-maxlength="20"
-                  required>
-                </label>
-
-
-
-
-                <label  class="item" >
-                  <div class="input-label">
-                      Día
-                  </div>
-                  <ionic-datepicker input-obj="datepickerObjectModal">
-                    <button type="button" class="button button-block button-balanced">{{dateSelected}}</button>
-                  </ionic-datepicker>
-                </label>
-
-                <label class="item-input">
-                      <span class="input-label">Hora Inicio</span>
-                      <button type="button" class="button button-balanced" ng-click="openTimePicker(true)">
-                      {{startHour}}
-                      </button>
-                </label>
-
-                <div class="input-label">
-                Lugar
-                </div>
-                <label class="item item-radio" ng-init ="event = {place: 'En casa'}">
-                    <input type="radio" name="group1" ng-model="event.place" value="En casa">
-                    <div class="item-content">
-                       En casa
-                    </div>
-                    <i class="radio-icon ion-checkmark"></i>
-                <label class="item item-radio">
-                    <input type="radio" name="group1" ng-model="event.place" value="Fuera">
-                    <div class="item-content">
-                       Fuera
-                    </div>
-                    <i class="radio-icon ion-checkmark"></i>
-                </label>
-
-                </div>
-
-            <div class="padding-top">
-              <input type="submit" class="button button-block button-balanced" ng-disabled="addEventMatch.$invalid" value="Añadir Partido">
-              <p class="text-center padding-top">
-                  <a href="#/tabs/calendar" class="button button-clear button-positive">Volver</a>
+          <label class="item">
+            <div class="input-label">
+              Día
             </div>
-        </form>
-
-          <!-- ENTRENAMIENTO -->
-          <form novalidate name="addEvent" ng-submit="addEvent.$valid && addE(event)" ng-show="event.type == 'Entrenamiento'">
-            <div class="list entrenamiento" >
-                <label>
-                  <h1>Entrenamiento</h1>
-                </label>
-
-              <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEvent.txtName.$invalid && addEvent.$submitted }">
-                <span class="input-label">Nombre</span>
-                <input name="txtName" type="text" ng-model="event.name" placeholder="Nombre"
-                ng-minlength="5"
-                ng-maxlength="30"
-                required>
-              </label>
+            <ionic-datepicker input-obj="datepickerObjectModal">
+              <button type="button" class="button button-block button-positive">{{dateSelected}}</button>
+            </ionic-datepicker>
+          </label>
 
 
-              <!-- Edit this messages if you want -->
-              <div class="form-errors" ng-messages="addEvent.txtName.$error" ng-if="addEvent.$submitted">
-              <div class="form-error" ng-message="required">Este campo es obligatorio</div>    
-              <div class="form-error" ng-message="minlength">Este campo debe tener al menos 3 caracteres</div>
-              <div class="form-error" ng-message="maxlength">Este campo debe tener al menos 3 caracteres</div>
-              </div>
+          <label class="item-input">
+            <span class="input-label">Hora Inicio</span>
+            <button type="button" class="button button-positive" ng-click="openTimePicker(true)">
+              {{startHour}}
+            </button>
+          </label>
 
-                <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addEvent.txtPlaceTraining.$invalid && addEvent.$submitted }">
-                  <span class="input-label">Lugar</span>
-                  <input name="txtPlaceTraining" type="text" ng-model="event.placeTraining" placeholder="Lugar"
-                  ng-minlength="5"
-                  ng-maxlength="20"
-                  required>
-                </label>
-                
-                <label  class="item" >
-                  <div class="input-label">
-                      Día
-                  </div>
-                  <ionic-datepicker input-obj="datepickerObjectModal">
-                    <button type="button" class="button button-block button-balanced">{{dateSelected}}</button>
-                  </ionic-datepicker>
-                </label>
+          <label class="item-input">
+            <span class="input-label">Hora Fin</span>
+            <button type="button" class="button button-positive" ng-click="openTimePicker(false)">
+              {{endHour}}
+            </button>
+          </label>
+
+          <div class="padding-top">
+            <input type="submit" class="button button-block button-dark" ng-disabled="addEvent.$invalid" value="Añadir Entrenamiento">
+            <p class="text-center padding-top">
+              <a href="#/tabs/calendar" class="button button-clear button-positive">Volver</a>
+          </div>
+      </form>
 
 
-                <label class="item-input">
-                      <span class="input-label">Hora Inicio</span>
-                      <button type="button" class="button button-balanced" ng-click="openTimePicker(true)">
-                      {{startHour}}
-                      </button>
-                </label>
-
-                <label class="item-input">
-                      <span class="input-label">Hora Fin</span>
-                      <button type="button" class="button button-balanced" ng-click="openTimePicker(false)">
-                      {{endHour}}
-                      </button>
-                </label>
-            
-            <div class="padding-top">
-              <input type="submit" class="button button-block button-balanced" ng-disabled="addEvent.$invalid" value="Añadir Entrenamiento">
-              <p class="text-center padding-top">
-                  <a href="#/tabs/calendar" class="button button-clear button-positive">Volver</a>
-            </div>
-        </form>
-
-
-
-
-        </ion-content>
+  </ion-content>
 </ion-view>

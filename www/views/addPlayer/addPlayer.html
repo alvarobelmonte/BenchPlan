@@ -19,7 +19,7 @@
           <div class="input-label" ng-init="player.position = 'Portero'">
             Position
           </div>
-          <button type="button" class="button button-balanced" ng-click="openPositionModal()">
+          <button type="button" class="button button-positive" ng-click="openPositionModal()">
             {{positionSelected}}
           </button>
         </label>
@@ -28,7 +28,7 @@
           <div class="input-label">
             Number
           </div>
-          <button type="button" class="button button-balanced" ng-click="openDorsalModal()">
+          <button type="button" class="button button-positive" ng-click="openDorsalModal()">
             {{dorsalSelected}}
           </button>
         </label>
@@ -38,7 +38,7 @@
             Date of birth
           </div>
           <ionic-datepicker input-obj="datepickerObjectModal">
-            <button type="button" class="button button-block button-balanced">{{dateSelected}}</button>
+            <button type="button" class="button button-block button-positive">{{dateSelected}}</button>
           </ionic-datepicker>
         </label>
 
@@ -46,11 +46,11 @@
           <div class="input-label">
             Photo
           </div>
-          <button type="button" class="button button-block button-balanced" ng-click="takePicture()">Take picture</button>
+          <button type="button" class="button button-block button-positive" ng-click="takePicture()">Take picture</button>
         </label>
 
         <label class="item">
-          <button type="button" class="button button-block button-dark" ng-click="getPicture()">Gallery</button>
+          <button type="button" class="button button-block button-energized" ng-click="getPicture()">Gallery</button>
           <img ng-hide="photoUrl == 'vacio'" ng-src="{{photoUrl}}" width="100px" height="100px"></img>
         </label>
 
@@ -71,7 +71,7 @@
       </div>
 
       <div class="padding-top">
-        <input type="submit" class="button button-block button-balanced" ng-disabled="addPlayer.$invalid" value="Add">
+        <input type="submit" class="button button-block button-dark" ng-disabled="addPlayer.$invalid" value="Add">
         <p class="text-center padding-top">
           <a href="#/tabs/players" class="button button-clear button-positive">Back</a>
         </p>
