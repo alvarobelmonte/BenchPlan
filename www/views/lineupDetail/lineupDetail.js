@@ -18,6 +18,7 @@ angular
     FURL,
     Utils
   ) {
+    
     var ref = new Firebase(FURL);
     $scope.itemList = [];
     $scope.lineupID = $state.params.aId;
@@ -333,47 +334,6 @@ angular
 
     $scope.getLineup();
 
-    $ionicModal
-      .fromTemplateUrl("lineupModal.html", {
-        scope: $scope,
-        animation: "slide-in-up"
-      })
-      .then(function(modal) {
-        $scope.modal1 = modal;
-      });
-
-    $ionicModal
-      .fromTemplateUrl("lineupModal2.html", {
-        scope: $scope,
-        animation: "slide-in-up"
-      })
-      .then(function(modal) {
-        $scope.modal2 = modal;
-      });
-
-    $scope.openModal = function(jugador, num) {
-      $scope.num = num;
-      $scope.jugador = jugador;
-      console.log("open modal " + $scope.num);
-      $scope.modal1.show();
-    };
-
-    $scope.openModalFormacion = function() {
-      $scope.modal2.show();
-    };
-
-    $scope.closeModal = function() {
-      $scope.modal1.hide();
-    };
-
-    $scope.closeModal2 = function() {
-      $scope.modal2.hide();
-    };
-
-    $scope.$on("$destroy", function() {
-      $scope.modal.remove();
-    });
-
     $scope.assignPlayer = function(player) {
       $scope.playerID = player.$id;
       $scope.alineados.push(player.$id);
@@ -381,7 +341,7 @@ angular
       players[$scope.num - 1] = player.$id;
       console.log(players);
       $scope.updateDivPlayer();
-      $scope.closeModal();
+      $scope.closeChoosePlayerModal();
     };
 
     $scope.updateDivPlayer = function() {
@@ -399,13 +359,6 @@ angular
         // Get the model
         var model2 = $parse($scope.fotoJugador);
         model2.assign($scope, APIfactory.getPlayerPhoto($scope.playerID));
-
-        // Apply it to the scope
-        //$scope.$apply();
-
-        console.log($scope.numJugador);
-        console.log($scope.fotoJugador);
-        //$scope.player+$scope.numJugador = APIfactory.getNombreJugador($scope.playerID);
       } else {
         var model = $parse($scope.numJugador);
 
@@ -423,7 +376,7 @@ angular
     $scope.setFormation = function(f) {
       $scope.formacion = f;
       $scope.update(f);
-      $scope.closeModal2();
+      $scope.closeChooseLineupModal();
     };
 
     $scope.saveLineup = function() {
@@ -459,4 +412,47 @@ angular
       else vacio = false;
       return vacio;
     };
+
+    /****************/
+    /** MODALS **/
+    $ionicModal
+      .fromTemplateUrl("choosePlayerModal.html", {
+        scope: $scope,
+        animation: "slide-in-up"
+      })
+      .then(function(modal) {
+        $scope.modal1 = modal;
+      });
+
+    $ionicModal
+      .fromTemplateUrl("chooseLineupModal.html", {
+        scope: $scope,
+        animation: "slide-in-up"
+      })
+      .then(function(modal) {
+        $scope.modal2 = modal;
+      });
+
+    $scope.openChoosePlayerModal = function(jugador, num) {
+      $scope.num = num;
+      $scope.jugador = jugador;
+      console.log("open modal " + $scope.num);
+      $scope.modal1.show();
+    };
+
+    $scope.openChooseLineupModal = function() {
+      $scope.modal2.show();
+    };
+
+    $scope.closeChoosePlayerModal = function() {
+      $scope.modal1.hide();
+    };
+
+    $scope.closeChooseLineupModal = function() {
+      $scope.modal2.hide();
+    };
+
+    $scope.$on("$destroy", function() {
+      $scope.modal.remove();
+    });
   });
