@@ -19,23 +19,26 @@ $dark:                            #444 !default;
 $balanced:                        #213FAD !default;
 $calm:                            #3750AD !default;*/
 
-$color-primary: #001970;
-$color-secondary: #303f9f;
-$color-tertiary: #666ad1;
+$color-primary: hsl(227, 100%, 22%);
+$color-secondary: hsl(232, 54%, 41%);
+$color-tertiary: hsl(238, 54%, 61%);
 
 $dark: $color-primary;//#0E2431!default;
 $positive: $color-secondary;//#1a2a96 !default;
 $energized: $color-tertiary;
-$balanced: #027037!default;
-$assertive: #cf0a2c !default;
-$calm: #00a650 !default;
-$royal: #e84545 !default;
 
-$grey-light: #636363;
+$balanced: hsl(149, 96%, 22%) !default;
+$assertive: hsl(350, 91%, 43%) !default;
+$calm: hsl(149, 100%, 33%) !default;
+$royal: hsl(0, 78%, 59%) !default;
+
+$grey-light: hsl(0, 0%, 39%);
+$color-white: hsl(0, 0%, 100%);
 
 
 
-$color-goalkeeper: #2b2e4a;
-$color-defense: #e84545;
-$color-midfielder: #903749;
-$color-striker: #53354a;
+$color-goalkeeper: 	hsl(234, 26%, 23%);
+$color-defense: hsl(0, 78%, 59%);
+$color-midfielder: hsl(348, 45%, 39%);
+$color-striker: hsl(318, 22%, 27%)
+;

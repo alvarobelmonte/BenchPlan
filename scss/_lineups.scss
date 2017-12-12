@@ -7,19 +7,19 @@
   background-size: cover;
 }
 
-.lineup-background div div {
-  text-align: center; 
-}
-
 /* LINEUP DETAIL */
 .lineup-detail p {
   line-height: 1%;
 }
 
+.lineup-detail div{
+  text-align: center;
+}
+
 /* Player name box */
 .lineup-detail b {
   background-color: $dark;
-  color: white;
+  color: $color-white;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-radius: 2rem;

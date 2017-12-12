@@ -4,14 +4,14 @@
 
   &--dark {
     background-color: $positive;
-    color: white;
+    color: $color-white;
   }
 }
 
 //Abbreviation of the players position
 .player-box {
   width: 2.5rem;
-  color: white;
+  color: $color-white;
   text-align: center;
 }
 
@@ -37,7 +37,7 @@
   width: 2.5rem;
   height: 2.5rem;
   line-height: 2.5rem;
-  color: white;
+  color: $color-white;
   text-align: center;
   border-radius: 50%;
   background-color: $grey-light;

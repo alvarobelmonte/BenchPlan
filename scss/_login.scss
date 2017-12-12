@@ -22,8 +22,8 @@
 
   input {
     background-color: transparent;
-    color: white;
-    border-bottom: 0.1rem solid white;
+    color: $color-white;
+    border-bottom: 0.1rem solid $color-white;
     &:focus {
         background-color: transparent;
     }
