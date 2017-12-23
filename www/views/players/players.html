@@ -5,7 +5,7 @@
     <div class="bar-dark bar-subheader">
       <div class="button-bar ">
 
-        <button class="button icon-left ion-plus-circled  button-balanced" onclick="window.location.href='#/tabs/players/addPlayer'">
+        <button class="button icon-left ion-plus-circled button-balanced" onclick="window.location.href='#/tabs/players/addPlayer'">
           Add
         </button>
         <button class="button button icon-left ion-close-circled button-assertive" ng-click="data.showDelete = !data.showDelete;">
@@ -19,7 +19,6 @@
       Players
     </div>
 
-
     <ion-list show-delete="data.showDelete">
 
       <div class="item item-divider item-divider--dark">
@@ -27,7 +26,7 @@
       </div>
       <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-        <img style="" src="{{player.photo}}">
+        <img src="{{player.photo}}">
         <h2>
           <b>{{ player.name }}</b>
         </h2>
@@ -46,7 +45,7 @@
       <div class="item item-divider item-divider--dark">Defenders</div>
       <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-        <img style="width:150px; height:150px;" src="{{player.photo}}">
+        <img src="{{player.photo}}">
         <h2>
           <b>{{ player.name }}</b>
         </h2>
@@ -65,7 +64,7 @@
       <div class="item item-divider item-divider--dark">Midfielders</div>
       <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-        <img style="width:150px; height:150px;" src="{{player.photo}}">
+        <img src="{{player.photo}}">
         <h2>
           <b>{{ player.name }}</b>
         </h2>
@@ -84,7 +83,7 @@
       <div class="item item-divider item-divider--dark">Forwards</div>
       <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
-        <img style="width:150px; height:150px;" src="{{player.photo}}">
+        <img src="{{player.photo}}">
         <h2>
           <b>{{ player.name }}</b>
         </h2>

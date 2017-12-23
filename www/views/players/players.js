@@ -1,72 +1,77 @@
-'Use Strict';
-angular.module('App').controller('playersController', function (APIfactory, $scope, $ionicPopup, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, $firebaseArray, Auth, FURL, Utils) {
-  
-  var ref = new Firebase(FURL);
+"Use Strict";
+angular
+  .module("App")
+  .controller("playersController", function(
+    APIfactory,
+    $scope,
+    $ionicPopup,
+    $state,
+    $cordovaOauth,
+    $localStorage,
+    $location,
+    $http,
+    $ionicPopup,
+    $firebaseObject,
+    $firebaseArray,
+    Auth,
+    FURL,
+    Utils
+  ) {
 
-  //Dorsales
-  $scope.dorsals = [];
-  var initDorsals = function() {
-    var i;
-    for (i = 0;i <= 27; i++) {
-      $scope.dorsals.push(i);
-    }
-  }
-  initDorsals();
+    var ref = new Firebase(FURL);
 
-  $scope.nombre = "nombre";
-  $scope.posicion = "posicion";
-  $scope.whichplayer = $state.params.aId;
-  $scope.editing = false;
+    //Player numbers
+    $scope.dorsals = [];
+    var initDorsals = function() {
+      var i;
+      for (i = 0; i <= 27; i++) {
+        $scope.dorsals.push(i);
+      }
+    }();
 
-  $scope.toggleInjured = function(player){
-  	player.star = !player.star;
-    console.log(player.condition);
-    var id = player.$id;
-    if(player.condition == 'Disponible')
-      player.condition = 'Lesionado';
-    else if(player.condition == 'Lesionado')
-      player.condition = 'Disponible';
+    $scope.nombre = "nombre";
+    $scope.posicion = "posicion";
+    $scope.whichplayer = $state.params.aId;
+    $scope.editing = false;
 
-    APIfactory.updateCondicion(player, id);
-  }
+    $scope.toggleInjured = function(player) {
+      player.star = !player.star;
+      var id = player.$id;
+      if (player.condition == "Disponible") player.condition = "Lesionado";
+      else if (player.condition == "Lesionado") player.condition = "Disponible";
 
-  $scope.checkCondition = function(player){
-    if(player.condition == 'Disponible')
-      return false;
-    else if(player.condition == 'Lesionado')
-      return true;
-  }
-
-  $scope.showP = function () {
-	    $scope.players = APIfactory.getPlayers();
-	    console.log($scope.players);
-  }
-
-  $scope.showP();
-
-  $scope.onItemDelete = function (player) {
-     // A confirm dialog
-    $scope.showConfirm = function() {
-     var confirmPopup = $ionicPopup.confirm({
-       title: 'Borrar jugador',
-       template: '¿Estás seguro de que quieres borrar a ' + player.name + '?',
-       cancelText: 'Cancelar',
-       okType: 'button-calm'
-     });
-
-     confirmPopup.then(function(res) {
-       if(res) {
-         APIfactory.deletePlayer(player);
-       } else {
-
-       }
-     });
+      APIfactory.updateCondicion(player, id);
     };
 
-    $scope.showConfirm();
+    $scope.checkCondition = function(player) {
+      if (player.condition == "Disponible") return false;
+      else if (player.condition == "Lesionado") return true;
+    };
 
-  }
+    var showPlayers = function() {
+      $scope.players = APIfactory.getPlayers();
+    }();
 
 
-}
-);
+    $scope.onItemDelete = function(player) {
+      // A confirm dialog
+      $scope.showConfirm = function() {
+        var confirmPopup = $ionicPopup.confirm({
+          title: "Delete player",
+          template:
+            "Are you sure you want to delete " + player.name + "?",
+          cancelText: "Cancel",
+          okType: "button-positive"
+        });
+
+        confirmPopup.then(function(res) {
+          if (res) {
+            APIfactory.deletePlayer(player);
+          } else {
+          }
+        });
+      };
+
+      $scope.showConfirm();
+    };
+  });

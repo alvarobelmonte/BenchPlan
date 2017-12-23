@@ -8,7 +8,7 @@
   }
 }
 
-//Abbreviation of the players position
+//Abbreviation of the players position GK DF MF FW
 .player-box {
   width: 2.5rem;
   color: $color-white;
@@ -21,7 +21,7 @@
 }
 
 .df {
-  background-color: $color-defense;
+  background-color: $color-defender;
 }
 
 .mf {
@@ -29,10 +29,10 @@
 }
 
 .fw {
-  background-color: $color-striker;
+  background-color: $color-forward;
 }
 
-//Circle with the dorsal number
+//Circle with the player number
 .number-box {
   width: 2.5rem;
   height: 2.5rem;
@@ -43,11 +43,13 @@
   background-color: $grey-light;
 }
 
-/* PLAYER DETAIL */
+/** PLAYER DETAIL **/
 .profile {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .player-description {

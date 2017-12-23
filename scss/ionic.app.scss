@@ -7,9 +7,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 @import "base";
-@import "forms";
 
-@import "players";
-@import "lineups";
-@import "calendar";
-@import "login";
+@import "layout/forms";
+
+@import "pages/players";
+@import "pages/lineups";
+@import "pages/calendar";
+@import "pages/login";
