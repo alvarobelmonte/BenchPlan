@@ -17,7 +17,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
 
     var fecha = new Date("08-14-1993");
     $scope.dateSelected = $filter('date')(fecha, "dd-MM-yyyy");
-    $scope.positionSelected = 'Portero';
+    $scope.positionSelected = 'Goalkeeper';
     $scope.dorsalSelected = '1';
     $scope.photoUrl = 'vacio';
     var url = 'http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png';
