@@ -20,3 +20,6 @@ Make sure the Ionic utility is installed
 Go to the project folder and write the following command in Git Bash:
 
 `ionic serve`
+
+
+![Screenshot](players.jpg)
