@@ -23,10 +23,10 @@ Go to the project folder and write the following command in Git Bash:
 
 ## Sections
 ### Players
-<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/players.jpg"/>
+<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/players.jpg"/><br>
 ### Lineups
-<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/lineups.jpg"/>
+<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/lineups.jpg"/><br>
 ### Strategies
-<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/strategies.jpg"/>
+<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/strategies.jpg"/><br>
 ### Calendar
-<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/calendar.jpg"/>
+<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/calendar.jpg"/><br>
