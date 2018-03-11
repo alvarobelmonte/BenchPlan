@@ -5,14 +5,14 @@ My Final Degree Project consisting of an hybrid mobile app for football managers
 * Strategies
 * Calendar
 
-##Technologies used in this project:
+## Technologies used in this project:
 * [Ionic Framework](http://ionicframework.com/)
 * [Sass](http://sass-lang.com/)
 * [AngularJS](https://angularjs.org/)
 * [Firebase](https://www.firebase.com/)
 
 
-##How to use it
+## How to use it
 Make sure the Ionic utility is installed
 
 `$ npm install -g ionic`
@@ -20,3 +20,13 @@ Make sure the Ionic utility is installed
 Go to the project folder and write the following command in Git Bash:
 
 `ionic serve`
+
+## Sections
+### Players
+<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/players.jpg"/><br>
+### Lineups
+<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/lineups.jpg"/><br>
+### Strategies
+<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/strategies.jpg"/><br>
+### Calendar
+<img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/calendar.jpg"/><br>
