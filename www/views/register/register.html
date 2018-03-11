@@ -1,7 +1,7 @@
-<ion-view view-title="Registro">
+<ion-view view-title="Register">
   <ion-content class="padding-top">
     <div class="text-center padding-top">
-      <i class="icon ion-android-person-add larger calm"></i>
+      <i class="icon ion-android-person-add larger energized"></i>
     </div>
     <form name="registerForm" novalidate ng-submit="registerForm.$valid && register(user)"
     ng-class="{ 'has-error' : registerForm.txtemail.$invalid && registerForm.$submitted }">
@@ -19,7 +19,7 @@
         <div class="form-error" ng-message="maxlength">El email es demasiado largo.</div>
       </div>
         <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : registerForm.txtpassword.$invalid  && registerForm.$submitted}">
-        <span class="input-label">Contraseña</span>
+        <span class="input-label">Pass</span>
         <input name="txtpassword" type="password" ng-model="user.password" placeholder="Contraseña"
         ng-minlength="5"
         ng-maxlength="25"
@@ -28,12 +28,12 @@
       <div class="form-errors" ng-messages="registerForm.txtpassword.$error" ng-if="registerForm.$submitted">
         <div class="form-error" ng-message="required">Debes ingresar una Contraseña.</div>
         <div class="form-error" ng-message="minlength">La contraseña es demasiado corta</div>
-        <div class="form-error" ng-message="maxlength">La contraseña es demasiado larga</div>
+        <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
         <div class="form-error" ng-message="pattern">Debe ingresar solo caracteres letras y numeros.</div>
       </div>
     </div>
     <div class="padding-top">
-      <input type="submit" value="Aceptar" class="button button-block button-balanced"/>
+      <input type="submit" value="Accept" class="button button-block button-dark"/>
     </div>
   </form>
   </ion-content>

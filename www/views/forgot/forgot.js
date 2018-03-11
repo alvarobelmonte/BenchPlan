@@ -1,16 +1,16 @@
 'Use Strict';
-angular.module('App').controller('forgotController', function ($scope, $state,$cordovaOauth, $localStorage, $location,$http,$ionicPopup, $firebaseObject, Auth, FURL, Utils) {
+angular.module('App').controller('forgotController', function ($scope, $state, $ionicSideMenuDelegate, $cordovaOauth, $localStorage, $location, $http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
   var ref = new Firebase(FURL);
-  $scope.resetpassword = function(user) {
-      if(angular.isDefined(user)){
+  $scope.resetpassword = function (user) {
+    if (angular.isDefined(user)) {
       Auth.resetpassword(user)
-        .then(function() {
+        .then(function () {
           //console.log("Password reset email sent successfully!");
           $location.path('/login');
-        }, function(err) {
-           //console.error("Error: ", err);
+        }, function (err) {
+          //console.error("Error: ", err);
         });
-      }
-    };
-}
-);
+    }
+  };
+  $ionicSideMenuDelegate.canDragContent(false); //Disables side menu
+});

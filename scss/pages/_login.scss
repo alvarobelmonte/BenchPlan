@@ -4,28 +4,52 @@
 }
 
 .login-content {
-  padding-top: 3rem;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba($color-goalkeeper, 0.8),
-      rgba($color-defense, 0.8)
-    ),
-    url('../img/login2.jpg');
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  padding-top: 1rem;
+  background-image: linear-gradient( to right bottom, rgba($color-goalkeeper, 0.8), teal), url('../img/login2.jpg');
   background-size: cover;
   background-position: top;
   height: 100%;
-
+  & h1{
+    color: $color-white;
+  }
   label {
     border-color: transparent;
   }
-
-
   input {
     background-color: transparent;
     color: $color-white;
     border-bottom: 0.1rem solid $color-white;
     &:focus {
-        background-color: transparent;
+      background-color: transparent;
     }
-}
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $color-white;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $color-white;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $color-white;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: $color-white;
+    }
+  }
+  & .button-dark{
+    background-color: transparent;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 3rem;
+    border-color: $color-white;
+
+    &:active{
+      color: teal;
+      background-color: $color-white;
+    }
+  }
 }

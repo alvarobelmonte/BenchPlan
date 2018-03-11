@@ -24,7 +24,7 @@
       <div class="item item-divider item-divider--dark">
         Goalkeepers
       </div>
-      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'}" href="#/tabs/players/{{player.$id}}"
+      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Goalkeeper'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
         <img src="{{player.photo}}">
         <h2>
@@ -43,7 +43,7 @@
       </ion-item>
 
       <div class="item item-divider item-divider--dark">Defenders</div>
-      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'}" href="#/tabs/players/{{player.$id}}"
+      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defender'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
         <img src="{{player.photo}}">
         <h2>
@@ -62,7 +62,7 @@
       </ion-item>
 
       <div class="item item-divider item-divider--dark">Midfielders</div>
-      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'}" href="#/tabs/players/{{player.$id}}"
+      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Midfielder'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
         <img src="{{player.photo}}">
         <h2>
@@ -81,7 +81,7 @@
       </ion-item>
 
       <div class="item item-divider item-divider--dark">Forwards</div>
-      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'}" href="#/tabs/players/{{player.$id}}"
+      <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Forward'}" href="#/tabs/players/{{player.$id}}"
         class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
         <img src="{{player.photo}}">
         <h2>

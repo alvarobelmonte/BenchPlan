@@ -1,10 +1,8 @@
 'Use Strict';
-angular.module('App').controller('addLineupController', function (APIfactory, $scope, $state,$cordovaOauth, $localStorage, $location,$http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
-  
+angular.module('App').controller('addLineupController', function (APIfactory, $scope, $state, $cordovaOauth, $localStorage, $location, $http, $ionicPopup, $firebaseObject, Auth, FURL, Utils) {
+
   var ref = new Firebase(FURL);
 
-
-  
   $scope.addAl = function (lineup) {
     console.log("Enviada peticion crear alineacion");
 
@@ -14,9 +12,9 @@ angular.module('App').controller('addLineupController', function (APIfactory, $s
 
     //Pop up de confirmación
     var alertPopup = $ionicPopup.alert({
-       title: 'Alineación añadida',
-       /*template: $scope.name*/
-     });
+      title: 'Lineup added',
+      /*template: $scope.name*/
+    });
 
   }
 

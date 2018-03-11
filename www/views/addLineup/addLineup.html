@@ -5,7 +5,7 @@
           <div class="list">
 
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addLineup.txtName.$invalid && addLineup.$submitted }">
-              <span class="input-label">Nombre</span>
+              <span class="input-label">Name</span>
               <input name="txtName" type="text" ng-model="lineup.name" placeholder="Nombre"
               ng-minlength="3"
               ng-maxlength="15"
@@ -13,7 +13,7 @@
             </label>
 
             <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addLineup.txtName.$invalid && addLineup.$submitted }">
-              <span class="input-label">Descripción</span>
+              <span class="input-label">Description</span>
               <input name="txtName" type="text" ng-model="lineup.description" placeholder="Descripción"
               ng-minlength="3"
               ng-maxlength="20"
@@ -35,7 +35,7 @@
           <div class="padding-top">
             <input type="submit" class="button button-block button-dark" ng-disabled="addLineup.$invalid" value="Añadir">
             <p class="text-center padding-top">
-                <a href="#/tabs/lineups" class="button button-clear button-positive">Volver</a>
+                <a href="#/tabs/lineups" class="button button-clear button-positive">Back</a>
           </div>
         </form>
         </ion-content>

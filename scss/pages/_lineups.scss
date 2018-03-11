@@ -1,4 +1,5 @@
 /* LINEUPS */
+
 .lineup-background {
   background: url('../img/alineaciones.png') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -12,11 +13,12 @@
   line-height: 1%;
 }
 
-.lineup-detail div{
+.lineup-detail div {
   text-align: center;
 }
 
 /* Player name box */
+
 .lineup-detail b {
   background-color: $dark;
   color: $color-white;
@@ -35,6 +37,7 @@
 }
 
 /************************/
+
 .l442 {
   width: 100%;
 }
@@ -44,6 +47,7 @@
   height: auto;
   line-height: 90%;
 }
+
 .portero {
   position: absolute;
   top: 1%;
@@ -54,16 +58,21 @@
   position: absolute;
   top: 20%;
 }
+
 /*4-4-2*/
+
 .linea4p1 {
   left: 10%;
 }
+
 .linea4p2 {
   left: 30%;
 }
+
 .linea4p3 {
   left: 55%;
 }
+
 .linea4p4 {
   left: 75%;
 }
@@ -75,17 +84,21 @@
 .linea2p1 {
   left: 30%;
 }
+
 .linea2p2 {
   left: 55%;
 }
 
 /*3-4-3*/
+
 .linea3p1 {
   left: 20%;
 }
+
 .linea3p2 {
   left: 42%;
 }
+
 .linea3p3 {
   left: 65%;
 }
@@ -93,15 +106,19 @@
 .linea5p1 {
   left: 5%;
 }
+
 .linea5p2 {
   left: 23%;
 }
+
 .linea5p3 {
   left: 41%;
 }
+
 .linea5p4 {
   left: 60%;
 }
+
 .linea5p5 {
   left: 78%;
 }

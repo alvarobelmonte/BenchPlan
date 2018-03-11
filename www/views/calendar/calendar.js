@@ -22,9 +22,9 @@ angular.module('App').controller('calendarController', function (APIfactory, $io
 	        // A confirm dialog
     $scope.showConfirm = function() {
       var confirmPopup = $ionicPopup.confirm({
-        title: 'Borrar evento',
-        template: '¿Estás seguro de que quieres borrar el evento "' + event.name + '"?',
-        cancelText: 'Cancelar',
+        title: 'Delete event',
+        template: 'Are you sure you want to delete the event "' + event.name + '"?',
+        cancelText: 'Cancel',
       okType: 'button-calm'
     });
     confirmPopup.then(function(res) {

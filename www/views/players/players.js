@@ -37,15 +37,15 @@ angular
     $scope.toggleInjured = function(player) {
       player.star = !player.star;
       var id = player.$id;
-      if (player.condition == "Disponible") player.condition = "Lesionado";
-      else if (player.condition == "Lesionado") player.condition = "Disponible";
+      if (player.condition === "Available") player.condition = "Injured";
+      else if (player.condition === "Injured") player.condition = "Available";
 
-      APIfactory.updateCondicion(player, id);
+      APIfactory.updateCondition(player, id);
     };
 
     $scope.checkCondition = function(player) {
-      if (player.condition == "Disponible") return false;
-      else if (player.condition == "Lesionado") return true;
+      if (player.condition === "Available") return false;
+      else if (player.condition === "Injured") return true;
     };
 
     var showPlayers = function() {

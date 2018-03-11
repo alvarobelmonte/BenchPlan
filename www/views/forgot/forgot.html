@@ -1,7 +1,7 @@
-<ion-view view-title="Recuperar Contraseña">
+<ion-view view-title="Recover Password">
   <ion-content class="padding-top">
     <div class="text-center padding">
-      <i class="icon ion-ios-infinite larger calm"></i>
+      <i class="icon ion-ios-infinite larger energized"></i>
     </div>
     <form name="forgotForm" novalidate ng-submit="forgotForm.$valid && resetpassword(user)">
    <div class="list">
@@ -13,13 +13,13 @@
         required>
       </label>
       <div class="form-errors" ng-messages="forgotForm.txtemail.$error" ng-if="forgotForm.$submitted">
-        <div class="form-error" ng-message="required">Este campo es requerido</div>
-        <div class="form-error" ng-message="email">Este campo debe ser un email</div>
-        <div class="form-error" ng-message="minlength">Escribe un mínimo de 5 caracteres</div>
-        <div class="form-error" ng-message="maxlength">Ty email no debe pasar los 30 caracteres</div>
+        <div class="form-error" ng-message="required">This field is required.</div>
+        <div class="form-error" ng-message="email">This field must be an email.</div>
+        <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+        <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
       </div>
       <div class="padding-top">
-      <input type="submit" value="Enviar" class="button button-block button-balanced"/>
+      <input type="submit" value="Send" class="button button-block button-dark"/>
   </form>
     </div>
   </ion-content>

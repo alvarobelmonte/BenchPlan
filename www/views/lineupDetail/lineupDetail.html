@@ -162,7 +162,7 @@
                     Remove Player
                   </button>
                 </ion-item>
-                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Portero'} | filter:filtroComprobarAlineado"
+                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Goalkeeper'} | filter:filtroComprobarAlineado"
                   ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
                   <img style="width:150px; height:150px;" src="{{ player.photo }}">
                   <h2>
@@ -189,7 +189,7 @@
                     Remove Player
                   </button>
                 </ion-item>
-                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defensa'} | filter:filtroComprobarAlineado"
+                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Defender'} | filter:filtroComprobarAlineado"
                   ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
                   <img style="width:150px; height:150px;" src="{{ player.photo }}">
                   <h2>
@@ -215,7 +215,7 @@
                     Remove Player
                   </button>
                 </ion-item>
-                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Centrocampista'} | filter:filtroComprobarAlineado"
+                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Midfielder'} | filter:filtroComprobarAlineado"
                   ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
                   <img style="width:150px; height:150px;" src="{{ player.photo }}">
                   <h2>
@@ -241,7 +241,7 @@
                     Remove player
                   </button>
                 </ion-item>
-                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Delantero'} | filter: filtroComprobarAlineado"
+                <ion-item ng-class="{'star': player.star}" ng-repeat="player in players | filter: {position: 'Forward'} | filter: filtroComprobarAlineado"
                   ng-click="assignPlayer(player)" class="item item-avatar item-thumbnail-left item-icon-right item-text-wrap">
                   <img style="width:150px; height:150px;" src="{{ player.photo }}">
                   <h2>
@@ -267,7 +267,7 @@
         </ion-header-bar>
         <ion-content>
           <ion-list>
-            <ion-item ng-repeat="f in formaciones" ng-click="setFormation(f)">
+            <ion-item ng-repeat="f in formations" ng-click="setFormation(f)">
               {{f}}
             </ion-item>
           </ion-list>
@@ -281,10 +281,10 @@
   <ion-footer-bar class="bar-dark">
     <div class="button-bar fixed-outside">
       <button class="button button-royal" ng-click="openChooseLineupModal()">
-        {{formacion}}
+        {{formation}}
       </button>
       <button class="button button-positive icon ion-android-folder-open" ng-click="saveLineup()"> Save</button>
-      <!-- <select ng-model="formacion.valor" ng-change="update(formacion)" ng-options="f for f in formaciones"></select> -->
+      <!-- <select ng-model="formation.valor" ng-change="update(formation)" ng-options="f for f in formations"></select> -->
     </div>
   </ion-footer-bar>
 

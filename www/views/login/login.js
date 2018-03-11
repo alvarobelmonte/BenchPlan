@@ -1,7 +1,7 @@
 "Use Strict";
 angular
   .module("App")
-  .controller("loginController", function(
+  .controller("loginController", function (
     $scope,
     $ionicSideMenuDelegate,
     $state,
@@ -17,26 +17,27 @@ angular
   ) {
     var ref = new Firebase(FURL);
     var userkey = "";
-    $scope.signIn = function(user) {
-      console.log("Enviado");
+    
+    $scope.signIn = function (user) {
+      console.log("sign in");
       if (angular.isDefined(user)) {
         Utils.show();
         Auth.login(user).then(
-          function(authData) {
+          function (authData) {
             //console.log("id del usuario:" + JSON.stringify(authData));
 
             ref
               .child("profile")
               .orderByChild("id")
               .equalTo(authData.uid)
-              .on("child_added", function(snapshot) {
+              .on("child_added", function (snapshot) {
                 console.log(snapshot.key());
                 userkey = snapshot.key();
                 var obj = $firebaseObject(ref.child("profile").child(userkey));
 
                 obj
                   .$loaded()
-                  .then(function(data) {
+                  .then(function (data) {
                     //console.log(data === obj); // true
                     //console.log(obj.email);
                     $localStorage.email = obj.email;
@@ -46,12 +47,12 @@ angular
                     $state.go("tabs.players");
                     console.log("Starter page", "Home");
                   })
-                  .catch(function(error) {
+                  .catch(function (error) {
                     console.error("Error:", error);
                   });
               });
           },
-          function(err) {
+          function (err) {
             Utils.hide();
             Utils.errMessage(err);
           }
@@ -59,16 +60,15 @@ angular
       }
     };
 
-    $scope.checkLocalStorage = function() {
+    (function checkLocalStorage() {
       if (
-        $localStorage.email !== undefined &&
-        $localStorage.userkey !== undefined
+        $localStorage.email !== undefined && $localStorage.email !== 'empty' &&
+        $localStorage.userkey !== undefined && $localStorage.userkey !== 'empty'
       ) {
-        $state.go("tabs.players");
+          console.log('user not empty');
+          $state.go("tabs.players");
       }
-    };
-
-    $scope.checkLocalStorage();
+    })();
 
     $ionicSideMenuDelegate.canDragContent(false); //Disables side menu
   });

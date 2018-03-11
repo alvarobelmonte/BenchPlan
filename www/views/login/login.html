@@ -1,47 +1,49 @@
-<ion-view hide-back-button="true" hide-nav-bar="true">
-        <ion-content class="" scroll="false">
-          <section class="login-content">
-          <div class="list text-center padding">
-            <img class="login-logo" src="img/icon.png">
-          </div>
-          <form novalidate name="loginForm" ng-submit="loginForm.$valid && signIn(user)">
-          <div class="list">
-            <label class="item item-input item-floating-label" ng-class="{ 'has-error' : loginForm.txtemail.$invalid && loginForm.$submitted }">
-              <span class="input-label light">Email</span>
-              <input class="login-input" name="txtemail" type="email" ng-model="user.email" placeholder="Email"
-              ng-minlength="5"
-              ng-maxlength="30"
+<ion-view hide-nav-bar="true">
+  <ion-content scroll="false">
+    <section class="login-content">
+      <div class="list text-center padding">
+        <img class="login-logo" src="img/icon.png">
+        <h1>BenchPlan</h1>
+      </div>
+
+      <form novalidate name="loginForm" ng-submit="loginForm.$valid && signIn(user)">
+        <div class="list">
+          <label class="item item-input item-floating-label" ng-class="{ 'has-error' : loginForm.txtemail.$invalid && loginForm.$submitted }">
+            <span class="input-label light">Email</span>
+            <input class="login-input" name="txtemail" type="email" ng-model="user.email" placeholder="Email" ng-minlength="5" ng-maxlength="30"
               required>
-            </label>
-            <!-- Edit this messages if you want -->
-            <div class="form-errors" ng-messages="loginForm.txtemail.$error" ng-if="loginForm.$submitted">
-              <div class="form-error" ng-message="required">This field is required.</div>
-              <div class="form-error" ng-message="email">This field is must be an email.</div>
-              <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
-              <div class="form-error" ng-message="maxlength">This field is must be less than 30 characters.</div>
-            </div>
-            <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : loginForm.txtPassword.$invalid && loginForm.$submitted }">
-              <span class="input-label light">Password</span>
-              <input name="txtPassword" type="password" ng-model="user.password" placeholder="Password"
-              ng-minlength="5"
-              ng-maxlength="30"
-              required>
-            </label>
-            <!-- Edit this messages if you want -->
-            <div class="form-errors" ng-messages="loginForm.txtPassword.$error" ng-if="loginForm.$submitted">
+          </label>
+          <!-- Edit this messages if you want -->
+          <div class="form-errors" ng-messages="loginForm.txtemail.$error" ng-if="loginForm.$submitted">
             <div class="form-error" ng-message="required">This field is required.</div>
-            <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
-            <div class="form-error" ng-message="maxlength">This field is must be less than 30 characters.</div>
-            </div>
+            <div class="form-error" ng-message="email">This field must be an email.</div>
+            <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+            <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
           </div>
-          <div class="padding-top">
-            <input type="submit" class="button button-block button-dark" value="Login">
-            <p class="text-center padding-top">
-                <a href="#/forgot" class="button button-clear button-light">¿Olvidaste tu contraseña?</a>
-                <a href="#/register" class="button button-clear button-light"><b>Regístrate</b></a>
+          <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : loginForm.txtPassword.$invalid && loginForm.$submitted }">
+            <span class="input-label light">Password</span>
+            <input name="txtPassword" type="password" ng-model="user.password" placeholder="Password" ng-minlength="5" ng-maxlength="30"
+              required>
+          </label>
+          <!-- Edit this messages if you want -->
+          <div class="form-errors" ng-messages="loginForm.txtPassword.$error" ng-if="loginForm.$submitted">
+            <div class="form-error" ng-message="required">This field is required.</div>
+            <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+            <div class="form-error" ng-message="maxlength">This field must be less than 30 characters.</div>
           </div>
-        </form>
-      </section>
-        </ion-content>
-      
+        </div>
+
+        <div class="padding-top">
+          <input type="submit" class="button button-block button-dark" value="Login">
+          <p class="text-center padding-top">
+            <a href="#/forgot" class="button button-clear button-light">Did you forget your password?</a>
+            <a href="#/register" class="button button-clear button-light">
+              <b>Register</b>
+            </a>
+        </div>
+
+      </form>
+    </section>
+  </ion-content>
+
 </ion-view>

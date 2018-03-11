@@ -18,67 +18,23 @@ angular
     FURL,
     Utils
   ) {
-    
     var ref = new Firebase(FURL);
-    $scope.itemList = [];
-    $scope.lineupID = $state.params.aId;
-
     var alineacionRef = ref
       .child("profile")
       .child($localStorage.userkey)
       .child("alineaciones");
-
     var portero = "calm";
     var defensa = "energized";
     var medio = "royal";
     var delantero = "assertive";
-
     var alineado = false;
-
-    //Array que se envía a la BD
-    var players = [];
-
-    $scope.formacion = "4-4-2";
-
-    $scope.p1pos = "portero";
-    $scope.p2pos = "defensa";
-    $scope.p3pos = "defensa";
-    $scope.p4pos = "defensa";
-    $scope.p5pos = "defensa";
-    $scope.p6pos = "medio";
-    $scope.p7pos = "medio";
-    $scope.p8pos = "medio";
-    $scope.p9pos = "medio";
-    $scope.p10pos = "delantero";
-    $scope.p11pos = "delantero";
-
-    //Clases
-    $scope.p2class = "def linea4p1";
-    $scope.p3class = "def linea4p2";
-    $scope.p4class = "def linea4p3";
-    $scope.p5class = "def linea4p4";
-    $scope.p6class = "mc1 linea4p1";
-    $scope.p7class = "mc1 linea4p2";
-    $scope.p8class = "mc1 linea4p3";
-    $scope.p9class = "mc1 linea4p4";
-    $scope.p10class = "del linea2p1";
-    $scope.p11class = "del linea2p2";
+    var players = []; //Array that is sent to the DB
 
     $scope.iframeHeight = window.innerHeight;
-
-    $scope.alineados = [];
-
-    $scope.mformado = medio;
-    $scope.m2formado = medio;
-    $scope.m3formado = medio;
-    $scope.dlformado = delantero;
-
-    $scope.showA = function() {
-      $scope.alineaciones = $firebaseArray(alineacionRef);
-      console.log($scope.alineaciones);
-    };
-
-    $scope.formaciones = [
+    $scope.itemList = [];
+    $scope.lineupID = $state.params.aId;
+    $scope.formation = "4-4-2";
+    $scope.formations = [
       "3-4-3",
       "3-5-2",
       "4-4-2",
@@ -92,14 +48,50 @@ angular
       "5-4-1"
     ];
 
-    $scope.update = function(formacion) {
-      console.log("formacion seleccionada " + formacion);
+    $scope.p1pos = "portero";
+    $scope.p2pos = "defensa";
+    $scope.p3pos = "defensa";
+    $scope.p4pos = "defensa";
+    $scope.p5pos = "defensa";
+    $scope.p6pos = "medio";
+    $scope.p7pos = "medio";
+    $scope.p8pos = "medio";
+    $scope.p9pos = "medio";
+    $scope.p10pos = "delantero";
+    $scope.p11pos = "delantero";
 
-      $scope.formacion = formacion;
-      $scope.defensas = $scope.formacion.charAt(0);
-      $scope.medios1 = $scope.formacion.charAt(2);
-      $scope.medios2 = $scope.formacion.charAt(4);
-      $scope.delanteros = $scope.formacion.charAt(6);
+    //Classes
+    $scope.p2class = "def linea4p1";
+    $scope.p3class = "def linea4p2";
+    $scope.p4class = "def linea4p3";
+    $scope.p5class = "def linea4p4";
+    $scope.p6class = "mc1 linea4p1";
+    $scope.p7class = "mc1 linea4p2";
+    $scope.p8class = "mc1 linea4p3";
+    $scope.p9class = "mc1 linea4p4";
+    $scope.p10class = "del linea2p1";
+    $scope.p11class = "del linea2p2";
+
+    $scope.alineados = [];
+
+    $scope.mformado = medio;
+    $scope.m2formado = medio;
+    $scope.m3formado = medio;
+    $scope.dlformado = delantero;
+
+    var getPlayers = (function() {
+      $scope.players = APIfactory.getPlayers();
+      console.log($scope.players);
+    })();
+
+    var update = function(formation) {
+      console.log("formation seleccionada " + formation);
+
+      $scope.formation = formation;
+      $scope.defensas = $scope.formation.charAt(0);
+      $scope.medios1 = $scope.formation.charAt(2);
+      $scope.medios2 = $scope.formation.charAt(4);
+      $scope.delanteros = $scope.formation.charAt(6);
       console.log("defensa " + $scope.defensas);
       console.log("medios " + $scope.medios1);
       console.log("medios-del " + $scope.medios2);
@@ -297,18 +289,11 @@ angular
       }
     };
 
-    $scope.getPlayers = function() {
-      $scope.players = APIfactory.getPlayers();
-      console.log($scope.players);
-    };
-
-    $scope.getPlayers();
-
-    $scope.getLineup = function() {
+    $scope.getLineup = (function() {
       if ($scope.alineados.length == 0) {
         var lineup = APIfactory.getLineup($scope.lineupID);
         if (lineup.formation != undefined && lineup.players != undefined) {
-          $scope.formacion = lineup.formation;
+          $scope.formation = lineup.formation;
           $scope.alineados = lineup.players.slice();
           players = lineup.players.slice();
 
@@ -327,12 +312,10 @@ angular
             console.log("players " + players);
             console.log("player1 " + $scope.player1);
           }
-          $scope.update($scope.formacion);
+          update($scope.formation);
         } else console.log("players " + players);
       } else console.log("players " + players);
-    };
-
-    $scope.getLineup();
+    })();
 
     $scope.assignPlayer = function(player) {
       $scope.playerID = player.$id;
@@ -374,18 +357,18 @@ angular
     };
 
     $scope.setFormation = function(f) {
-      $scope.formacion = f;
-      $scope.update(f);
+      $scope.formation = f;
+      update(f);
       $scope.closeChooseLineupModal();
     };
 
     $scope.saveLineup = function() {
-      var formacion = $scope.formacion;
+      var formation = $scope.formation;
       for (var i = 0; i <= 10; i++) {
         if (players[i] == undefined) players[i] = "";
       }
 
-      APIfactory.updateLineup($scope.lineupID, formacion, players);
+      APIfactory.updateLineup($scope.lineupID, formation, players);
       var alertPopup = $ionicPopup.alert({
         title: "Alineación guardada"
         /*template: $scope.name*/
@@ -402,7 +385,7 @@ angular
       $scope.numJugador = "player" + $scope.num;
       console.log("numjug " + $scope.numJugador);
       $scope.updateDivPlayer();
-      $scope.closeModal();
+      $scope.closeChoosePlayerModal();
       console.log("player1: " + $scope.player1);
     };
 
