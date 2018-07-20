@@ -9897,11 +9897,14 @@ label.item.valid-lr {
 
 /** Styling for the error text and container **/
 .form-errors {
-  margin: 0.2rem 0; }
+  margin: 0.2rem 0;
+  background-color: white; }
 
 .form-error {
   padding: 0.2rem 0 2px 8px;
-  color: #d10a2b; }
+  color: #d10a2b;
+  background-color: white;
+  text-align: center; }
 
 /* PLAYERS */
 .item-divider {
@@ -10154,6 +10157,3 @@ label.item.valid-lr {
     .login-content .button-dark:active {
       color: teal;
       background-color: white; }
-
-.item-floating-label {
-  padding-top: 1rem !important; }

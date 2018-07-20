@@ -9,6 +9,10 @@
 }
 
 /* LINEUP DETAIL */
+.lineup-detail {
+    width: 80vw;
+}
+
 .lineup-detail p {
   line-height: 1%;
 }
@@ -38,10 +42,6 @@
 
 /************************/
 
-.l442 {
-  width: 100%;
-}
-
 .l442 div {
   width: 100px;
   height: auto;
@@ -56,7 +56,7 @@
 
 .def {
   position: absolute;
-  top: 20%;
+  top: 20vh;
 }
 
 /*4-4-2*/

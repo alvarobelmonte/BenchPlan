@@ -6,17 +6,17 @@
 
         <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addPlayer.txtName.$invalid && addPlayer.$submitted }">
           <span class="input-label">Name</span>
-          <input name="txtName" type="text" ng-model="player.name" placeholder="Name" ng-minlength="3" ng-maxlength="11" required>
+          <input name="txtName" type="text" ng-model="player.name" placeholder="Name" ng-minlength="3" ng-maxlength="15" required>
         </label>
 
         <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
           <div class="form-error" ng-message="required">This field is required</div>
           <div class="form-error" ng-message="minlength">Minimum length required is 3</div>
-          <div class="form-error" ng-message="maxlength">Maximum length is 11</div>
+          <div class="form-error" ng-message="maxlength">Maximum length is 15</div>
         </div>
 
         <label class="item item-input">
-          <div class="input-label" ng-init="player.position = 'Portero'">
+          <div class="input-label">
             Position
           </div>
           <button type="button" class="button button-positive" ng-click="openPositionModal()">
@@ -57,12 +57,12 @@
         <div class="input-label">
           Condition
         </div>
-        <label class="item item-radio" ng-init="player = {condition: 'Disponible'}">
-          <ion-radio name="group1" ng-model="player.condition" value="Disponible">
+        <label class="item item-radio" ng-init="player = {condition: 'Available'}">
+          <ion-radio name="group1" ng-model="player.condition" value="Available">
             Available
           </ion-radio>
           <label class="item item-radio">
-            <ion-radio name="group1" ng-model="player.condition" value="Lesionado">
+            <ion-radio name="group1" ng-model="player.condition" value="Injured">
               Injured
             </ion-radio>
           </label>

@@ -6,6 +6,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
   var fecha = new Date("08-14-1993");
   //var weekDaysList = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
   //var monthList = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
   var disabledDates = [
     new Date(1437719836326),
     new Date(),
@@ -14,6 +15,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     new Date("08-14-2015"), //Short format
     new Date(1439676000000) //UNIX format
   ];
+
   var datePickerCallback = function (val) {
     if (typeof (val) === 'undefined') {
       console.log('No date selected');
@@ -57,8 +59,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
   };
 
   (function () {
-    var i;
-    for (i = 0; i <= 27; i++) {
+    for (var i = 1; i <= 27; i++) {
       $scope.dorsals.push(i);
     }
   })();
@@ -124,11 +125,11 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
 
       //Recogemos datos del formulario
       setTimeout(function () {
-        player.edad = calculateAge(fecha);
+        player.edad = calculateAge($scope.dateSelected);
         player.position = $scope.positionSelected;
         player.dorsal = $scope.dorsalSelected;
         player.photo = url;
-        player.fecha = fecha;
+        player.fecha = $scope.dateSelected;
 
         APIfactory.pushPlayer(player);
 

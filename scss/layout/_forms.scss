@@ -18,8 +18,11 @@ label.item.valid-lr {
 /** Styling for the error text and container **/
 .form-errors {
   margin: 0.2rem 0;
+  background-color: white;
 }
 .form-error {
   padding: 0.2rem 0 2px 8px;
   color: $assertive;
+  background-color: white;
+  text-align: center;
 }

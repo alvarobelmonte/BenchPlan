@@ -1,5 +1,5 @@
 "Use Strict";
-angular
+var app = angular
   .module("App", [
     "ionic",
     "ngStorage",
@@ -10,8 +10,8 @@ angular
     "ionic-datepicker",
     "ionic-timepicker",
     "ngDragDrop"
-  ])
-  .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  ]);
+  app.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.tabs.position("top");
 
     $stateProvider
@@ -145,10 +145,10 @@ angular
       });
 
     $urlRouterProvider.otherwise("/login");
-  })
+  });
   // Changue this for your Firebase App URL.
-  .constant("FURL", "https://torrid-inferno-6199.firebaseio.com/")
-  .run(function($ionicPlatform) {
+  app.constant("FURL", "https://torrid-inferno-6199.firebaseio.com/");
+  app.run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
