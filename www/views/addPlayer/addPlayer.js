@@ -1,31 +1,23 @@
 'Use Strict';
-angular.module('App').controller('addPlayerController', function (APIfactory, $filter, $ionicLoading, $scope, $state, $ionicModal, $cordovaOauth, $localStorage, $location, $http, $ionicPopup, $firebaseObject, $cordovaCamera, $cordovaFileTransfer, Auth, FURL, Utils, Upload, Camara) {
+angular.module('App').controller('addPlayerController', function (APIfactory, $filter, $ionicLoading, $scope, $state, $ionicModal, $ionicPopup, Upload, Camara) {
 
-  var ref = new Firebase(FURL);
-  var url = 'http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png';
+var url = 'http://res.cloudinary.com/dcqushonn/image/upload/v1450025911/perfil_li3dgc.png';
   var fecha = new Date("08-14-1993");
-  //var weekDaysList = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
-  //var monthList = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-
   var disabledDates = [
-    new Date(1437719836326),
-    new Date(),
-    new Date(2015, 7, 10), //months are 0-based, this is August, 10th!
-    new Date('Wednesday, August 12, 2015'), //Works with any valid Date formats like long format
-    new Date("08-14-2015"), //Short format
-    new Date(1439676000000) //UNIX format
+    new Date("08-14-2015")
   ];
 
   var datePickerCallback = function (val) {
     if (typeof (val) === 'undefined') {
-      console.log('No date selected');
     } else {
-      console.log('Selected date is : ', val)
       fecha = val;
       $scope.dateSelected = $filter('date')(fecha, "dd-MM-yyyy");
     }
   };
 
+  $scope.form = {
+    formAddPlayer: {}
+  };
   $scope.dorsals = [];
   $scope.dateSelected = $filter('date')(fecha, "dd-MM-yyyy");
   $scope.positionSelected = 'Goalkeeper';
@@ -64,9 +56,8 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     }
   })();
 
-  function calculateAge(birthday) { // birthday is a date
-    var ageDifMs = Date.now() - birthday.getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+  function calculateAge(dateBirth) {
+    var ageDate = new Date(Date.now() - dateBirth.getTime());
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
@@ -79,7 +70,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
         });
       },
       function (err) {
-        console.log('error uplaoding with defer');
+        console.log('error uploading with defer');
       });
   }
 
@@ -89,7 +80,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
         $scope.photoUrl = res;
       },
       function (err) {
-        console.log('error taking picture');
+        alert('error taking picture' + err);
       });
   };
 
@@ -97,16 +88,15 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     Camara.getPicture().then(
       function (res) {
         $scope.photoUrl = res;
-        //alert('photourl con defer'+ $scope.photoUrl);
       },
       function (err) {
-        console.log('error getting picture');
+        alert('error getting picture');
       });
 
   };
 
-  $scope.addP = function (player) {
-    if ($scope.photoUrl == 'empty') {
+  $scope.addPlayer = function (player) {
+    if ($scope.photoUrl === 'empty') {
       player.edad = calculateAge(fecha);
       player.position = $scope.positionSelected;
       player.dorsal = $scope.dorsalSelected;
@@ -115,15 +105,16 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
 
       APIfactory.pushPlayer(player);
 
-      //Pop up de confirmación
-      var alertPopup = $ionicPopup.alert({
+      $ionicPopup.alert({
         title: 'Added Player',
       });
+      cleanForm(player);
+      $state.go('tabs.players');
+    }
 
-    } else {
+    else {
       uploadPicture();
 
-      //Recogemos datos del formulario
       setTimeout(function () {
         player.edad = calculateAge($scope.dateSelected);
         player.position = $scope.positionSelected;
@@ -133,15 +124,22 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
 
         APIfactory.pushPlayer(player);
 
-        //Pop up de confirmación
-        var alertPopup = $ionicPopup.alert({
+        $ionicPopup.alert({
           title: 'Added Player',
         });
 
+        cleanForm(player);
         $state.go('tabs.players');
       }, 6000);
     }
   };
+
+  function cleanForm(player) {
+    //Delete last object player submitted
+    for (var properties in player) delete player[properties];
+    //Set form to ng-pristine
+    $scope.form.formAddPlayer.$setPristine();
+  }
 
   //Modal Positions
   $ionicModal.fromTemplateUrl('positionModal.html', {
@@ -151,7 +149,7 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
     $scope.modal1 = modal;
   });
 
-  $scope.openPositionModal = function (jugador, num) {
+  $scope.openPositionModal = function () {
     $scope.modal1.show();
   };
 
@@ -168,11 +166,12 @@ angular.module('App').controller('addPlayerController', function (APIfactory, $f
   $ionicModal.fromTemplateUrl('dorsalModal.html', {
     scope: $scope,
     animation: 'slide-in-up'
-  }).then(function (modal) {
+  })
+  .then(function (modal) {
     $scope.modal2 = modal;
   });
 
-  $scope.openDorsalModal = function (jugador, num) {
+  $scope.openDorsalModal = function () {
     $scope.modal2.show();
   };
 

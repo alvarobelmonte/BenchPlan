@@ -1,15 +1,15 @@
 <ion-view view-title="Add Player" hide-back-button="true">
-  <ion-content class="">
+  <ion-content>
     <h1>Add Player</h1>
-    <form novalidate name="addPlayer" ng-submit="addPlayer.$valid && addP(player)">
+    <form novalidate name="form.formAddPlayer" ng-submit="form.formAddPlayer.$valid && addPlayer(player)">
       <div class="list">
 
-        <label class="item item-input item-floating-label" ng-class="{ 'has-error' : addPlayer.txtName.$invalid && addPlayer.$submitted }">
+        <label class="item item-input item-floating-label" ng-class="{ 'has-error' : form.formAddPlayer.txtName.$invalid && form.formAddPlayer.$submitted }">
           <span class="input-label">Name</span>
-          <input name="txtName" type="text" ng-model="player.name" placeholder="Name" ng-minlength="3" ng-maxlength="15" required>
+          <input name="txtName" type="text" ng-model="player.name" placeholder="Name" minlength="3" maxlength="15" required>
         </label>
 
-        <div class="form-errors" ng-messages="addPlayer.txtName.$error" ng-if="addPlayer.$submitted">
+        <div class="form-errors" ng-messages="form.formAddPlayer.txtName.$error" ng-if="form.formAddPlayer.$submitted">
           <div class="form-error" ng-message="required">This field is required</div>
           <div class="form-error" ng-message="minlength">Minimum length required is 3</div>
           <div class="form-error" ng-message="maxlength">Maximum length is 15</div>
@@ -51,7 +51,7 @@
 
         <label class="item">
           <button type="button" class="button button-block button-energized" ng-click="getPicture()">Gallery</button>
-          <img ng-hide="photoUrl == 'vacio'" ng-src="{{photoUrl}}" width="100px" height="100px"></img>
+          <img ng-hide="photoUrl === 'vacio'" ng-src="{{photoUrl}}" width="100px" height="100px"/>
         </label>
 
         <div class="input-label">
@@ -86,8 +86,8 @@
         </ion-header-bar>
         <ion-content>
           <ion-list>
-            <ion-item ng-repeat="p in positions" ng-click="assignPosition(p)">
-              {{p}}
+            <ion-item ng-repeat="position in positions" ng-click="assignPosition(position)">
+              {{position}}
             </ion-item>
           </ion-list>
         </ion-content>
@@ -101,8 +101,8 @@
         </ion-header-bar>
         <ion-content>
           <ion-list>
-            <ion-item ng-repeat="d in dorsals" ng-click="assignDorsal(d)">
-              {{d}}
+            <ion-item ng-repeat="dorsal in dorsals" ng-click="assignDorsal(dorsal)">
+              {{dorsal}}
             </ion-item>
           </ion-list>
         </ion-content>
