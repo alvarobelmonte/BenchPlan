@@ -11,16 +11,6 @@ My Final Degree Project consisting of an hybrid mobile app for football managers
 * [AngularJS](https://angularjs.org/)
 * [Firebase](https://www.firebase.com/)
 
-
-## How to use it
-Make sure the Ionic utility is installed
-
-`$ npm install -g ionic`
-
-Go to the project folder and write the following command in Git Bash:
-
-`ionic serve`
-
 ## Sections
 ### Players
 <img height="350px" src="https://github.com/alvarobelmonte/BenchPlan/blob/master/players.jpg"/><br>
